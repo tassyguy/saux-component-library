@@ -5,24 +5,24 @@ import React from "react";
 // Navigation component imports:
 
 // UI/Interactive component imports:
-import { default as Button } from "./Button";
-import { default as Link } from "./Link";
-import { default as CardList } from "./CardItem";
+import { default as Button } from "./components/Button/Button";
+import { default as Link } from "./components/Link/Link";
+import { default as CardList } from "./components/Card/CardItem";
 
 // Form component imports:
 
 // Data Display component imports:
-import Table from "./Table";
-import OL from "./OL";
-import UL from "./UL";
-import Accordion from "./Accordion";
+import Table from "./components/Table/Table";
+import OL from "./components/List/OL";
+import UL from "./components/List/UL";
+import Accordion from "./components/Accordion/Accordion";
 
 // Typography & Misc component imports:
-import { default as H1 } from "./H1";
-import { default as H2 } from "./H2";
-import { default as H3 } from "./H3";
-import { default as H4 } from "./H4";
-import { default as H5 } from "./H5";
+import { default as H1 } from "./components/Header/H1";
+import { default as H2 } from "./components/Header/H2";
+import { default as H3 } from "./components/Header/H3";
+import { default as H4 } from "./components/Header/H4";
+import { default as H5 } from "./components/Header/H5";
 
 
 const navItems = [
