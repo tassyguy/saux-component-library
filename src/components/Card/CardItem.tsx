@@ -1,6 +1,7 @@
 import React from "react";
+import "./CardItem.css";
 
-interface CardItem {
+export interface CardItem {
   title: string;
   description: string;
   imageUrl?: string;
@@ -15,25 +16,17 @@ const CardList: React.FC<CardListProps> = ({ items }) => {
   if (!items || items.length === 0) return null;
 
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: "16px" }}>
+    <div className="card-list">
       {items.map((item, index) => (
         <div
           key={index}
           onClick={item.onClick}
-          style={{
-            border: "1px solid #ddd",
-            borderRadius: "8px",
-            padding: "16px",
-            width: "300px",
-            boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-            cursor: item.onClick ? "pointer" : "default",
-          }}
+          className={`card-item ${item.onClick ? "clickable" : ""}`}
         >
           {item.imageUrl && (
             <img
               src={item.imageUrl}
               alt={item.title}
-              style={{ width: "100%", borderRadius: "4px", marginBottom: "8px" }}
             />
           )}
           <h3>{item.title}</h3>

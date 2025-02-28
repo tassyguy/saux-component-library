@@ -1,11 +1,12 @@
 import React from "react";
+import "./Table.css";
 
-interface Column {
+export interface Column {
   header: string;
   accessor: string;
 }
 
-interface TableProps {
+export interface TableProps {
   columns: Column[];
   data: any[];
 }
@@ -16,19 +17,11 @@ const Table: React.FC<TableProps> = ({ columns, data }) => {
   }
 
   return (
-    <table style={{ borderCollapse: "collapse", width: "100%" }}>
+    <table className="table">
       <thead>
         <tr>
           {columns.map((col, index) => (
-            <th
-              key={index}
-              style={{
-                border: "1px solid #ddd",
-                padding: "8px",
-                textAlign: "left",
-                backgroundColor: "#f2f2f2"
-              }}
-            >
+            <th key={index}>
               {col.header}
             </th>
           ))}
@@ -38,10 +31,7 @@ const Table: React.FC<TableProps> = ({ columns, data }) => {
         {data.map((row, rowIndex) => (
           <tr key={rowIndex}>
             {columns.map((col, colIndex) => (
-              <td
-                key={colIndex}
-                style={{ border: "1px solid #ddd", padding: "8px" }}
-              >
+              <td key={colIndex}>
                 {row[col.accessor]}
               </td>
             ))}

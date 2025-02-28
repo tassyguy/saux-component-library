@@ -1,6 +1,6 @@
 import React from "react";
 
-interface h1Props {
+export interface h1Props {
   text: string;
 }
 

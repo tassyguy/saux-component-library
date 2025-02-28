@@ -1,10 +1,10 @@
 import React from "react";
 
-interface ListItem {
+export interface ListItem {
   label: string;
 }
 
-interface UnorderedListProps {
+export interface UnorderedListProps {
   items: ListItem[];
 }
 

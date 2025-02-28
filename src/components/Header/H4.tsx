@@ -1,6 +1,6 @@
 import React from "react";
 
-interface h4Props {
+export interface h4Props {
   text: string;
 }
 

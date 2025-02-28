@@ -1,6 +1,6 @@
 import React from "react";
 
-interface h5Props {
+export interface h5Props {
   text: string;
 }
 

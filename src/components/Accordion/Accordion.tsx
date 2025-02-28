@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import "./Accordion.css";
 
-interface AccordionItem {
+export interface AccordionItem {
   title: string;
   content: React.ReactNode;
 }
 
-interface AccordionProps {
+export interface AccordionProps {
   items: AccordionItem[];
 }
 
@@ -21,26 +22,15 @@ const Accordion: React.FC<AccordionProps> = ({ items }) => {
   return (
     <div>
       {items.map((item, index) => (
-        <div key={index} style={{ marginBottom: "8px" }}>
+        <div key={index} className="accordion-item">
           <div
             onClick={() => toggleIndex(index)}
-            style={{
-              cursor: "pointer",
-              background: "#f2f2f2",
-              padding: "10px",
-              border: "1px solid #ddd",
-            }}
+            className="accordion-title"
           >
-            <h3 style={{ margin: 0 }}>{item.title}</h3>
+            <h3>{item.title}</h3>
           </div>
           {activeIndex === index && (
-            <div
-              style={{
-                padding: "10px",
-                border: "1px solid #ddd",
-                borderTop: "none",
-              }}
-            >
+            <div className="accordion-content">
               {item.content}
             </div>
           )}

@@ -1,0 +1,35 @@
+import { Meta, Story } from "@storybook/blocks";
+
+<Meta title="About" />
+
+# About This Component Library
+
+Welcome to the **saux-component-library**! This library provides a collection of reusable React components designed to help you build modern web applications with ease.
+
+## Components
+
+Here are some of the components included in this library:
+
+- **Button**: A customizable button component.
+- **Link**: A link component with optional click handling.
+- **Card**: A card component for displaying content in a card layout.
+- **Accordion**: An accordion component for collapsible content sections.
+- **Table**: A table component for displaying tabular data.
+- **Headers**: Header components (H1 to H5) for different heading levels.
+- **Lists**: Unordered and ordered list components.
+
+## Usage
+
+To use these components in your project, simply import them from the library and include them in your JSX:
+
+```jsx
+import { Button, Link, CardList, Accordion, Table, H1, H2, H3, H4, H5, UnorderedList, OrderedList } from 'saux-component-library';
+
+const App = () => (
+  <div>
+    <H1 text="Welcome to the Component Library" />
+    <Button label="Click Me" onClick={() => alert('Button clicked!')} />
+    <Link label="Go to Google" href="https://www.google.com" />
+    {/* Add more components as needed */}
+  </div>
+);

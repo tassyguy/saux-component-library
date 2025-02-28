@@ -1,6 +1,6 @@
 import React from "react";
 
-interface LinkProps {
+export interface LinkProps {
   label: string;
   href: string;
   onClick?: () => void;
