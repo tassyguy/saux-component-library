@@ -1,0 +1,1 @@
+.card-list{display:flex;flex-wrap:wrap;gap:16px}.card-item{border:1px solid #ddd;border-radius:8px;padding:16px;width:300px;box-shadow:0 2px 4px #0000001a;cursor:default}.card-item.clickable{cursor:pointer}.card-item img{width:100%;border-radius:4px;margin-bottom:8px}

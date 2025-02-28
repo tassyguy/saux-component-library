@@ -12,8 +12,10 @@
     "build": "rollup -c",
     "prepublishOnly": "npm run build",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "deploy-storybook": "storybook build && gh-pages -d storybook-static"
   },
+  "homepage": "https://tassyguy.github.io/saux-component-library",
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -40,6 +42,7 @@
     "@types/react": "^19.0.10",
     "eslint": "^9.21.0",
     "eslint-plugin-storybook": "^0.11.3",
+    "gh-pages": "^5.0.0",
     "prettier": "^3.5.2",
     "rollup": "^4.34.8",
     "rollup-plugin-dts": "^6.1.1",
