@@ -1,0 +1,30 @@
+.alert__close {
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+  }
+  
+  /* Alert type variations */
+  .alert--success {
+    background-color: #28a745;
+  }
+  
+  .alert--error {
+    background-color: #dc3545;
+  }
+  
+  .alert--warning {
+    background-color: #ffc107;
+    color: #333;
+  }
+  
+  .alert--info {
+    background-color: #17a2b8;
+  }
+  
