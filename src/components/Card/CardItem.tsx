@@ -1,4 +1,6 @@
+// filepath: /c:/Users/simonp/Documents/Extra/saux-component-library/src/components/Card/CardItem.tsx
 import React from "react";
+import { useTheme } from "../Theme/ThemeProvider";
 import "./CardItem.css";
 
 export interface CardItem {
@@ -8,11 +10,13 @@ export interface CardItem {
   onClick?: () => void;
 }
 
-interface CardListProps {
+export interface CardListProps {
   items: CardItem[];
 }
 
 const CardList: React.FC<CardListProps> = ({ items }) => {
+  const theme = useTheme(); // Get theme values
+
   if (!items || items.length === 0) return null;
 
   return (

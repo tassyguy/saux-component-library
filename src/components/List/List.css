@@ -1,0 +1,10 @@
+/* filepath: /c:/Users/simonp/Documents/Extra/saux-component-library/src/components/List/List.css */
+.list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.list li {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}

@@ -1,11 +1,13 @@
+// filepath: /c:/Users/simonp/Documents/Extra/saux-component-library/src/components/Header/H3.tsx
 import React from "react";
+import Header from "./Header";
 
-export interface h3Props {
+export interface H3Props {
   text: string;
 }
 
-const h3: React.FC<h3Props> = ({ text }) => {
-  return <h3>{text}</h3>;
+const H3: React.FC<H3Props> = ({ text }) => {
+  return <Header text={text} level={3} />;
 };
 
-export default h3;
+export default H3;

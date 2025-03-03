@@ -1,21 +1,47 @@
+//// filepath: /c:/Users/simonp/Documents/Extra/saux-component-library/src/components/Header/Header.stories.tsx
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
-import H1, { h1Props } from "./H1";
-import H2, { h2Props } from "./H2";
-import H3, { h3Props } from "./H3";
-import H4, { h4Props } from "./H4";
-import H5, { h5Props } from "./H5";
+import H1, { H1Props } from "./H1";
+import H2, { H2Props } from "./H2";
+import H3, { H3Props } from "./H3";
+import H4, { H4Props } from "./H4";
+import H5, { H5Props } from "./H5";
+import { ThemeProvider } from "../Theme/ThemeProvider";
 
 export default {
   title: "Components/Headers",
   component: H1,
 } as Meta;
 
-const TemplateH1: StoryFn<h1Props> = (args) => <H1 {...args} />;
-const TemplateH2: StoryFn<h2Props> = (args) => <H2 {...args} />;
-const TemplateH3: StoryFn<h3Props> = (args) => <H3 {...args} />;
-const TemplateH4: StoryFn<h4Props> = (args) => <H4 {...args} />;
-const TemplateH5: StoryFn<h5Props> = (args) => <H5 {...args} />;
+const TemplateH1: StoryFn<H1Props> = (args) => (
+  <ThemeProvider>
+    <H1 {...args} />
+  </ThemeProvider>
+);
+
+const TemplateH2: StoryFn<H2Props> = (args) => (
+  <ThemeProvider>
+    <H2 {...args} />
+  </ThemeProvider>
+);
+
+const TemplateH3: StoryFn<H3Props> = (args) => (
+  <ThemeProvider>
+    <H3 {...args} />
+  </ThemeProvider>
+);
+
+const TemplateH4: StoryFn<H4Props> = (args) => (
+  <ThemeProvider>
+    <H4 {...args} />
+  </ThemeProvider>
+);
+
+const TemplateH5: StoryFn<H5Props> = (args) => (
+  <ThemeProvider>
+    <H5 {...args} />
+  </ThemeProvider>
+);
 
 export const Header1 = TemplateH1.bind({});
 Header1.args = {

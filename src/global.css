@@ -1,9 +1,11 @@
 :root {
-    --primary-color: #0000000;
+    --primary-color: #007bff;
     --secondary-color: #6c757d;
     --background-color: #f8f9fa;
+    --primary-color-hover: #0056b3;
     --text-color: #212529;
     --font-family: "Arial", sans-serif;
+    --border-color:#212529
   }
   
   body {

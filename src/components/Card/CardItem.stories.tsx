@@ -1,44 +1,24 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
-import CardList, { CardItem } from "./CardItem";
+import CardList, { CardListProps } from "./CardItem";
+import { ThemeProvider } from "../Theme/ThemeProvider";
 
 export default {
   title: "Components/CardList",
   component: CardList,
 } as Meta;
 
-const Template: StoryFn<{ items: CardItem[] }> = (args) => <CardList {...args} />;
+const Template: StoryFn<CardListProps> = (args) => (
+  <ThemeProvider>
+    <CardList {...args} />
+  </ThemeProvider>
+);
 
 export const Default = Template.bind({});
 Default.args = {
   items: [
-    {
-      title: "Card 1",
-      description: "This is the description for card 1.",
-      imageUrl: "https://via.placeholder.com/300",
-    },
-    {
-      title: "Card 2",
-      description: "This is the description for card 2.",
-      imageUrl: "https://via.placeholder.com/300",
-    },
-  ],
-};
-
-export const WithClickHandler = Template.bind({});
-WithClickHandler.args = {
-  items: [
-    {
-      title: "Card 1",
-      description: "This is the description for card 1.",
-      imageUrl: "https://via.placeholder.com/300",
-      onClick: () => alert("Card 1 clicked!"),
-    },
-    {
-      title: "Card 2",
-      description: "This is the description for card 2.",
-      imageUrl: "https://via.placeholder.com/300",
-      onClick: () => alert("Card 2 clicked!"),
-    },
+    { title: "Card 1", description: "Description 1", imageUrl: "https://fastly.picsum.photos/id/19/2500/1667.jpg?hmac=7epGozH4QjToGaBf_xb2HbFTXoV5o8n_cYzB7I4lt6g" },
+    { title: "Card 2", description: "Description 2", imageUrl: "https://fastly.picsum.photos/id/25/5000/3333.jpg?hmac=yCz9LeSs-i72Ru0YvvpsoECnCTxZjzGde805gWrAHkM" },
+    { title: "Card 3", description: "Description 3", imageUrl: "https://fastly.picsum.photos/id/28/4928/3264.jpg?hmac=GnYF-RnBUg44PFfU5pcw_Qs0ReOyStdnZ8MtQWJqTfA" },
   ],
 };

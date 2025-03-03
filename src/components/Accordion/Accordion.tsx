@@ -1,4 +1,6 @@
+// filepath: /c:/Users/simonp/Documents/Extra/saux-component-library/src/components/Accordion/Accordion.tsx
 import React, { useState } from "react";
+import { useTheme } from "../Theme/ThemeProvider";
 import "./Accordion.css";
 
 export interface AccordionItem {
@@ -11,11 +13,10 @@ export interface AccordionProps {
 }
 
 const Accordion: React.FC<AccordionProps> = ({ items }) => {
-  // activeIndex tracks the currently open accordion item (if any)
+  const theme = useTheme(); // Get theme values
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const toggleIndex = (index: number) => {
-    // Toggle the active index (collapse if clicking the active item)
     setActiveIndex(activeIndex === index ? null : index);
   };
 

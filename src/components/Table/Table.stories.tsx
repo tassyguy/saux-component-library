@@ -1,13 +1,18 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import Table, { TableProps } from "./Table";
+import { ThemeProvider } from "../Theme/ThemeProvider";
 
 export default {
   title: "Components/Table",
   component: Table,
 } as Meta;
 
-const Template: StoryFn<TableProps> = (args) => <Table {...args} />;
+const Template: StoryFn<TableProps> = (args) => (
+  <ThemeProvider>
+    <Table {...args} />
+  </ThemeProvider>
+);
 
 export const Default = Template.bind({});
 Default.args = {

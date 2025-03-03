@@ -1,14 +1,15 @@
-/* filepath: /C:/Users/simonp/Documents/Extra/saux-component-library/src/components/Button/Button.css */
-.button {
+.link {
   background-color: var(--primary-color);
+  color: #fff;
   font-family: var(--font-family);
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  color: #fff;
+  text-decoration: none;
+  display: inline-block;
 }
 
-.button:hover {
+.link:hover {
   background-color: var(--primary-color-hover);
 }

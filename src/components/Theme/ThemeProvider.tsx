@@ -8,6 +8,7 @@ interface Theme {
   backgroundColor: string;
   textColor: string;
   fontFamily: string;
+  borderColor: string;
 }
 
 // Default theme values
@@ -17,6 +18,7 @@ const defaultTheme: Theme = {
   backgroundColor: "#f8f9fa",
   textColor: "#212529",
   fontFamily: "Arial, sans-serif",
+  borderColor: "#dee2e6",
 };
 
 // Create a Context for the theme

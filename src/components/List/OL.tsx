@@ -1,23 +1,13 @@
+// filepath: /c:/Users/simonp/Documents/Extra/saux-component-library/src/components/List/OL.tsx
 import React from "react";
-
-export interface ListItem {
-  label: string;
-}
+import List, { ListItem } from "./List";
 
 export interface OrderedListProps {
   items: ListItem[];
 }
 
 const OrderedList: React.FC<OrderedListProps> = ({ items }) => {
-  if (!items || items.length === 0) return null;
-
-  return (
-    <ol>
-      {items.map((item, index) => (
-        <li key={index}>{item.label}</li>
-      ))}
-    </ol>
-  );
+  return <List items={items} ordered={true} />;
 };
 
 export default OrderedList;

@@ -1,23 +1,13 @@
+// filepath: /c:/Users/simonp/Documents/Extra/saux-component-library/src/components/List/UL.tsx
 import React from "react";
-
-export interface ListItem {
-  label: string;
-}
+import List, { ListItem } from "./List";
 
 export interface UnorderedListProps {
   items: ListItem[];
 }
 
 const UnorderedList: React.FC<UnorderedListProps> = ({ items }) => {
-  if (!items || items.length === 0) return null;
-
-  return (
-    <ul>
-      {items.map((item, index) => (
-        <li key={index}>{item.label}</li>
-      ))}
-    </ul>
-  );
+  return <List items={items} ordered={false} />;
 };
 
 export default UnorderedList;

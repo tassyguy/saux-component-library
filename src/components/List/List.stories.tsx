@@ -1,15 +1,26 @@
+// filepath: /c:/Users/simonp/Documents/Extra/saux-component-library/src/components/List/List.stories.tsx
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import UnorderedList, { UnorderedListProps } from "./UL";
 import OrderedList, { OrderedListProps } from "./OL";
+import { ThemeProvider } from "../Theme/ThemeProvider";
 
 export default {
   title: "Components/Lists",
   component: UnorderedList,
 } as Meta;
 
-const UnorderedTemplate: StoryFn<UnorderedListProps> = (args) => <UnorderedList {...args} />;
-const OrderedTemplate: StoryFn<OrderedListProps> = (args) => <OrderedList {...args} />;
+const UnorderedTemplate: StoryFn<UnorderedListProps> = (args) => (
+  <ThemeProvider>
+    <UnorderedList {...args} />
+  </ThemeProvider>
+);
+
+const OrderedTemplate: StoryFn<OrderedListProps> = (args) => (
+  <ThemeProvider>
+    <OrderedList {...args} />
+  </ThemeProvider>
+);
 
 export const UnorderedListStory = UnorderedTemplate.bind({});
 UnorderedListStory.args = {

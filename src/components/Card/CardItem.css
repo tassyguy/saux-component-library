@@ -11,6 +11,9 @@
   width: 300px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   cursor: default;
+  border-color: var(--border-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .card-item.clickable {

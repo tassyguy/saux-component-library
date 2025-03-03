@@ -1,3 +1,4 @@
+// filepath: /C:/Users/simonp/Documents/Extra/saux-component-library/src/components/Button/Button.tsx
 import React from "react";
 import { useTheme } from "../Theme/ThemeProvider";
 import "./Button.css";
@@ -13,15 +14,7 @@ const Button: React.FC<ButtonProps> = ({ label, onClick }) => {
   return (
     <button
       onClick={onClick}
-      style={{
-        backgroundColor: theme.primaryColor,
-        color: "#fff",
-        fontFamily: theme.fontFamily,
-        padding: "10px 20px",
-        border: "none",
-        borderRadius: "5px",
-        cursor: "pointer",
-      }}
+      className="button"
     >
       {label}
     </button>
