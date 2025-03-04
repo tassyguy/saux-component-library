@@ -1,4 +1,3 @@
-// filepath: /c:/Users/simonp/Documents/Extra/saux-component-library/src/components/Theme/ThemeProvider.tsx
 import React, { ReactNode, createContext, useContext, useState, useEffect } from "react";
 import "../../global.css"; // Ensure the global styles are applied
 

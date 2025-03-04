@@ -1,3 +1,4 @@
+// filepath: /c:/Users/simonp/Documents/Extra/saux-component-library/src/components/Table/Table.tsx
 import React from "react";
 import { useTheme } from "../Theme/ThemeProvider";
 import "./Table.css";
@@ -13,20 +14,18 @@ export interface TableProps {
 }
 
 const Table: React.FC<TableProps> = ({ columns, data }) => {
-  const theme = useTheme(); // Get theme values
+  const { theme } = useTheme(); // Get theme values
 
   if (!data || data.length === 0) {
     return <p>No data available.</p>;
   }
 
   return (
-    <table className="table" style={{ backgroundColor: theme.backgroundColor, color: theme.textColor }}>
+    <table className="table">
       <thead>
         <tr>
           {columns.map((col, index) => (
-            <th key={index} style={{ borderColor: theme.borderColor }}>
-              {col.header}
-            </th>
+            <th key={index}>{col.header}</th>
           ))}
         </tr>
       </thead>
@@ -34,9 +33,7 @@ const Table: React.FC<TableProps> = ({ columns, data }) => {
         {data.map((row, rowIndex) => (
           <tr key={rowIndex}>
             {columns.map((col, colIndex) => (
-              <td key={colIndex} style={{ borderColor: theme.borderColor }}>
-                {row[col.accessor]}
-              </td>
+              <td key={colIndex}>{row[col.accessor]}</td>
             ))}
           </tr>
         ))}

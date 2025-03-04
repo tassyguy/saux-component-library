@@ -1,15 +1,19 @@
+/* filepath: /c:/Users/simonp/Documents/Extra/saux-component-library/src/components/Table/Table.css */
 .table {
-  border-collapse: collapse;
   width: 100%;
+  border-collapse: collapse;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .table th,
 .table td {
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
   padding: 8px;
+  text-align: left;
 }
 
 .table th {
-  text-align: left;
-  background-color: #f2f2f2;
+  background-color: var(--primary-color);
+  color: var(--text-color);
 }

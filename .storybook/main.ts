@@ -1,3 +1,4 @@
+// filepath: /c:/Users/simonp/Documents/Extra/saux-component-library/.storybook/main.ts
 import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
@@ -9,7 +10,13 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
     "@storybook/addon-onboarding",
     "@chromatic-com/storybook",
-    "@storybook/addon-interactions"
+    "@storybook/addon-interactions",
+    
+    "@storybook/addon-a11y",
+    '@storybook/addon-docs',
+    '@storybook/addon-storysource',
+    '@storybook/addon-themes',
+    "storybook-dark-mode"
   ],
   "framework": {
     "name": "@storybook/react-vite",
