@@ -5,6 +5,8 @@ import "../../global.css"; // Ensure the global styles are applied
 interface Theme {
   primaryColor: string;
   primaryColorHover: string;
+  secondaryColor: string;
+  secondaryColorHover: string;
   backgroundColor: string;
   textColor: string;
   fontFamily: string;
@@ -27,6 +29,8 @@ interface Theme {
 const lightTheme: Theme = {
   primaryColor: "#007bff",
   primaryColorHover: "#0056b3",
+  secondaryColor: "#ff9800", // Updated to orange
+  secondaryColorHover: "#e68900", // Updated to a darker orange
   backgroundColor: "#f8f9fa",
   textColor: "#212529",
   fontFamily: "Arial, sans-serif",
@@ -49,6 +53,8 @@ const lightTheme: Theme = {
 const darkTheme: Theme = {
   primaryColor: "#1a73e8",
   primaryColorHover: "#185abc",
+  secondaryColor: "#e68900", // Updated to orange
+  secondaryColorHover: "#ff9800", // Updated to a darker orange
   backgroundColor: "#202124",
   textColor: "#e8eaed",
   fontFamily: "Arial, sans-serif",
@@ -91,6 +97,8 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     const root = document.documentElement;
     root.style.setProperty("--primary-color", theme.primaryColor);
     root.style.setProperty("--primary-color-hover", theme.primaryColorHover);
+    root.style.setProperty("--secondary-color", theme.secondaryColor);
+    root.style.setProperty("--secondary-color-hover", theme.secondaryColorHover);
     root.style.setProperty("--background-color", theme.backgroundColor);
     root.style.setProperty("--text-color", theme.textColor);
     root.style.setProperty("--font-family", theme.fontFamily);

@@ -1,4 +1,3 @@
-// filepath: /C:/Users/simonp/Documents/Extra/saux-component-library/src/components/Button/Button.tsx
 import React from "react";
 import { useTheme } from "../Theme/ThemeProvider";
 import "./Button.css";
@@ -6,15 +5,16 @@ import "./Button.css";
 export interface ButtonProps {
   label: string;
   onClick?: () => void;
+  variant?: "primary" | "secondary"; // Add variant prop
 }
 
-const Button: React.FC<ButtonProps> = ({ label, onClick }) => {
+const Button: React.FC<ButtonProps> = ({ label, onClick, variant = "primary" }) => {
   const { theme } = useTheme(); // Get theme values
 
   return (
     <button
       onClick={onClick}
-      className="button"
+      className={`button ${variant}`} // Apply variant class
     >
       {label}
     </button>

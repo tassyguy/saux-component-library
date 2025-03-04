@@ -3,7 +3,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import ToggleSwitch, { ToggleSwitchProps } from "./ToggleSwitch";
 
 export default {
-  title: "Components/ToggleSwitch",
+  title: "Components/Toggle Switch",
   component: ToggleSwitch,
 } as Meta;
 

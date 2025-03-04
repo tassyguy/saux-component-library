@@ -4,7 +4,7 @@ import CardList, { CardListProps } from "./CardItem";
 import { ThemeProvider } from "../Theme/ThemeProvider";
 
 export default {
-  title: "Components/CardList",
+  title: "Components/Card List",
   component: CardList,
 } as Meta;
 

@@ -1,9 +1,9 @@
-/* filepath: /c:/Users/simonp/Documents/Extra/saux-component-library/src/global.css */
 :root {
   --primary-color: #007bff;
-  --secondary-color: #6c757d;
-  --background-color: #f8f9fa;
   --primary-color-hover: #0056b3;
+  --secondary-color: #ff9800; /* Updated to orange */
+  --secondary-color-hover: #e68900; /* Updated to a darker orange */
+  --background-color: #f8f9fa;
   --text-color: #212529;
   --font-family: "Arial, sans-serif";
   --border-color: #dee2e6;
@@ -23,9 +23,10 @@
 
 .dark-theme {
   --primary-color: #1a73e8;
-  --secondary-color: #3c4043;
-  --background-color: #202124;
   --primary-color-hover: #185abc;
+  --secondary-color: #e68900; /* Updated to orange */
+  --secondary-color-hover: #ff9800; /* Updated to a darker orange */
+  --background-color: #202124;
   --text-color: #e8eaed;
   --border-color: #5f6368;
   --success-background-color: #155724;

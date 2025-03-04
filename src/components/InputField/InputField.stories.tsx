@@ -3,7 +3,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import InputField, { InputFieldProps } from "./InputField";
 
 export default {
-  title: "Components/InputField",
+  title: "Components/Input Field",
   component: InputField,
 } as Meta;
 

@@ -1,5 +1,5 @@
 /* filepath: /c:/Users/simonp/Documents/Extra/saux-component-library/src/components/Header/Header.css */
 .header {
   font-family: Arial, sans-serif;
-  color: #333;
+  color: var(--text-color);
 }
