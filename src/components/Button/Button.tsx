@@ -9,7 +9,7 @@ export interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({ label, onClick }) => {
-  const theme = useTheme(); // Get theme values
+  const { theme } = useTheme(); // Get theme values
 
   return (
     <button

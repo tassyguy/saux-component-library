@@ -1,4 +1,6 @@
+// filepath: /c:/Users/simonp/Documents/Extra/saux-component-library/src/components/Alert/Alert.tsx
 import React from "react";
+import { useTheme } from "../Theme/ThemeProvider";
 import "./Alert.css";
 
 export type AlertType = "success" | "error" | "warning" | "info";
@@ -20,8 +22,12 @@ const Alert: React.FC<AlertProps> = ({
   dismissible = false,
   onClose,
 }) => {
+  const theme = useTheme(); // Get theme values
+
   return (
-    <div className={`alert alert--${type}`}>
+    <div
+      className={`alert alert--${type}`}
+    >
       <span className="alert__message">{message}</span>
       {dismissible && (
         <button
