@@ -1,11 +1,12 @@
 :root {
   --primary-color: #007bff;
   --primary-color-hover: #0056b3;
-  --secondary-color: #ff9800; /* Updated to orange */
-  --secondary-color-hover: #e68900; /* Updated to a darker orange */
+  --secondary-color: #ff9800;
+  --secondary-color-hover: #e68900;
   --background-color: #f8f9fa;
   --text-color: #212529;
   --font-family: "Arial, sans-serif";
+  --font-size-small: 14px;
   --border-color: #dee2e6;
   --success-background-color: #d4edda;
   --success-text-color: #155724;
@@ -19,13 +20,22 @@
   --info-background-color: #d1ecf1;
   --info-text-color: #0c5460;
   --info-border-color: #bee5eb;
+  --pagination-button-background: #fff;
+  --pagination-button-border: #ccc;
+  --pagination-button-hover-background: #f0f0f0;
+  --pagination-button-active-background: #06d6a0;
+  --pagination-button-active-border: #06d6a0;
+  --pagination-button-active-color: #fff;
+  --toggle-switch-background: #ccc;
+  --toggle-switch-on-background: #06D6A0;
+  --toggle-switch-handle-background: #fff;
 }
 
 .dark-theme {
   --primary-color: #1a73e8;
   --primary-color-hover: #185abc;
-  --secondary-color: #e68900; /* Updated to orange */
-  --secondary-color-hover: #ff9800; /* Updated to a darker orange */
+  --secondary-color: #ff9800;
+  --secondary-color-hover: #e68900;
   --background-color: #202124;
   --text-color: #e8eaed;
   --border-color: #5f6368;
@@ -41,6 +51,15 @@
   --info-background-color: #0c5460;
   --info-text-color: #d1ecf1;
   --info-border-color: #bee5eb;
+  --pagination-button-background: #333;
+  --pagination-button-border: #555;
+  --pagination-button-hover-background: #444;
+  --pagination-button-active-background: #06d6a0;
+  --pagination-button-active-border: #06d6a0;
+  --pagination-button-active-color: #fff;
+  --toggle-switch-background: #555;
+  --toggle-switch-on-background: #06D6A0;
+  --toggle-switch-handle-background: #fff;
 }
 
 body {

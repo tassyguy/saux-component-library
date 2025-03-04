@@ -23,14 +23,23 @@ interface Theme {
   infoBackgroundColor: string;
   infoTextColor: string;
   infoBorderColor: string;
+  paginationButtonBackground: string;
+  paginationButtonBorder: string;
+  paginationButtonHoverBackground: string;
+  paginationButtonActiveBackground: string;
+  paginationButtonActiveBorder: string;
+  paginationButtonActiveColor: string;
+  toggleSwitchBackground: string;
+  toggleSwitchOnBackground: string;
+  toggleSwitchHandleBackground: string;
 }
 
 // Default light theme values
 const lightTheme: Theme = {
   primaryColor: "#007bff",
   primaryColorHover: "#0056b3",
-  secondaryColor: "#ff9800", // Updated to orange
-  secondaryColorHover: "#e68900", // Updated to a darker orange
+  secondaryColor: "#ff9800",
+  secondaryColorHover: "#e68900",
   backgroundColor: "#f8f9fa",
   textColor: "#212529",
   fontFamily: "Arial, sans-serif",
@@ -47,14 +56,23 @@ const lightTheme: Theme = {
   infoBackgroundColor: "#d1ecf1",
   infoTextColor: "#0c5460",
   infoBorderColor: "#bee5eb",
+  paginationButtonBackground: "#fff",
+  paginationButtonBorder: "#ccc",
+  paginationButtonHoverBackground: "#f0f0f0",
+  paginationButtonActiveBackground: "#06d6a0",
+  paginationButtonActiveBorder: "#06d6a0",
+  paginationButtonActiveColor: "#fff",
+  toggleSwitchBackground: "#ccc",
+  toggleSwitchOnBackground: "#06D6A0",
+  toggleSwitchHandleBackground: "#fff",
 };
 
 // Default dark theme values
 const darkTheme: Theme = {
   primaryColor: "#1a73e8",
   primaryColorHover: "#185abc",
-  secondaryColor: "#e68900", // Updated to orange
-  secondaryColorHover: "#ff9800", // Updated to a darker orange
+  secondaryColor: "#ff9800",
+  secondaryColorHover: "#e68900",
   backgroundColor: "#202124",
   textColor: "#e8eaed",
   fontFamily: "Arial, sans-serif",
@@ -71,6 +89,15 @@ const darkTheme: Theme = {
   infoBackgroundColor: "#0c5460",
   infoTextColor: "#d1ecf1",
   infoBorderColor: "#bee5eb",
+  paginationButtonBackground: "#333",
+  paginationButtonBorder: "#555",
+  paginationButtonHoverBackground: "#444",
+  paginationButtonActiveBackground: "#06d6a0",
+  paginationButtonActiveBorder: "#06d6a0",
+  paginationButtonActiveColor: "#fff",
+  toggleSwitchBackground: "#555",
+  toggleSwitchOnBackground: "#06D6A0",
+  toggleSwitchHandleBackground: "#fff",
 };
 
 // Create a Context for the theme
@@ -115,6 +142,15 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     root.style.setProperty("--info-background-color", theme.infoBackgroundColor);
     root.style.setProperty("--info-text-color", theme.infoTextColor);
     root.style.setProperty("--info-border-color", theme.infoBorderColor);
+    root.style.setProperty("--pagination-button-background", theme.paginationButtonBackground);
+    root.style.setProperty("--pagination-button-border", theme.paginationButtonBorder);
+    root.style.setProperty("--pagination-button-hover-background", theme.paginationButtonHoverBackground);
+    root.style.setProperty("--pagination-button-active-background", theme.paginationButtonActiveBackground);
+    root.style.setProperty("--pagination-button-active-border", theme.paginationButtonActiveBorder);
+    root.style.setProperty("--pagination-button-active-color", theme.paginationButtonActiveColor);
+    root.style.setProperty("--toggle-switch-background", theme.toggleSwitchBackground);
+    root.style.setProperty("--toggle-switch-on-background", theme.toggleSwitchOnBackground);
+    root.style.setProperty("--toggle-switch-handle-background", theme.toggleSwitchHandleBackground);
   }, [theme]);
 
   return (

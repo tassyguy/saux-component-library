@@ -49,11 +49,12 @@ const Tooltip: React.FC<TooltipProps> = ({ content, children }) => {
       onMouseLeave={handleMouseLeave}
     >
       {children}
-      {visible && (
-        <div className="tooltip-content" style={{ top: position.top, left: position.left }}>
-          {content}
-        </div>
-      )}
+      <div
+        className={`tooltip-content ${visible ? "visible" : ""}`}
+        style={{ top: position.top, left: position.left }}
+      >
+        {content}
+      </div>
     </div>
   );
 };

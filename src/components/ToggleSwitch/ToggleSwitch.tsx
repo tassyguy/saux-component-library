@@ -25,7 +25,7 @@ const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
       disabled={disabled}
       onClick={onToggle}
       className={buttonClasses}
-      aria-pressed={!!isOn}
+      aria-pressed={isOn}
       aria-label="Toggle Switch"
     >
       <span className="toggle-switch__handle" />
