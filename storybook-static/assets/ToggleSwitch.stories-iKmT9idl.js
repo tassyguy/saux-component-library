@@ -1,0 +1,7 @@
+import{j as a}from"./jsx-runtime-D_zvdyIk.js";import{r as c}from"./index-DmM0KDA7.js";const r=({isOn:e,onToggle:t,disabled:o=!1})=>{const n=`toggle-switch ${e?"on":""} ${o?"disabled":""}`.trim();return a.jsx("button",{type:"button",disabled:o,onClick:t,className:n,"aria-pressed":e,"aria-label":"Toggle Switch",children:a.jsx("span",{className:"toggle-switch__handle"})})};r.__docgenInfo={description:"",methods:[],displayName:"ToggleSwitch",props:{isOn:{required:!0,tsType:{name:"boolean"},description:"Indicates whether the switch is on or off"},onToggle:{required:!0,tsType:{name:"signature",type:"function",raw:"() => void",signature:{arguments:[],return:{name:"void"}}},description:"Callback triggered when the switch is toggled"},disabled:{required:!1,tsType:{name:"boolean"},description:"Optional flag to disable the switch",defaultValue:{value:"false",computed:!1}}}};const h={title:"Components/ToggleSwitch",component:r},d=e=>{const[t,o]=c.useState(e.isOn),n=()=>{o(!t)};return a.jsx(r,{...e,isOn:t,onToggle:n})},s=d.bind({});s.args={isOn:!1,disabled:!1};var i,l,g;s.parameters={...s.parameters,docs:{...(i=s.parameters)==null?void 0:i.docs,source:{originalSource:`args => {
+  const [isOn, setIsOn] = useState(args.isOn);
+  const handleToggle = () => {
+    setIsOn(!isOn);
+  };
+  return <ToggleSwitch {...args} isOn={isOn} onToggle={handleToggle} />;
+}`,...(g=(l=s.parameters)==null?void 0:l.docs)==null?void 0:g.source}}};const m=["ToggleSwitchStory"];export{s as ToggleSwitchStory,m as __namedExportsOrder,h as default};
