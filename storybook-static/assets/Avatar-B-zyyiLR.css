@@ -1,0 +1,1 @@
+.avatar{display:inline-block;position:relative;border-radius:50%;overflow:hidden;background-color:#ccc;text-align:center;color:#fff}.avatar__img{display:block;object-fit:cover;width:100%;height:100%}.avatar__fallback{display:inline-block;width:100%;height:100%;line-height:inherit;font-weight:700}
