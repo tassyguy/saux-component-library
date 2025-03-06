@@ -13,15 +13,16 @@ const config: StorybookConfig = {
     '@storybook/addon-themes',
     'storybook-dark-mode',
   ],
-  core: {
-    builder: '@storybook/builder-vite', // 👈 The builder enabled here.
-  },
   framework: {
     name: '@storybook/react-vite',
     options: {},
   },
   typescript: {
     check: true,
+  },
+  viteFinal: (config) => {
+    config.base = '/saux-component-library/';
+    return config;
   },
 };
 
