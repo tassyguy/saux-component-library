@@ -1,10 +1,10 @@
-import type { Preview } from '@storybook/react';
+import type { Preview, DecoratorFunction } from '@storybook/react';
 import { themes } from '@storybook/theming';
 import { ThemeProvider } from '../src/components/Theme/ThemeProvider';
 import { useDarkMode } from 'storybook-dark-mode';
 import React, { useEffect } from 'react';
 
-const withThemeProvider = (Story, context) => {
+const withThemeProvider: DecoratorFunction = (Story, context) => {
   const isDarkMode = useDarkMode();
   return (
     <ThemeProvider>
@@ -15,7 +15,7 @@ const withThemeProvider = (Story, context) => {
   );
 };
 
-const withDynamicBackground = (Story, context) => {
+const withDynamicBackground: DecoratorFunction = (Story, context) => {
   const isDarkMode = useDarkMode();
 
   useEffect(() => {
