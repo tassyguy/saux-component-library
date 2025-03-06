@@ -3,7 +3,7 @@ import "./FormGroup.css";
 
 export interface FormGroupProps {
   /** The label text for the form group */
-  label: string;
+  label?: string;
   /** The form controls (input, select, etc.) */
   children: React.ReactNode;
 }

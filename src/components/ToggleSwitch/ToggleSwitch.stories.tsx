@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import ToggleSwitch, { ToggleSwitchProps } from "./ToggleSwitch";
+import { ThemeProvider } from "../Theme/ThemeProvider";
 
 export default {
   title: "Components/Toggle Switch",
@@ -14,7 +15,7 @@ const Template: StoryFn<ToggleSwitchProps> = (args) => {
     setIsOn(!isOn);
   };
 
-  return <ToggleSwitch {...args} isOn={isOn} onToggle={handleToggle} />;
+  return <ThemeProvider><ToggleSwitch {...args} isOn={isOn} onToggle={handleToggle} /></ThemeProvider>;
 };
 
 export const ToggleSwitchStory = Template.bind({});

@@ -1,5 +1,5 @@
-import React, { useState, useRef } from "react";
-import "./Tooltip.css";
+import React, { useState, useRef } from 'react';
+import './Tooltip.css';
 
 export interface TooltipProps {
   /** The text (or JSX) to display in the tooltip */
@@ -50,7 +50,7 @@ const Tooltip: React.FC<TooltipProps> = ({ content, children }) => {
     >
       {children}
       <div
-        className={`tooltip-content ${visible ? "visible" : ""}`}
+        className={`tooltip-content ${visible ? 'visible' : ''}`}
         style={{ top: position.top, left: position.left }}
       >
         {content}
