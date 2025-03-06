@@ -27,6 +27,11 @@ jobs:
       - name: Create .nojekyll file
         run: echo > ./storybook-static/.nojekyll
 
+      - name: Configure Git
+        run: |
+          git config --global user.email "simonxphillips@duck.com"
+          git config --global user.name "Simon Phillips"
+
       - name: Deploy Storybook to GitHub Pages
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAGES_TOKEN }}
