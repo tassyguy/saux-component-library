@@ -24,16 +24,11 @@ jobs:
       - name: Build Storybook
         run: npm run build-storybook
 
-      - name: Create .nojekyll file
-        run: echo > ./storybook-static/.nojekyll
-
-      - name: Configure Git
-        run: |
-          git config --global user.email "simonxphillips@duck.com"
-          git config --global user.name "Simon Phillips"
-
-      - name: Deploy Storybook to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: gh-pages
+          build_dir: storybook-static
+          jekyll: false
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAGES_TOKEN }}
-        run: |
-          npx gh-pages -d storybook-static -r "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
