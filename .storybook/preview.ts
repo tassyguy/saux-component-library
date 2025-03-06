@@ -1,6 +1,5 @@
 import type { Preview } from '@storybook/react';
 import { themes } from '@storybook/theming';
-import { withThemeProvider, withDynamicBackground } from './decorators';
 
 const preview: Preview = {
   parameters: {
@@ -24,7 +23,6 @@ const preview: Preview = {
       light: { ...themes.normal },
     },
   },
-  decorators: [withDynamicBackground, withThemeProvider],
 };
 
 export default preview;

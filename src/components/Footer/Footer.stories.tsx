@@ -1,13 +1,24 @@
-import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
-import Footer, { FooterProps } from "./Footer";
+import React from 'react';
+import { Meta, StoryFn } from '@storybook/react';
+import Footer, { FooterProps } from './Footer';
+import { ThemeProvider } from '../Theme/ThemeProvider';
+import { useDarkMode } from 'storybook-dark-mode';
 
 export default {
-  title: "Components/Footer",
+  title: 'Components/Footer',
   component: Footer,
 } as Meta;
 
-const Template: StoryFn<FooterProps> = (args) => <Footer {...args} />;
+const Template: StoryFn<FooterProps> = (args) => {
+  const isDarkMode = useDarkMode();
+  return (
+    <ThemeProvider>
+      <div className={isDarkMode ? 'dark-theme' : ''}>
+        <Footer {...args} />
+      </div>
+    </ThemeProvider>
+  );
+};
 
 export const Default = Template.bind({});
 Default.args = {

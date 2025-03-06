@@ -1,25 +1,27 @@
-import React, { useState } from "react";
-import { Meta, StoryFn } from "@storybook/react";
-import ToggleSwitch, { ToggleSwitchProps } from "./ToggleSwitch";
-import { ThemeProvider } from "../Theme/ThemeProvider";
+import React from 'react';
+import { Meta, StoryFn } from '@storybook/react';
+import ToggleSwitch, { ToggleSwitchProps } from './ToggleSwitch';
+import { ThemeProvider } from '../Theme/ThemeProvider';
+import { useDarkMode } from 'storybook-dark-mode';
 
 export default {
-  title: "Components/Toggle Switch",
+  title: 'Components/Toggle Switch',
   component: ToggleSwitch,
 } as Meta;
 
 const Template: StoryFn<ToggleSwitchProps> = (args) => {
-  const [isOn, setIsOn] = useState(args.isOn);
-  
-  const handleToggle = () => {
-    setIsOn(!isOn);
-  };
-
-  return <ThemeProvider><ToggleSwitch {...args} isOn={isOn} onToggle={handleToggle} /></ThemeProvider>;
+  const isDarkMode = useDarkMode();
+  return (
+    <ThemeProvider>
+      <div className={isDarkMode ? 'dark-theme' : ''}>
+        <ToggleSwitch {...args} />
+      </div>
+    </ThemeProvider>
+  );
 };
 
-export const ToggleSwitchStory = Template.bind({});
-ToggleSwitchStory.args = {
+export const Default = Template.bind({});
+Default.args = {
   isOn: false,
-  disabled: false,
+  onToggle: () => {},
 };
