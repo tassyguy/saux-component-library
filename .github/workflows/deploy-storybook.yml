@@ -28,6 +28,6 @@ jobs:
         run: echo > ./storybook-static/.nojekyll
 
       - name: Deploy Storybook to GitHub Pages
-        run: gh-pages -d storybook-static
+        run: npx gh-pages -d storybook-static
         env:
           GH_PAGES_TOKEN: ${{ secrets.GH_PAGES_TOKEN }}
