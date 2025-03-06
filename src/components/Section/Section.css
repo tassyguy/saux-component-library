@@ -1,0 +1,21 @@
+.section {
+    padding: 1.5em;
+    margin: 1em 0;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .section__header {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.75em;
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid #eee;
+  }
+  
+  .section__body {
+    font-size: 1em;
+    color: #333;
+  }
+  

@@ -1,0 +1,7 @@
+.grid {
+    display: grid;
+    /* If columns prop is not passed, this will auto-fit items with a minimum width */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1em;
+  }
+  
