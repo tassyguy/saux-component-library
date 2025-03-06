@@ -1,0 +1,8 @@
+import{j as e}from"./jsx-runtime-D_zvdyIk.js";import{T as d}from"./ThemeProvider-BHFyjWwA.js";import{u as l}from"./index-D8d2bdkj.js";import"./index-BZISi7jw.js";import"./_commonjsHelpers-CqkleIqs.js";import"./index-BtkQkHPN.js";const t=({children:s,className:o=""})=>e.jsx("footer",{className:`footer ${o}`.trim(),children:s||e.jsx("div",{className:"footer__default",children:e.jsxs("p",{children:["© ",new Date().getFullYear()," Your Company. All rights reserved."]})})});t.__docgenInfo={description:"",methods:[],displayName:"Footer",props:{children:{required:!1,tsType:{name:"ReactReactNode",raw:"React.ReactNode"},description:"Content to render inside the footer"},className:{required:!1,tsType:{name:"string"},description:"Optional additional className for custom styling",defaultValue:{value:'""',computed:!1}}}};const g={title:"Components/Footer",component:t},c=s=>{const o=l();return e.jsx(d,{children:e.jsx("div",{className:o?"dark-theme":"",children:e.jsx(t,{...s})})})},r=c.bind({});r.args={children:e.jsxs("div",{children:[e.jsxs("p",{children:["© ",new Date().getFullYear()," My Company. All rights reserved."]}),e.jsx("p",{children:"Designed by My Name."})]})};var a,n,i;r.parameters={...r.parameters,docs:{...(a=r.parameters)==null?void 0:a.docs,source:{originalSource:`args => {
+  const isDarkMode = useDarkMode();
+  return <ThemeProvider>\r
+      <div className={isDarkMode ? 'dark-theme' : ''}>\r
+        <Footer {...args} />\r
+      </div>\r
+    </ThemeProvider>;
+}`,...(i=(n=r.parameters)==null?void 0:n.docs)==null?void 0:i.source}}};const j=["Default"];export{r as Default,j as __namedExportsOrder,g as default};
