@@ -1,0 +1,1 @@
+.table{width:100%;border-collapse:collapse;background-color:var(--background-color);color:var(--text-color)}.table th,.table td{border:1px solid var(--border-color);padding:8px;text-align:left}.table th{background-color:var(--primary-color);color:var(--text-color)}
