@@ -45,7 +45,7 @@ const preview: Preview = {
       current: 'light',
       stylePreview: true,
       dark: { ...themes.dark },
-      light: { ...themes.normal},
+      light: { ...themes.normal },
     },
   },
   decorators: [withDynamicBackground, withThemeProvider],
