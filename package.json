@@ -12,7 +12,7 @@
     "build": "rollup -c",
     "prepublishOnly": "npm run build",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build --base-href /saux-component-library/",
+    "build-storybook": "cross-env STORYBOOK_BUILD=true storybook build",
     "deploy-storybook": "npm run build-storybook && echo > ./storybook-static/.nojekyll && gh-pages -d storybook-static",
     "local-deploy-storybook": "npm run build-storybook -- -o ./storybook-static/index.html && npx http-server ./storybook-static/index.html"
   },
@@ -53,6 +53,7 @@
     "@types/jest": "^29.5.14",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
+    "cross-env": "^7.0.3",
     "eslint": "^9.21.0",
     "eslint-plugin-storybook": "^0.11.3",
     "gh-pages": "^6.3.0",

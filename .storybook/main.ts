@@ -29,6 +29,10 @@ const config: StorybookConfig = {
   typescript: {
     reactDocgen: 'react-docgen-typescript',
   },
+  previewHead: (head) => `
+    ${head}
+    ${process.env.STORYBOOK_BUILD ? '<base href="/saux-component-library/" />' : ''}
+  `,
   async viteFinal(config) {
     return mergeConfig(config, {
       optimizeDeps: {
