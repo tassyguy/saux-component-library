@@ -1,5 +1,4 @@
-// filepath: /c:/Users/simonp/Documents/Extra/saux-component-library/src/components/Alert/Alert.tsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTheme } from '../../Theme/src/ThemeProvider';
 import './Alert.css';
 
@@ -14,6 +13,18 @@ export interface AlertProps {
   dismissible?: boolean;
   /** Callback invoked when the alert is dismissed */
   onClose?: () => void;
+  /** Optional icon to display in the alert */
+  icon?: React.ReactNode;
+  /** Custom class name for additional styling */
+  className?: string;
+  /** Inline styles for the alert */
+  style?: React.CSSProperties;
+  /** Optional title to display in the alert */
+  title?: string;
+  /** Duration in milliseconds to automatically dismiss the alert */
+  duration?: number;
+  /** Accessible label for the close button */
+  ariaLabel?: string;
 }
 
 const Alert: React.FC<AlertProps> = ({
@@ -21,17 +32,34 @@ const Alert: React.FC<AlertProps> = ({
   type = 'info',
   dismissible = false,
   onClose,
+  icon,
+  className = '',
+  style,
+  title,
+  duration,
+  ariaLabel = 'Close alert',
 }) => {
   const theme = useTheme(); // Get theme values
 
+  useEffect(() => {
+    if (duration && onClose) {
+      const timer = setTimeout(onClose, duration);
+      return () => clearTimeout(timer);
+    }
+  }, [duration, onClose]);
+
   return (
-    <div className={`alert alert--${type}`}>
-      <span className="alert__message">{message}</span>
+    <div className={`alert alert--${type} ${className}`} style={style}>
+      {icon && <span className="alert__icon">{icon}</span>}
+      <div className="alert__content">
+        {title && <strong className="alert__title">{title}</strong>}
+        <span className="alert__message">{message}</span>
+      </div>
       {dismissible && (
         <button
           className="alert__close"
           onClick={onClose}
-          aria-label="Close alert"
+          aria-label={ariaLabel}
         >
           &times;
         </button>

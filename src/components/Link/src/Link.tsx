@@ -1,20 +1,43 @@
-// filepath: /c:/Users/simonp/Documents/Extra/saux-component-library/src/components/Link/Link.tsx
 import React from 'react';
 import { useTheme } from '../../Theme/src/ThemeProvider';
 import './Link.css';
 
 export interface LinkProps {
-  label: string;
+  label?: string;
   href: string;
   onClick?: () => void;
+  target?: '_blank' | '_self' | '_parent' | '_top';
+  rel?: string;
+  className?: string;
+  style?: React.CSSProperties;
+  children?: React.ReactNode;
+  ariaLabel?: string;
 }
 
-const Link: React.FC<LinkProps> = ({ label, href, onClick }) => {
+const Link: React.FC<LinkProps> = ({
+  label,
+  href,
+  onClick,
+  target,
+  rel,
+  className = '',
+  style,
+  children,
+  ariaLabel,
+}) => {
   const theme = useTheme(); // Get theme values
 
   return (
-    <a href={href} onClick={onClick} className="link">
-      {label}
+    <a
+      href={href}
+      onClick={onClick}
+      target={target}
+      rel={rel}
+      className={`link ${className}`}
+      style={style}
+      aria-label={ariaLabel}
+    >
+      {children || label}
     </a>
   );
 };

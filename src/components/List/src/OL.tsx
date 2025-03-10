@@ -1,13 +1,10 @@
-// filepath: /c:/Users/simonp/Documents/Extra/saux-component-library/src/components/List/OL.tsx
-import React from "react";
-import List, { ListItem } from "./List";
+import React from 'react';
+import List, { ListProps } from './List';
 
-export interface OrderedListProps {
-  items: ListItem[];
-}
+export interface OrderedListProps extends ListProps {}
 
-const OrderedList: React.FC<OrderedListProps> = ({ items }) => {
-  return <List items={items} ordered={true} />;
+const OrderedList: React.FC<OrderedListProps> = (props) => {
+  return <List {...props} ordered />;
 };
 
 export default OrderedList;

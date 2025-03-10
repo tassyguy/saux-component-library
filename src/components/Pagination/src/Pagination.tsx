@@ -1,5 +1,5 @@
-import React from "react";
-import "./Pagination.css";
+import React from 'react';
+import './Pagination.css';
 
 export interface PaginationProps {
   /** The current active page */
@@ -8,12 +8,24 @@ export interface PaginationProps {
   totalPages: number;
   /** Callback function to change the page */
   onPageChange: (page: number) => void;
+  /** Custom class name for additional styling */
+  className?: string;
+  /** Inline styles for the pagination component */
+  style?: React.CSSProperties;
+  /** Accessible label for the previous button */
+  prevAriaLabel?: string;
+  /** Accessible label for the next button */
+  nextAriaLabel?: string;
 }
 
 const Pagination: React.FC<PaginationProps> = ({
   currentPage,
   totalPages,
   onPageChange,
+  className = '',
+  style,
+  prevAriaLabel = 'Previous page',
+  nextAriaLabel = 'Next page',
 }) => {
   if (totalPages <= 1) return null; // No pagination needed for one or fewer pages
 
@@ -33,21 +45,19 @@ const Pagination: React.FC<PaginationProps> = ({
   };
 
   return (
-    <div className="pagination">
+    <div className={`pagination ${className}`} style={style}>
       <button
         className="pagination__button"
         onClick={handlePrevious}
         disabled={currentPage === 1}
-        aria-label="Previous page"
+        aria-label={prevAriaLabel}
       >
         &laquo;
       </button>
       {pages.map((page) => (
         <button
           key={page}
-          className={`pagination__button ${
-            page === currentPage ? "active" : ""
-          }`}
+          className={`pagination__button ${page === currentPage ? 'active' : ''}`}
           onClick={() => onPageChange(page)}
           aria-label={`Page ${page}`}
         >
@@ -58,7 +68,7 @@ const Pagination: React.FC<PaginationProps> = ({
         className="pagination__button"
         onClick={handleNext}
         disabled={currentPage === totalPages}
-        aria-label="Next page"
+        aria-label={nextAriaLabel}
       >
         &raquo;
       </button>

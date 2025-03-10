@@ -7,6 +7,22 @@ import { useDarkMode } from 'storybook-dark-mode';
 export default {
   title: 'Components/Alert',
   component: Alert,
+  argTypes: {
+    type: {
+      control: {
+        type: 'select',
+        options: ['success', 'error', 'warning', 'info'],
+      },
+    },
+    dismissible: { control: 'boolean' },
+    onClose: { action: 'closed' },
+    icon: { control: 'text' },
+    className: { control: 'text' },
+    style: { control: 'object' },
+    title: { control: 'text' },
+    duration: { control: 'number' },
+    ariaLabel: { control: 'text' },
+  },
 } as Meta;
 
 const Template: StoryFn<AlertProps> = (args) => {
@@ -59,4 +75,28 @@ WarningAlert.args = {
   message: 'Warning: Please check your input.',
   type: 'warning',
   dismissible: false,
+};
+
+export const AlertWithIcon = Template.bind({});
+AlertWithIcon.args = {
+  message: 'This is an alert with an icon.',
+  type: 'info',
+  icon: <i className="icon-info" />,
+  dismissible: true,
+};
+
+export const AlertWithTitle = Template.bind({});
+AlertWithTitle.args = {
+  message: 'This is an alert with a title.',
+  type: 'info',
+  title: 'Alert Title',
+  dismissible: true,
+};
+
+export const AutoDismissAlert = Template.bind({});
+AutoDismissAlert.args = {
+  message: 'This alert will auto-dismiss after 3 seconds.',
+  type: 'info',
+  duration: 3000,
+  dismissible: true,
 };

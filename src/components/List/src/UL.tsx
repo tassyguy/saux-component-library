@@ -1,13 +1,10 @@
-// filepath: /c:/Users/simonp/Documents/Extra/saux-component-library/src/components/List/UL.tsx
 import React from 'react';
-import List, { ListItem } from './List';
+import List, { ListProps } from './List';
 
-export interface UnorderedListProps {
-  items: ListItem[];
-}
+export interface UnorderedListProps extends ListProps {}
 
-const UnorderedList: React.FC<UnorderedListProps> = ({ items }) => {
-  return <List items={items} ordered={false} />;
+const UnorderedList: React.FC<UnorderedListProps> = (props) => {
+  return <List {...props} />;
 };
 
 export default UnorderedList;
