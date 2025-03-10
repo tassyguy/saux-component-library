@@ -13,7 +13,7 @@
     "prepublishOnly": "npm run build",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "cross-env STORYBOOK_BUILD=true storybook build",
-    "deploy-storybook": "npm run build-storybook && echo > ./storybook-static/.nojekyll && gh-pages -d storybook-static",
+    "deploy-storybook": "npm run build-storybook && echo > ./storybook-static/.nojekyll && gh-pages -d storybook-static && git add . && git commit -m 'chore: deploy storybook' && git push",
     "local-deploy-storybook": "npm run build-storybook -- -o ./storybook-static/index.html && npx http-server ./storybook-static/index.html"
   },
   "homepage": "https://tassyguy.github.io/saux-component-library",

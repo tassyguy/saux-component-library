@@ -24,7 +24,7 @@ export const Default = Template.bind({});
 Default.args = {
   alt: 'John Doe',
   size: 60,
-  src: 'https://via.placeholder.com/60',
+  src: 'https://i.pravatar.cc/128',
 };
 
 export const WithFallback = Template.bind({});
@@ -38,5 +38,5 @@ export const CustomSize = Template.bind({});
 CustomSize.args = {
   alt: 'Custom Size',
   size: 100,
-  src: 'https://via.placeholder.com/100',
+  src: 'https://i.pravatar.cc/128',
 };
