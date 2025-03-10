@@ -13,7 +13,6 @@ import '../../components/Tooltip/Tooltip.css';
 
 export default {
   title: 'Sample Pages/Dashboard',
-  component: Button,
 } as Meta;
 
 const Template: StoryFn = () => {

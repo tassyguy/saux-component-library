@@ -10,7 +10,7 @@ export interface BreadcrumbItem {
 
 export interface BreadcrumbProps {
   /** Array of breadcrumb items */
-  items: BreadcrumbItem[];
+  items?: BreadcrumbItem[];
   /** Optional additional CSS class */
   className?: string;
 }
@@ -19,7 +19,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, className = "" }) => {
   return (
     <nav className={`breadcrumb ${className}`} aria-label="Breadcrumb">
       <ol className="breadcrumb__list">
-        {items.map((item, index) => (
+        {items?.map((item, index) => (
           <li key={index} className="breadcrumb__item">
             {item.href ? (
               <a href={item.href} className="breadcrumb__link">

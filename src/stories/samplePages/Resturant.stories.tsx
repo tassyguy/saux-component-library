@@ -12,7 +12,6 @@ import { ThemeProvider } from "../../components/Theme/ThemeProvider";
 
 export default {
   title: "Sample Pages/Restaurant Menu",
-  component: Button,
 } as Meta;
 
 const Template: StoryFn = () => {
