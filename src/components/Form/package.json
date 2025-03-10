@@ -2,8 +2,8 @@
   "name": "@saux/form",
   "version": "1.0.0",
   "description": "Form component for the SAUX component library",
-  "main": "src/Form.tsx",
-  "types": "src/Form.tsx",
+  "main": "index.ts",
+  "types": "index.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"

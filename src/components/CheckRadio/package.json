@@ -2,8 +2,8 @@
   "name": "@saux/checkradio",
   "version": "1.0.0",
   "description": "CheckRadio component for the SAUX component library",
-  "main": "src/CheckRadio.tsx",
-  "types": "src/CheckRadio.tsx",
+  "main": "index.ts",
+  "types": "index.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"

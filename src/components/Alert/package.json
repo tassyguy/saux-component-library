@@ -2,8 +2,8 @@
   "name": "@saux/alert",
   "version": "1.0.0",
   "description": "Alert component for the SAUX component library",
-  "main": "src/Alert.tsx",
-  "types": "src/Alert.tsx",
+  "main": "index.ts",
+  "types": "index.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"

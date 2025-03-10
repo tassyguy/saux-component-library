@@ -2,8 +2,8 @@
   "name": "@saux/accordion",
   "version": "1.0.0",
   "description": "Accordion component for the SAUX component library",
-  "main": "src/Accordion.tsx",
-  "types": "src/Accordion.tsx",
+  "main": "index.ts",
+  "types": "index.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"

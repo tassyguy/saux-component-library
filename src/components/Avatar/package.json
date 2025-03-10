@@ -2,8 +2,8 @@
   "name": "@saux/avatar",
   "version": "1.0.0",
   "description": "Avatar component for the SAUX component library",
-  "main": "src/Avatar.tsx",
-  "types": "src/Avatar.tsx",
+  "main": "index.ts",
+  "types": "index.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"

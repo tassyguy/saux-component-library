@@ -2,8 +2,8 @@
   "name": "@saux/badge",
   "version": "1.0.0",
   "description": "Badge component for the SAUX component library",
-  "main": "src/Badge.tsx",
-  "types": "src/Badge.tsx",
+  "main": "index.ts",
+  "types": "index.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"

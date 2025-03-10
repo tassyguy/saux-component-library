@@ -2,8 +2,8 @@
   "name": "@saux/button",
   "version": "1.0.0",
   "description": "Button component for the SAUX component library",
-  "main": "src/Button.tsx",
-  "types": "src/Button.tsx",
+  "main": "index.ts",
+  "types": "index.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"

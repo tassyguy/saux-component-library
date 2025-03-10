@@ -2,8 +2,8 @@
   "name": "@saux/breadcrumb",
   "version": "1.0.0",
   "description": "Breadcrumb component for the SAUX component library",
-  "main": "src/Breadcrumb.tsx",
-  "types": "src/Breadcrumb.tsx",
+  "main": "index.ts",
+  "types": "index.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"

@@ -2,8 +2,8 @@
   "name": "@saux/footer",
   "version": "1.0.0",
   "description": "Footer component for the SAUX component library",
-  "main": "src/Footer.tsx",
-  "types": "src/Footer.tsx",
+  "main": "index.ts",
+  "types": "index.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"

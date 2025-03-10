@@ -1,9 +1,9 @@
 {
   "name": "@saux/dropdownmenu",
   "version": "1.0.0",
-  "description": "DropdownMenu component for the SAUX component library",
-  "main": "src/DropdownMenu.tsx",
-  "types": "src/DropdownMenu.tsx",
+  "description": "Dropdown Menu component for the SAUX component library",
+  "main": "index.ts",
+  "types": "index.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"

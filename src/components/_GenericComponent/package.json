@@ -1,7 +1,7 @@
 {
-  "name": "@saux/container",
+  "name": "@saux/genericcomponent",
   "version": "1.0.0",
-  "description": "Container component for the SAUX component library",
+  "description": "Generic component for the SAUX component library",
   "main": "index.ts",
   "types": "index.ts",
   "scripts": {
@@ -24,7 +24,7 @@
     "react-dom": "^19.0.0"
   },
   "keywords": [
-    "container",
+    "genericcomponent",
     "component",
     "react",
     "saux"
