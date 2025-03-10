@@ -8,12 +8,14 @@ export interface ToggleSwitchProps {
   onToggle: () => void;
   /** Optional flag to disable the switch */
   disabled?: boolean;
+  label?: string;
 }
 
 const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
   isOn,
   onToggle,
   disabled = false,
+  label,
 }) => {
   const buttonClasses = `toggle-switch ${isOn ? 'on' : ''} ${
     disabled ? 'disabled' : ''
@@ -25,7 +27,7 @@ const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
       disabled={disabled}
       onClick={onToggle}
       className={buttonClasses}
-      aria-label="Toggle Switch"
+      aria-label={label || 'Toggle Switch'}
       aria-pressed={isOn}
     >
       <span className="toggle-switch__handle" />
