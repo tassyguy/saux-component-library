@@ -12,8 +12,8 @@
     "build": "rollup -c",
     "prepublishOnly": "npm run build",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "deploy-storybook": "storybook build && echo > ./storybook-static/.nojekyll && gh-pages -d storybook-static",
+    "build-storybook": "storybook build --base-href /saux-component-library/",
+    "deploy-storybook": "npm run build-storybook && echo > ./storybook-static/.nojekyll && gh-pages -d storybook-static",
     "local-deploy-storybook": "npm run build-storybook -- -o ./storybook-static/index.html && npx http-server ./storybook-static/index.html"
   },
   "homepage": "https://tassyguy.github.io/saux-component-library",
