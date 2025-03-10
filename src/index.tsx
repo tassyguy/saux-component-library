@@ -19,11 +19,7 @@ import UL from './components/List/src/UL';
 import Accordion from './components/Accordion/src/Accordion';
 
 // Typography & Misc component imports:
-import { default as H1 } from './components/Header/H1';
-import { default as H2 } from './components/Header/H2';
-import { default as H3 } from './components/Header/H3';
-import { default as H4 } from './components/Header/H4';
-import { default as H5 } from './components/Header/H5';
+import { H1, H2, H3, H4, H5 } from './components/Header';
 
 const navItems = [{ label: 'Home' }, { label: 'About' }, { label: 'Contact' }];
 

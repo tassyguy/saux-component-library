@@ -2,8 +2,8 @@
   "name": "@saux/link",
   "version": "1.0.0",
   "description": "Link component for the SAUX component library",
-  "main": "src/Link.tsx",
-  "types": "src/Link.tsx",
+  "main": "index.ts",
+  "types": "index.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"

@@ -2,8 +2,8 @@
   "name": "@saux/theme",
   "version": "1.0.0",
   "description": "Theme provider for the SAUX component library",
-  "main": "src/ThemeProvider.tsx",
-  "types": "src/ThemeProvider.tsx",
+  "main": "index.ts",
+  "types": "index.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"

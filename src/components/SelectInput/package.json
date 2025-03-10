@@ -2,8 +2,8 @@
   "name": "@saux/selectinput",
   "version": "1.0.0",
   "description": "SelectInput component for the SAUX component library",
-  "main": "src/SelectInput.tsx",
-  "types": "src/SelectInput.tsx",
+  "main": "index.ts",
+  "types": "index.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"

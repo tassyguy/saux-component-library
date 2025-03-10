@@ -2,8 +2,8 @@
   "name": "@saux/pagination",
   "version": "1.0.0",
   "description": "Pagination component for the SAUX component library",
-  "main": "src/Pagination.tsx",
-  "types": "src/Pagination.tsx",
+  "main": "index.ts",
+  "types": "index.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"

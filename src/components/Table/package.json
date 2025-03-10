@@ -2,8 +2,8 @@
   "name": "@saux/table",
   "version": "1.0.0",
   "description": "Table component for the SAUX component library",
-  "main": "src/Table.tsx",
-  "types": "src/Table.tsx",
+  "main": "index.ts",
+  "types": "index.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"

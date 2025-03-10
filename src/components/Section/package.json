@@ -2,8 +2,8 @@
   "name": "@saux/section",
   "version": "1.0.0",
   "description": "Section component for the SAUX component library",
-  "main": "src/Section.tsx",
-  "types": "src/Section.tsx",
+  "main": "index.ts",
+  "types": "index.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"

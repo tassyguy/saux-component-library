@@ -2,8 +2,8 @@
   "name": "@saux/sidebar",
   "version": "1.0.0",
   "description": "Sidebar component for the SAUX component library",
-  "main": "src/Sidebar.tsx",
-  "types": "src/Sidebar.tsx",
+  "main": "index.ts",
+  "types": "index.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"

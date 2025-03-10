@@ -2,8 +2,8 @@
   "name": "@saux/modal",
   "version": "1.0.0",
   "description": "Modal component for the SAUX component library",
-  "main": "src/Modal.tsx",
-  "types": "src/Modal.tsx",
+  "main": "index.ts",
+  "types": "index.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"

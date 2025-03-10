@@ -1,11 +1,13 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
-import Button from '../../components/Button/src/Button';
-import FormGroup from '../../components/Form/src/FormGroup';
-import ToggleSwitch from '../../components/ToggleSwitch/src/ToggleSwitch';
-import Tooltip from '../../components/Tooltip/src/Tooltip';
-import { ThemeProvider } from '../../components/Theme/src/ThemeProvider';
 import { useDarkMode } from 'storybook-dark-mode';
+import {
+  ThemeProvider,
+  FormGroup,
+  ToggleSwitch,
+  Tooltip,
+  Button,
+} from '../../components';
 
 export default {
   title: 'Sample Pages/Dashboard',

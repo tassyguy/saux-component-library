@@ -2,8 +2,8 @@
   "name": "@saux/toggleswitch",
   "version": "1.0.0",
   "description": "ToggleSwitch component for the SAUX component library",
-  "main": "src/ToggleSwitch.tsx",
-  "types": "src/ToggleSwitch.tsx",
+  "main": "index.ts",
+  "types": "index.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"

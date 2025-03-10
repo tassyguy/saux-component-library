@@ -2,8 +2,8 @@
   "name": "@saux/tooltip",
   "version": "1.0.0",
   "description": "Tooltip component for the SAUX component library",
-  "main": "src/Tooltip.tsx",
-  "types": "src/Tooltip.tsx",
+  "main": "index.ts",
+  "types": "index.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"

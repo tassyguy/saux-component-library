@@ -112,7 +112,7 @@ const ThemeContext = createContext({
   toggleTheme: () => {},
 });
 
-interface ThemeProviderProps {
+export interface ThemeProviderProps {
   children: ReactNode;
 }
 

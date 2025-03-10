@@ -2,8 +2,8 @@
   "name": "@saux/textarea",
   "version": "1.0.0",
   "description": "TextArea component for the SAUX component library",
-  "main": "src/TextArea.tsx",
-  "types": "src/TextArea.tsx",
+  "main": "index.ts",
+  "types": "index.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"
