@@ -1,4 +1,5 @@
-.button, .button.primary {
+.button,
+.button.primary {
   background-color: var(--primary-color);
   font-family: var(--font-family);
   padding: 10px 20px;
@@ -8,7 +9,8 @@
   color: #fff;
 }
 
-.button:hover, .button.primary:hover {
+.button:hover,
+.button.primary:hover {
   background-color: var(--primary-color-hover);
 }
 
@@ -19,4 +21,27 @@
 
 .button.secondary:hover {
   background-color: var(--secondary-color-hover);
+}
+
+.button.small {
+  padding: 5px 10px;
+  font-size: 0.875rem;
+}
+
+.button.medium {
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+
+.button.large {
+  padding: 15px 30px;
+  font-size: 1.25rem;
+}
+
+.button.full-width {
+  width: 100%;
+}
+
+.button-icon {
+  margin-right: 0.5rem;
 }
