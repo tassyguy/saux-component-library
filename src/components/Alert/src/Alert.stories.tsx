@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Meta, StoryFn } from '@storybook/react';
-import Alert, { AlertProps } from '../Alert';
+import Alert, { AlertProps } from './Alert';
 import { ThemeProvider } from '../../Theme/src/ThemeProvider';
 import { useDarkMode } from 'storybook-dark-mode';
 

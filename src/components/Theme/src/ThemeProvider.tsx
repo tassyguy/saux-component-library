@@ -5,7 +5,7 @@ import React, {
   useState,
   useEffect,
 } from 'react';
-import '../../global.css'; // Ensure the global styles are applied
+import '../../../global.css'; // Ensure the global styles are applied
 
 // Define the theme types
 interface Theme {
