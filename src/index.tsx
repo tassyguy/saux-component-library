@@ -8,7 +8,7 @@ import './global.css';
 // UI/Interactive component imports:
 import { default as Button } from './components/Button/src/Button';
 import { default as Link } from './components/Link/src/Link';
-import { default as CardList } from './components/Card/src/CardItem';
+import { default as Card } from './components/Card/src/Card';
 
 // Form component imports:
 
@@ -96,7 +96,7 @@ const StyleGuide: React.FC = () => {
       // Button component DONE
       <Link label="This is a link component" href="www.google.com" /> // Link
       comopnent DONE
-      <CardList items={cardItems} /> // Card component DONE // Modal/Dialog
+      <Card items={cardItems} /> // Card component DONE // Modal/Dialog
       component goes here // Tooltip component goes here // Dropdown/Menu
       component goes here // Avatar component goes here // Badge component goes
       here // Alert/Notification component goes here

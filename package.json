@@ -18,8 +18,8 @@
   },
   "homepage": "https://tassyguy.github.io/saux-component-library",
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Simanda LLC",
+  "license": "Proprietary",
   "dependencies": {
     "@vitejs/plugin-react": "^4.3.4",
     "react": "^19.0.0",

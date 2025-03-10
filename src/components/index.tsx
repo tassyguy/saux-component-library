@@ -4,7 +4,7 @@ export { default as Avatar } from './Avatar/src/Avatar';
 export { default as Badge } from './Badge/src/Badge';
 export { default as Breadcrumb } from './Breadcrumb/src/Breadcrumb';
 export { default as Button } from './Button/src/Button';
-export { default as CardItem } from './Card/src/CardItem';
+export { default as CardItem } from './Card/src/Card';
 export { default as CheckRadio } from './CheckRadio/src/CheckRadio';
 export { default as Container } from './Container/src/Container';
 export { default as DropdownMenu } from './DropdownMenu/src/DropdownMenu';

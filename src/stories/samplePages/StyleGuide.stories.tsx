@@ -22,7 +22,7 @@ import '../../components/Footer/Footer.css';
 // UI/Interactive Components
 import Button from '../../components/Button/src/Button';
 import Link from '../../components/Link/src/Link';
-import CardItem from '../../components/Card/src/CardItem';
+import CardItem from '../../components/Card/src/Card';
 import Modal from '../../components/Modal/src/Modal';
 import Tooltip from '../../components/Tooltip/src/Tooltip';
 import Dropdown from '../../components/DropdownMenu/src/DropdownMenu';

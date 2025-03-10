@@ -1,5 +1,5 @@
 {
-  "name": "@SAUX/button",
+  "name": "@saux/button",
   "version": "1.0.0",
   "description": "Button component for the SAUX component library",
   "main": "src/Button.tsx",
@@ -29,6 +29,6 @@
     "react",
     "saux"
   ],
-  "author": "Your Name",
-  "license": "ISC"
+  "author": "Simanda LLC",
+  "license": "Proprietary"
 }

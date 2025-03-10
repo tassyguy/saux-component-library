@@ -1,0 +1,35 @@
+{
+  "name": "@saux/theme",
+  "version": "1.0.0",
+  "description": "Theme provider for the SAUX component library",
+  "main": "src/ThemeProvider.tsx",
+  "types": "src/ThemeProvider.tsx",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.10",
+    "jest": "^29.0.0",
+    "@testing-library/react": "^14.0.0"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "keywords": [
+    "theme",
+    "provider",
+    "component",
+    "react",
+    "saux"
+  ],
+  "author": "Simanda LLC",
+  "license": "Proprietary"
+}

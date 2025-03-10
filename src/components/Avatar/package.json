@@ -1,5 +1,5 @@
 {
-  "name": "@SAUX/avatar",
+  "name": "@saux/avatar",
   "version": "1.0.0",
   "description": "Avatar component for the SAUX component library",
   "main": "src/Avatar.tsx",
@@ -29,6 +29,6 @@
     "react",
     "saux"
   ],
-  "author": "Your Name",
-  "license": "ISC"
+  "author": "Simanda LLC",
+  "license": "Proprietary"
 }

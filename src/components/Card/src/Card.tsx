@@ -10,11 +10,11 @@ export interface CardItem {
   onClick?: () => void;
 }
 
-export interface CardListProps {
+export interface CardProps {
   items: CardItem[];
 }
 
-const CardList: React.FC<CardListProps> = ({ items }) => {
+const Card: React.FC<CardProps> = ({ items }) => {
   const theme = useTheme(); // Get theme values
 
   if (!items || items.length === 0) return null;
@@ -36,4 +36,4 @@ const CardList: React.FC<CardListProps> = ({ items }) => {
   );
 };
 
-export default CardList;
+export default Card;

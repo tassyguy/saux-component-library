@@ -1,16 +1,16 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
-import CardList, { CardListProps } from './CardItem';
+import Card, { CardProps } from './Card';
 import { ThemeProvider } from '../../Theme/src/ThemeProvider';
 
 export default {
   title: 'Components/Card List',
-  component: CardList,
+  component: Card,
 } as Meta;
 
-const Template: StoryFn<CardListProps> = (args) => (
+const Template: StoryFn<CardProps> = (args) => (
   <ThemeProvider>
-    <CardList {...args} />
+    <Card {...args} />
   </ThemeProvider>
 );
 
