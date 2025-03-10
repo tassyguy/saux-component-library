@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import ToggleSwitch, { ToggleSwitchProps } from './ToggleSwitch';
-import { ThemeProvider } from '../Theme/ThemeProvider';
+import { ThemeProvider } from '../../Theme';
 import { useDarkMode } from 'storybook-dark-mode';
 
 export default {

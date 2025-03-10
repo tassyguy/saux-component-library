@@ -2,12 +2,8 @@ import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import Button from '../../components/Button/src/Button';
 import FormGroup from '../../components/Form/src/FormGroup';
-import ToggleSwitch from '../../components/ToggleSwitch/ToggleSwitch';
+import ToggleSwitch from '../../components/ToggleSwitch/src/ToggleSwitch';
 import Tooltip from '../../components/Tooltip/src/Tooltip';
-import '../../components/Button/Button.css';
-import '../../components/Form/FormGroup.css';
-import '../../components/ToggleSwitch/ToggleSwitch.css';
-import '../../components/Tooltip/Tooltip.css';
 import { ThemeProvider } from '../../components/Theme/src/ThemeProvider';
 
 export default {

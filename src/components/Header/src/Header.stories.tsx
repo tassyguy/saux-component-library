@@ -6,7 +6,7 @@ import H2, { H2Props } from './H2';
 import H3, { H3Props } from './H3';
 import H4, { H4Props } from './H4';
 import H5, { H5Props } from './H5';
-import { ThemeProvider } from '../Theme/src/ThemeProvider';
+import { ThemeProvider } from '../../Theme';
 
 export default {
   title: 'Components/Headers',

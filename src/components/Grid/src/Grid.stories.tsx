@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
-import Grid from '../Grid';
-import GridItem from '../GridItem';
+import Grid from './Grid';
+import GridItem from './GridItem';
 import { ThemeProvider } from '../../Theme/src/ThemeProvider';
 import { useDarkMode } from 'storybook-dark-mode';
 

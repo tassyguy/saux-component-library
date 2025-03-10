@@ -1,0 +1,5 @@
+import{j as s}from"./jsx-runtime-D_zvdyIk.js";import{U as c,O as p}from"./OL-CU3B1mEV.js";import{T as l}from"./ThemeProvider-DGwBzojn.js";import"./index-DmM0KDA7.js";const x={title:"Components/Lists",component:c},L=o=>s.jsx(l,{children:s.jsx(c,{...o})}),O=o=>s.jsx(l,{children:s.jsx(p,{...o})}),e=L.bind({});e.args={items:[{label:"Unordered Item 1"},{label:"Unordered Item 2"},{label:"Unordered Item 3"}]};const r=O.bind({});r.args={items:[{label:"Ordered Item 1"},{label:"Ordered Item 2"},{label:"Ordered Item 3"}]};var t,d,a;e.parameters={...e.parameters,docs:{...(t=e.parameters)==null?void 0:t.docs,source:{originalSource:`args => <ThemeProvider>\r
+    <UnorderedList {...args} />\r
+  </ThemeProvider>`,...(a=(d=e.parameters)==null?void 0:d.docs)==null?void 0:a.source}}};var m,i,n;r.parameters={...r.parameters,docs:{...(m=r.parameters)==null?void 0:m.docs,source:{originalSource:`args => <ThemeProvider>\r
+    <OrderedList {...args} />\r
+  </ThemeProvider>`,...(n=(i=r.parameters)==null?void 0:i.docs)==null?void 0:n.source}}};const T=["UnorderedListStory","OrderedListStory"];export{r as OrderedListStory,e as UnorderedListStory,T as __namedExportsOrder,x as default};

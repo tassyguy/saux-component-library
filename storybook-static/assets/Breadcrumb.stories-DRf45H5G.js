@@ -1,0 +1,8 @@
+import{j as e}from"./jsx-runtime-D_zvdyIk.js";import{B as t}from"./Breadcrumb-BUtv4gyG.js";import{T as c}from"./ThemeProvider-DGwBzojn.js";import{u as n}from"./index-Bdtnp1LJ.js";import"./index-DmM0KDA7.js";import"./index-DKWlSypl.js";const k={title:"Components/Breadcrumb",component:t},i=m=>{const d=n();return e.jsx(c,{children:e.jsx("div",{className:d?"dark-theme":"",children:e.jsx(t,{...m})})})},r=i.bind({});r.args={items:[{label:"Home",href:"/"},{label:"Products",href:"/products"},{label:"Electronics",href:"/products/electronics"},{label:"Laptops"}]};var s,o,a;r.parameters={...r.parameters,docs:{...(s=r.parameters)==null?void 0:s.docs,source:{originalSource:`args => {
+  const isDarkMode = useDarkMode();
+  return <ThemeProvider>\r
+      <div className={isDarkMode ? 'dark-theme' : ''}>\r
+        <Breadcrumb {...args} />\r
+      </div>\r
+    </ThemeProvider>;
+}`,...(a=(o=r.parameters)==null?void 0:o.docs)==null?void 0:a.source}}};const x=["Default"];export{r as Default,x as __namedExportsOrder,k as default};
