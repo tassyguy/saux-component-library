@@ -1,0 +1,5 @@
+import{j as o}from"./jsx-runtime-D_zvdyIk.js";import{L as c}from"./Link-RlleZ7cq.js";import{T as p}from"./ThemeProvider-D8qwjXKu.js";import"./index-BZISi7jw.js";import"./_commonjsHelpers-CqkleIqs.js";const L={title:"Components/Link",component:c},l=d=>o.jsx(p,{children:o.jsx(c,{...d})}),r=l.bind({});r.args={label:"Go to Google",href:"https://www.google.com"};const e=l.bind({});e.args={label:"Click Me",href:"#",onClick:()=>alert("Link clicked!")};var s,a,t;r.parameters={...r.parameters,docs:{...(s=r.parameters)==null?void 0:s.docs,source:{originalSource:`args => <ThemeProvider>\r
+    <Link {...args} />\r
+  </ThemeProvider>`,...(t=(a=r.parameters)==null?void 0:a.docs)==null?void 0:t.source}}};var i,n,m;e.parameters={...e.parameters,docs:{...(i=e.parameters)==null?void 0:i.docs,source:{originalSource:`args => <ThemeProvider>\r
+    <Link {...args} />\r
+  </ThemeProvider>`,...(m=(n=e.parameters)==null?void 0:n.docs)==null?void 0:m.source}}};const T=["Default","WithClickHandler"];export{r as Default,e as WithClickHandler,T as __namedExportsOrder,L as default};

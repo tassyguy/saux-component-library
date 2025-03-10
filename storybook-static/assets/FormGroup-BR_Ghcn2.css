@@ -1,0 +1,1 @@
+.form{width:100%;max-width:600px;margin:0 auto;padding:1em;box-sizing:border-box}.form-group{margin-bottom:1em;display:flex;flex-direction:column}.form-group__label{font-size:var(--font-size-small);margin-bottom:.5em;color:var(--text-color)}.form-group__control{display:flex;flex-direction:column}

@@ -1,0 +1,4 @@
+import{j as u}from"./jsx-runtime-D_zvdyIk.js";import{r as c}from"./index-BZISi7jw.js";import{P as o}from"./Pagination-SVcFV14_.js";import"./_commonjsHelpers-CqkleIqs.js";const f={title:"Components/Pagination",component:o},P=r=>{const[s,g]=c.useState(r.currentPage);return u.jsx(o,{...r,currentPage:s,onPageChange:i=>g(i)})},e=P.bind({});e.args={currentPage:1,totalPages:5};var t,a,n;e.parameters={...e.parameters,docs:{...(t=e.parameters)==null?void 0:t.docs,source:{originalSource:`args => {
+  const [currentPage, setCurrentPage] = useState(args.currentPage);
+  return <Pagination {...args} currentPage={currentPage} onPageChange={(page: number) => setCurrentPage(page)} />;
+}`,...(n=(a=e.parameters)==null?void 0:a.docs)==null?void 0:n.source}}};const x=["DefaultPagination"];export{e as DefaultPagination,x as __namedExportsOrder,f as default};

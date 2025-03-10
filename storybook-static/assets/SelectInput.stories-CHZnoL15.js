@@ -1,0 +1,4 @@
+import{j as p}from"./jsx-runtime-D_zvdyIk.js";import{r as i}from"./index-BZISi7jw.js";import{S as n}from"./SelectInput-DN22wjdY.js";import"./_commonjsHelpers-CqkleIqs.js";const S={title:"Components/SelectInput",component:n},c=t=>{const[r,l]=i.useState(t.value);return p.jsx(n,{...t,value:r,onChange:u=>l(u.target.value)})},e=c.bind({});e.args={label:"Choose an option:",value:"option1",options:[{value:"option1",label:"Option 1"},{value:"option2",label:"Option 2"},{value:"option3",label:"Option 3"}],disabled:!1};var a,o,s;e.parameters={...e.parameters,docs:{...(a=e.parameters)==null?void 0:a.docs,source:{originalSource:`args => {
+  const [value, setValue] = useState(args.value);
+  return <SelectInput {...args} value={value} onChange={e => setValue(e.target.value)} />;
+}`,...(s=(o=e.parameters)==null?void 0:o.docs)==null?void 0:s.source}}};const f=["Default"];export{e as Default,f as __namedExportsOrder,S as default};

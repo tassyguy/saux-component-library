@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react';
 import { themes } from '@storybook/theming';
-import { ThemeProvider } from '../src/components/Theme';
+import { ThemeProvider } from '../src/components';
 import { useDarkMode } from 'storybook-dark-mode';
 import React, { useEffect, useState } from 'react';
 

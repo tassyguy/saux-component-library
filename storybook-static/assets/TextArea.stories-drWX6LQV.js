@@ -1,0 +1,4 @@
+import{j as m}from"./jsx-runtime-D_zvdyIk.js";import{r as p}from"./index-BZISi7jw.js";import{T as o}from"./TextArea-BDEx6zVr.js";import"./_commonjsHelpers-CqkleIqs.js";const v={title:"Components/TextArea",component:o},c=a=>{const[u,l]=p.useState(a.value);return m.jsx(o,{...a,value:u,onChange:n=>l(n.target.value)})},e=c.bind({});e.args={label:"Your Message",value:"",placeholder:"Type your message here...",rows:5,disabled:!1};var r,t,s;e.parameters={...e.parameters,docs:{...(r=e.parameters)==null?void 0:r.docs,source:{originalSource:`args => {
+  const [value, setValue] = useState(args.value);
+  return <TextArea {...args} value={value} onChange={e => setValue(e.target.value)} />;
+}`,...(s=(t=e.parameters)==null?void 0:t.docs)==null?void 0:s.source}}};const f=["Default"];export{e as Default,f as __namedExportsOrder,v as default};
