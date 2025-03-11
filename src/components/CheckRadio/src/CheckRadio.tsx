@@ -1,9 +1,9 @@
-import React from "react";
-import "./CheckRadio.css";
+import React from 'react';
+import './CheckRadio.css';
 
 export interface CheckRadioProps {
   /** Type of control: "checkbox" or "radio" */
-  type: "checkbox" | "radio";
+  type: 'checkbox' | 'radio';
   /** Whether the control is checked */
   checked: boolean;
   /** Callback triggered when the control changes */
@@ -14,6 +14,10 @@ export interface CheckRadioProps {
   label?: string;
   /** Name for radio group */
   name?: string;
+  /** Size of the control: small, medium, large */
+  size?: 'small' | 'medium' | 'large';
+  /** Color variant of the control */
+  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error';
 }
 
 const CheckRadio: React.FC<CheckRadioProps> = ({
@@ -23,10 +27,13 @@ const CheckRadio: React.FC<CheckRadioProps> = ({
   disabled = false,
   label,
   name,
+  size = 'medium',
+  variant = 'primary',
 }) => {
-  const containerClasses = `check-radio ${type === "radio" ? "check-radio--radio" : ""} ${
-    disabled ? "disabled" : ""
-  }`.trim();
+  const containerClasses =
+    `check-radio check-radio--${size} check-radio--${variant} ${
+      type === 'radio' ? 'check-radio--radio' : ''
+    } ${disabled ? 'disabled' : ''}`.trim();
 
   return (
     <label className={containerClasses}>

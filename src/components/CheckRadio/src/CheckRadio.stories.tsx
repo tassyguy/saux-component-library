@@ -5,7 +5,7 @@ import { ThemeProvider } from '../../Theme/src/ThemeProvider';
 import { useDarkMode } from 'storybook-dark-mode';
 
 export default {
-  title: 'Components/CheckRadio',
+  title: 'Components/Check Radio',
   component: CheckRadio,
 } as Meta;
 
@@ -32,6 +32,8 @@ Checkbox.args = {
   checked: false,
   disabled: false,
   label: 'Example Checkbox',
+  size: 'medium',
+  variant: 'primary',
 };
 
 export const RadioButton = Template.bind({});
@@ -41,4 +43,24 @@ RadioButton.args = {
   disabled: false,
   label: 'Example Radio Button',
   name: 'exampleRadio',
+  size: 'medium',
+  variant: 'primary',
+};
+
+export const SmallCheckbox = Template.bind({});
+SmallCheckbox.args = {
+  ...Checkbox.args,
+  size: 'small',
+};
+
+export const LargeCheckbox = Template.bind({});
+LargeCheckbox.args = {
+  ...Checkbox.args,
+  size: 'large',
+};
+
+export const ErrorCheckbox = Template.bind({});
+ErrorCheckbox.args = {
+  ...Checkbox.args,
+  variant: 'error',
 };

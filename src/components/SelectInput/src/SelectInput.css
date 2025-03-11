@@ -1,34 +1,68 @@
 .select-input {
-    display: inline-flex;
-    flex-direction: column;
-    font-family: sans-serif;
-    margin: 0.5em;
-  }
-  
-  .select-input__label {
-    margin-bottom: 0.25em;
-    font-size: 14px;
-    color: #333;
-  }
-  
-  .select-input__select {
-    padding: 8px 12px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    transition: border-color 0.2s;
-    outline: none;
-    cursor: pointer;
-  }
-  
-  .select-input__select:focus {
-    border-color: #06D6A0;
-    box-shadow: 0 0 0 2px rgba(6,214,160,0.3);
-  }
-  
-  .select-input__select:disabled {
-    background-color: #f7f7f7;
-    cursor: not-allowed;
-  }
-  
+  display: inline-flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  margin: 0.5em;
+}
+
+.select-input__label {
+  margin-bottom: 0.25em;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.select-input__select {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition:
+    border-color 0.2s,
+    background-color 0.2s;
+  outline: none;
+  cursor: pointer;
+}
+
+.select-input__select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(6, 214, 160, 0.3);
+}
+
+.select-input__select:disabled {
+  background-color: var(--disabled-background-color);
+  cursor: not-allowed;
+}
+
+/* Size Variants */
+.select-input--small .select-input__select {
+  font-size: 12px;
+  padding: 6px 10px;
+}
+
+.select-input--large .select-input__select {
+  font-size: 16px;
+  padding: 10px 14px;
+}
+
+/* Color Variants */
+.select-input--primary .select-input__select {
+  border-color: var(--primary-color);
+}
+
+.select-input--secondary .select-input__select {
+  border-color: var(--secondary-color);
+}
+
+.select-input--success .select-input__select {
+  border-color: var(--success-color);
+}
+
+.select-input--warning .select-input__select {
+  border-color: var(--warning-color);
+}
+
+.select-input--error .select-input__select {
+  border-color: var(--error-color);
+}

@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { Meta, StoryFn } from "@storybook/react";
-import SelectInput, { SelectInputProps } from "./SelectInput";
+import React, { useState } from 'react';
+import { Meta, StoryFn } from '@storybook/react';
+import SelectInput, { SelectInputProps } from './SelectInput';
 
 export default {
-  title: "Components/SelectInput",
+  title: 'Components/Select Input',
   component: SelectInput,
 } as Meta;
 
 const Template: StoryFn<SelectInputProps> = (args) => {
   const [value, setValue] = useState(args.value);
-  
+
   return (
     <SelectInput
       {...args}
@@ -21,12 +21,37 @@ const Template: StoryFn<SelectInputProps> = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  label: "Choose an option:",
-  value: "option1",
+  label: 'Choose an option:',
+  value: 'option1',
   options: [
-    { value: "option1", label: "Option 1" },
-    { value: "option2", label: "Option 2" },
-    { value: "option3", label: "Option 3" },
+    { value: 'option1', label: 'Option 1' },
+    { value: 'option2', label: 'Option 2' },
+    { value: 'option3', label: 'Option 3' },
   ],
   disabled: false,
+};
+
+export const WithPlaceholder = Template.bind({});
+WithPlaceholder.args = {
+  ...Default.args,
+  value: '',
+  placeholder: 'Select an option...',
+};
+
+export const Small = Template.bind({});
+Small.args = {
+  ...Default.args,
+  size: 'small',
+};
+
+export const Large = Template.bind({});
+Large.args = {
+  ...Default.args,
+  size: 'large',
+};
+
+export const ErrorVariant = Template.bind({});
+ErrorVariant.args = {
+  ...Default.args,
+  variant: 'error',
 };

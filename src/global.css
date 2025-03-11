@@ -45,6 +45,15 @@
   --toggle-switch-handle-background: #fff;
   --hover-background: #e0e0e0;
   --text-on-primary: #ffffff;
+
+  /* High Contrast Light Mode */
+  --hc-background-color: #ffffff;
+  --hc-text-color: #000000;
+  --hc-border-color: #000000;
+  --hc-primary-color: #0000ff;
+  --hc-primary-hover: #000080;
+  --hc-secondary-color: #ff4500;
+  --hc-secondary-hover: #c23616;
 }
 
 /* Dark Theme Overrides */
@@ -80,6 +89,24 @@
   --toggle-switch-on-background: #06d6a0;
   --toggle-switch-handle-background: #fff;
   --hover-background: #33373a;
+}
+
+/* High Contrast Dark Mode */
+.high-contrast.dark-theme {
+  --hc-background-color: #000000;
+  --hc-text-color: #ffffff;
+  --hc-border-color: #ffffff;
+  --hc-primary-color: #00ffff;
+  --hc-primary-hover: #00aaff;
+  --hc-secondary-color: #ff00ff;
+  --hc-secondary-hover: #cc00cc;
+}
+
+/* Apply High Contrast Styles */
+.high-contrast {
+  background-color: var(--hc-background-color) !important;
+  color: var(--hc-text-color) !important;
+  border-color: var(--hc-border-color) !important;
 }
 
 /* Base Styles */

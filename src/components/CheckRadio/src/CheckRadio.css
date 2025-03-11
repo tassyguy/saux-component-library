@@ -10,6 +10,7 @@
 
 .check-radio.disabled {
   cursor: not-allowed;
+  opacity: 0.6;
 }
 
 .check-radio__input {
@@ -21,7 +22,7 @@
 .check-radio__box {
   width: 20px;
   height: 20px;
-  border: 2px solid #ccc;
+  border: 2px solid var(--border-color);
   border-radius: 4px;
   transition:
     border-color 0.2s,
@@ -29,12 +30,13 @@
   display: inline-block;
   vertical-align: middle;
   margin-right: 8px;
+  background-color: var(--background-color);
 }
 
 /* When checked, show the active styling */
 .check-radio__input:checked + .check-radio__box {
-  border-color: #06d6a0;
-  background-color: #06d6a0;
+  border-color: var(--primary-color);
+  background-color: var(--primary-color);
 }
 
 .check-radio__input:focus + .check-radio__box {
@@ -43,10 +45,42 @@
 
 .check-radio__label {
   font-size: 14px;
-  color: #333;
+  color: var(--text-color);
 }
 
 /* For radio buttons, make the box round */
 .check-radio--radio .check-radio__box {
   border-radius: 50%;
+}
+
+/* Size Variants */
+.check-radio--small .check-radio__box {
+  width: 16px;
+  height: 16px;
+}
+
+.check-radio--large .check-radio__box {
+  width: 24px;
+  height: 24px;
+}
+
+/* Color Variants */
+.check-radio--primary .check-radio__box {
+  border-color: var(--primary-color);
+}
+
+.check-radio--secondary .check-radio__box {
+  border-color: var(--secondary-color);
+}
+
+.check-radio--success .check-radio__box {
+  border-color: var(--success-color);
+}
+
+.check-radio--warning .check-radio__box {
+  border-color: var(--warning-color);
+}
+
+.check-radio--error .check-radio__box {
+  border-color: var(--error-color);
 }

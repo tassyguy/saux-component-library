@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react';
 import { themes } from '@storybook/theming';
-import { ThemeProvider } from '../src/components';
+import { ThemeProvider, useTheme } from '../src/components';
 import { useDarkMode } from 'storybook-dark-mode';
 import React, { useEffect, useState } from 'react';
 import { withConsole } from '@storybook/addon-console';
@@ -8,9 +8,13 @@ import Container from '../src/components/Container';
 
 const withThemeProvider = (Story, context) => {
   const isDarkMode = useDarkMode();
+  const { isHighContrast, toggleHighContrast } = useTheme();
+
   return (
     <ThemeProvider>
-      <div className={isDarkMode ? 'dark-theme' : ''}>
+      <div
+        className={`${isDarkMode ? 'dark-theme' : ''} ${isHighContrast ? 'high-contrast' : ''}`}
+      >
         <Container maxWidth="900px" padding="2rem">
           <Story {...context} />
         </Container>
@@ -45,6 +49,8 @@ const preview: Preview = {
       values: [
         { name: 'light', value: '#ffffff' },
         { name: 'dark', value: '#333333' },
+        { name: 'high-contrast-light', value: '#ffffff' },
+        { name: 'high-contrast-dark', value: '#000000' },
       ],
     },
     darkMode: {

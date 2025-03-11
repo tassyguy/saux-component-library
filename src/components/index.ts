@@ -75,7 +75,7 @@ export type { TableProps, Column } from './Table';
 export { default as TextArea } from './TextArea';
 export type { TextAreaProps } from './TextArea';
 
-export { ThemeProvider } from './Theme';
+export { ThemeProvider, useTheme } from './Theme';
 export type { ThemeProviderProps } from './Theme';
 
 export { default as ToggleSwitch } from './ToggleSwitch';

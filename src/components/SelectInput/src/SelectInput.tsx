@@ -17,6 +17,12 @@ export interface SelectInputProps {
   onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   /** Disable the select */
   disabled?: boolean;
+  /** Placeholder text for the select */
+  placeholder?: string;
+  /** Size of the select input */
+  size?: 'small' | 'medium' | 'large';
+  /** Color variant of the select input */
+  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error';
 }
 
 const SelectInput: React.FC<SelectInputProps> = ({
@@ -25,9 +31,14 @@ const SelectInput: React.FC<SelectInputProps> = ({
   value,
   onChange,
   disabled = false,
+  placeholder = 'Select an option...',
+  size = 'medium',
+  variant = 'primary',
 }) => {
   return (
-    <div className="select-input">
+    <div
+      className={`select-input select-input--${size} select-input--${variant}`.trim()}
+    >
       {label && <label className="select-input__label">{label}</label>}
       <select
         className="select-input__select"
@@ -36,6 +47,9 @@ const SelectInput: React.FC<SelectInputProps> = ({
         disabled={disabled}
         aria-label={label}
       >
+        <option value="" disabled hidden>
+          {placeholder}
+        </option>
         {options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}

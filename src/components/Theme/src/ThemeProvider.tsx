@@ -38,9 +38,12 @@ interface Theme {
   toggleSwitchBackground: string;
   toggleSwitchOnBackground: string;
   toggleSwitchHandleBackground: string;
+  highContrastBackgroundColor?: string;
+  highContrastTextColor?: string;
+  highContrastBorderColor?: string;
 }
 
-// Default light theme values
+// Extend default light and dark themes with high contrast
 const lightTheme: Theme = {
   primaryColor: '#007bff',
   primaryColorHover: '#0056b3',
@@ -71,45 +74,32 @@ const lightTheme: Theme = {
   toggleSwitchBackground: '#ccc',
   toggleSwitchOnBackground: '#06D6A0',
   toggleSwitchHandleBackground: '#fff',
+  highContrastBackgroundColor: '#ffffff',
+  highContrastTextColor: '#000000',
+  highContrastBorderColor: '#000000',
 };
 
-// Default dark theme values
 const darkTheme: Theme = {
+  ...lightTheme,
   primaryColor: '#1a73e8',
   primaryColorHover: '#185abc',
-  secondaryColor: '#ff9800',
-  secondaryColorHover: '#e68900',
   backgroundColor: '#202124',
   textColor: '#e8eaed',
-  fontFamily: 'Arial, sans-serif',
   borderColor: '#5f6368',
-  successBackgroundColor: '#155724',
-  successTextColor: '#d4edda',
-  successBorderColor: '#c3e6cb',
-  errorBackgroundColor: '#721c24',
-  errorTextColor: '#f8d7da',
-  errorBorderColor: '#f5c6cb',
-  warningBackgroundColor: '#856404',
-  warningTextColor: '#fff3cd',
-  warningBorderColor: '#ffeeba',
-  infoBackgroundColor: '#0c5460',
-  infoTextColor: '#d1ecf1',
-  infoBorderColor: '#bee5eb',
   paginationButtonBackground: '#333',
   paginationButtonBorder: '#555',
   paginationButtonHoverBackground: '#444',
-  paginationButtonActiveBackground: '#06d6a0',
-  paginationButtonActiveBorder: '#06d6a0',
-  paginationButtonActiveColor: '#fff',
-  toggleSwitchBackground: '#555',
-  toggleSwitchOnBackground: '#06D6A0',
-  toggleSwitchHandleBackground: '#fff',
+  highContrastBackgroundColor: '#000000',
+  highContrastTextColor: '#ffffff',
+  highContrastBorderColor: '#ffffff',
 };
 
 // Create a Context for the theme
 const ThemeContext = createContext({
   theme: lightTheme,
   toggleTheme: () => {},
+  toggleHighContrast: () => {},
+  isHighContrast: false,
 });
 
 export interface ThemeProviderProps {
@@ -119,91 +109,48 @@ export interface ThemeProviderProps {
 // ThemeProvider component
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [isHighContrast, setIsHighContrast] = useState(false);
 
   const toggleTheme = () => {
     setIsDarkTheme(!isDarkTheme);
   };
 
-  const theme = isDarkTheme ? darkTheme : lightTheme;
+  const toggleHighContrast = () => {
+    setIsHighContrast(!isHighContrast);
+  };
+
+  let theme = isDarkTheme ? darkTheme : lightTheme;
+  if (isHighContrast) {
+    theme = {
+      ...theme,
+      backgroundColor: theme.highContrastBackgroundColor || '#ffffff',
+      textColor: theme.highContrastTextColor || '#000000',
+      borderColor: theme.highContrastBorderColor || '#000000',
+    };
+  }
 
   useEffect(() => {
     const root = document.documentElement;
-    root.style.setProperty('--primary-color', theme.primaryColor);
-    root.style.setProperty('--primary-color-hover', theme.primaryColorHover);
-    root.style.setProperty('--secondary-color', theme.secondaryColor);
-    root.style.setProperty(
-      '--secondary-color-hover',
-      theme.secondaryColorHover
-    );
-    root.style.setProperty('--background-color', theme.backgroundColor);
-    root.style.setProperty('--text-color', theme.textColor);
-    root.style.setProperty('--font-family', theme.fontFamily);
-    root.style.setProperty('--border-color', theme.borderColor);
-    root.style.setProperty(
-      '--success-background-color',
-      theme.successBackgroundColor
-    );
-    root.style.setProperty('--success-text-color', theme.successTextColor);
-    root.style.setProperty('--success-border-color', theme.successBorderColor);
-    root.style.setProperty(
-      '--error-background-color',
-      theme.errorBackgroundColor
-    );
-    root.style.setProperty('--error-text-color', theme.errorTextColor);
-    root.style.setProperty('--error-border-color', theme.errorBorderColor);
-    root.style.setProperty(
-      '--warning-background-color',
-      theme.warningBackgroundColor
-    );
-    root.style.setProperty('--warning-text-color', theme.warningTextColor);
-    root.style.setProperty('--warning-border-color', theme.warningBorderColor);
-    root.style.setProperty(
-      '--info-background-color',
-      theme.infoBackgroundColor
-    );
-    root.style.setProperty('--info-text-color', theme.infoTextColor);
-    root.style.setProperty('--info-border-color', theme.infoBorderColor);
-    root.style.setProperty(
-      '--pagination-button-background',
-      theme.paginationButtonBackground
-    );
-    root.style.setProperty(
-      '--pagination-button-border',
-      theme.paginationButtonBorder
-    );
-    root.style.setProperty(
-      '--pagination-button-hover-background',
-      theme.paginationButtonHoverBackground
-    );
-    root.style.setProperty(
-      '--pagination-button-active-background',
-      theme.paginationButtonActiveBackground
-    );
-    root.style.setProperty(
-      '--pagination-button-active-border',
-      theme.paginationButtonActiveBorder
-    );
-    root.style.setProperty(
-      '--pagination-button-active-color',
-      theme.paginationButtonActiveColor
-    );
-    root.style.setProperty(
-      '--toggle-switch-background',
-      theme.toggleSwitchBackground
-    );
-    root.style.setProperty(
-      '--toggle-switch-on-background',
-      theme.toggleSwitchOnBackground
-    );
-    root.style.setProperty(
-      '--toggle-switch-handle-background',
-      theme.toggleSwitchHandleBackground
-    );
+    Object.keys(theme).forEach((key) => {
+      const value = theme[key as keyof Theme];
+      if (typeof value === 'string') {
+        root.style.setProperty(
+          `--${key.replace(/[A-Z]/g, (match) => `-${match.toLowerCase()}`)}`,
+          value
+        );
+      }
+    });
   }, [theme]);
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div className={isDarkTheme ? 'dark-theme' : ''}>{children}</div>
+    <ThemeContext.Provider
+      value={{ theme, toggleTheme, toggleHighContrast, isHighContrast }}
+    >
+      <div
+        className={`${isDarkTheme ? 'dark-theme' : ''} ${isHighContrast ? 'high-contrast' : ''}`}
+      >
+        {children}
+      </div>
     </ThemeContext.Provider>
   );
 };

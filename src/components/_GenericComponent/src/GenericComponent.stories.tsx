@@ -3,7 +3,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import GenericComponent, { GenericComponentProps } from './GenericComponent';
 
 export default {
-  title: 'Components/GenericComponent',
+  title: 'Components/Generic Component',
   component: GenericComponent,
 } as Meta;
 
