@@ -1,40 +1,57 @@
-import React from "react";
-import "./TextArea.css";
+import React from 'react';
+import './TextArea.css';
 
 export interface TextAreaProps {
-  /** Optional label to display above the text area */
   label?: string;
-  /** The current text value */
   value: string;
-  /** Callback when the text changes */
   onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  /** Placeholder text */
   placeholder?: string;
-  /** Number of rows for the text area */
   rows?: number;
-  /** Disable the text area */
   disabled?: boolean;
+  maxLength?: number;
+  resize?: 'none' | 'vertical' | 'horizontal' | 'both';
+  autoFocus?: boolean;
+  fullWidth?: boolean;
+  error?: string;
+  characterCount?: boolean;
 }
 
 const TextArea: React.FC<TextAreaProps> = ({
   label,
   value,
   onChange,
-  placeholder = "",
+  placeholder = '',
   rows = 5,
   disabled = false,
+  maxLength,
+  resize = 'vertical',
+  autoFocus = false,
+  fullWidth = false,
+  error,
+  characterCount = false,
 }) => {
   return (
-    <div className="textarea-container">
+    <div
+      className={`textarea-container ${fullWidth ? 'textarea--fullWidth' : ''}`.trim()}
+    >
       {label && <label className="textarea-label">{label}</label>}
       <textarea
-        className="textarea-input"
+        className={`textarea-input ${error ? 'textarea--error' : ''}`.trim()}
         value={value}
         onChange={onChange}
         placeholder={placeholder}
         rows={rows}
         disabled={disabled}
+        maxLength={maxLength}
+        autoFocus={autoFocus}
+        style={{ resize }}
       />
+      {characterCount && maxLength && (
+        <p className="textarea-char-count">
+          {value.length}/{maxLength} characters
+        </p>
+      )}
+      {error && <p className="textarea-error">{error}</p>}
     </div>
   );
 };

@@ -46,7 +46,7 @@ export type { InputFieldProps } from './InputField';
 export { default as Link } from './Link';
 export type { LinkProps } from './Link';
 
-export { List, OL, UL } from './List';
+export { List, OrderedList, UnorderedList } from './List';
 export type {
   ListProps,
   ListItem,

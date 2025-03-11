@@ -10,6 +10,7 @@ const config: StorybookConfig = {
   ],
   addons: [
     '@storybook/addon-essentials',
+    '@storybook/addon-actions/register',
     'storybook-dark-mode',
     '@storybook/addon-a11y',
     '@storybook/addon-docs',
@@ -26,6 +27,7 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: true,
+    defaultName: 'Documentation',
   },
   typescript: {
     reactDocgen: 'react-docgen-typescript',

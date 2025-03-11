@@ -1,19 +1,33 @@
-import React from "react";
-import "./Footer.css";
+import React from 'react';
+import './Footer.css';
 
 export interface FooterProps {
-  /** Content to render inside the footer */
   children?: React.ReactNode;
-  /** Optional additional className for custom styling */
   className?: string;
+  backgroundColor?: string;
+  textColor?: string;
+  align?: 'left' | 'center' | 'right';
+  showDivider?: boolean;
 }
 
-const Footer: React.FC<FooterProps> = ({ children, className = "" }) => {
+const Footer: React.FC<FooterProps> = ({
+  children,
+  className = '',
+  backgroundColor = 'var(--background-color)',
+  textColor = 'var(--text-color)',
+  align = 'center',
+  showDivider = false,
+}) => {
   return (
-    <footer className={`footer ${className}`.trim()}>
+    <footer
+      className={`footer ${className} ${showDivider ? 'footer--divider' : ''}`.trim()}
+      style={{ backgroundColor, color: textColor, textAlign: align }}
+    >
       {children || (
         <div className="footer__default">
-          <p>&copy; {new Date().getFullYear()} Your Company. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Your Company. All rights reserved.
+          </p>
         </div>
       )}
     </footer>

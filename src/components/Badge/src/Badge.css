@@ -1,35 +1,76 @@
 .badge {
-    display: inline-block;
-    padding: 0.25em 0.6em;
-    font-size: 0.75em;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: baseline;
-    border-radius: 0.25rem;
-    color: #fff;
-  }
-  
-  /* Variants */
-  .badge--primary {
-    background-color: #007bff;
-  }
-  
-  .badge--secondary {
-    background-color: #6c757d;
-  }
-  
-  .badge--success {
-    background-color: #28a745;
-  }
-  
-  .badge--warning {
-    background-color: #ffc107;
-    color: #212529;
-  }
-  
-  .badge--error {
-    background-color: #dc3545;
-  }
-  
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+  padding: 0.25em 0.6em;
+  font-size: 0.75em;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  color: #fff;
+}
+
+/* Variants */
+.badge--primary {
+  background-color: #007bff;
+}
+.badge--secondary {
+  background-color: #6c757d;
+}
+.badge--success {
+  background-color: #28a745;
+}
+.badge--warning {
+  background-color: #ffc107;
+  color: #212529;
+}
+.badge--error {
+  background-color: #dc3545;
+}
+
+/* Sizes */
+.badge--small {
+  font-size: 0.65em;
+  padding: 0.2em 0.5em;
+}
+.badge--medium {
+  font-size: 0.75em;
+  padding: 0.25em 0.6em;
+}
+.badge--large {
+  font-size: 0.85em;
+  padding: 0.3em 0.75em;
+}
+
+/* Rounded styles */
+.badge--none {
+  border-radius: 0;
+}
+.badge--small {
+  border-radius: 0.25rem;
+}
+.badge--full {
+  border-radius: 9999px;
+}
+
+/* Pill shape */
+.badge--pill {
+  border-radius: 9999px;
+  padding: 0.3em 0.8em;
+}
+
+/* Icon spacing */
+.badge__icon {
+  display: flex;
+  align-items: center;
+}
+
+.badge__icon:first-child {
+  margin-right: 0.3em;
+}
+.badge__icon:last-child {
+  margin-left: 0.3em;
+}

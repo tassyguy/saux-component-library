@@ -1,33 +1,60 @@
 .textarea-container {
-    display: flex;
-    flex-direction: column;
-    margin: 0.5em 0;
-    font-family: sans-serif;
-  }
-  
-  .textarea-label {
-    margin-bottom: 0.25em;
-    font-size: 14px;
-    color: #333;
-  }
-  
-  .textarea-input {
-    padding: 8px 12px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    outline: none;
-  }
-  
-  .textarea-input:focus {
-    border-color: #06d6a0;
-    box-shadow: 0 0 0 2px rgba(6,214,160,0.3);
-  }
-  
-  .textarea-input:disabled {
-    background-color: #f7f7f7;
-    cursor: not-allowed;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  margin: 0.5em 0;
+  font-family: var(--font-family);
+}
+
+.textarea-label {
+  margin-bottom: 0.25em;
+  font-size: var(--font-size-small);
+  color: var(--text-color);
+}
+
+.textarea-input {
+  padding: 8px 12px;
+  font-size: var(--font-size-small);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  resize: vertical;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+  outline: none;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.textarea-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(6, 214, 160, 0.3);
+}
+
+.textarea-input:disabled {
+  background-color: var(--disabled-background-color);
+  cursor: not-allowed;
+}
+
+/* Full Width */
+.textarea--fullWidth {
+  width: 100%;
+}
+
+/* Error State */
+.textarea--error {
+  border-color: var(--error-border-color);
+}
+
+.textarea-error {
+  color: var(--error-text-color);
+  font-size: 12px;
+  margin-top: 0.25em;
+}
+
+/* Character Counter */
+.textarea-char-count {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 0.25em;
+  text-align: right;
+}

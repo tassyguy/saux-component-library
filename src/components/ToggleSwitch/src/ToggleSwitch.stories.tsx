@@ -25,3 +25,42 @@ Default.args = {
   isOn: false,
   onToggle: () => {},
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  ...Default.args,
+  disabled: true,
+};
+
+export const Small = Template.bind({});
+Small.args = {
+  ...Default.args,
+  size: 'small',
+};
+
+export const Large = Template.bind({});
+Large.args = {
+  ...Default.args,
+  size: 'large',
+};
+
+export const SuccessVariant = Template.bind({});
+SuccessVariant.args = {
+  ...Default.args,
+  isOn: true,
+  variant: 'success',
+};
+
+export const WarningVariant = Template.bind({});
+WarningVariant.args = {
+  ...Default.args,
+  isOn: true,
+  variant: 'warning',
+};
+
+export const ErrorVariant = Template.bind({});
+ErrorVariant.args = {
+  ...Default.args,
+  isOn: true,
+  variant: 'error',
+};

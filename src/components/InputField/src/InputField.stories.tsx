@@ -3,6 +3,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import InputField, { InputFieldProps } from './InputField';
 import { ThemeProvider } from '../../Theme/src/ThemeProvider';
 import { useDarkMode } from 'storybook-dark-mode';
+import { Mail, Lock } from 'react-feather';
 
 export default {
   title: 'Components/Input Field',
@@ -26,8 +27,41 @@ const Template: StoryFn<InputFieldProps> = (args) => {
   );
 };
 
-export const DefaultInputField = Template.bind({});
-DefaultInputField.args = {
+export const Default = Template.bind({});
+Default.args = {
   value: '',
   placeholder: 'Enter text here...',
+};
+
+export const WithMaxLength = Template.bind({});
+WithMaxLength.args = {
+  ...Default.args,
+  maxLength: 50,
+  characterCount: true,
+};
+
+export const WithError = Template.bind({});
+WithError.args = {
+  ...Default.args,
+  error: 'This field is required',
+};
+
+export const FullWidth = Template.bind({});
+FullWidth.args = {
+  ...Default.args,
+  fullWidth: true,
+};
+
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+  ...Default.args,
+  icon: <Mail size={16} />,
+};
+
+export const PasswordInput = Template.bind({});
+PasswordInput.args = {
+  ...Default.args,
+  type: 'password',
+  placeholder: 'Enter your password',
+  icon: <Lock size={16} />,
 };

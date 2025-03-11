@@ -22,8 +22,10 @@
   "license": "Proprietary",
   "dependencies": {
     "@vitejs/plugin-react": "^4.3.4",
+    "feather-icons": "^4.29.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-feather": "^2.0.10"
   },
   "peerDependencies": {
     "react": "^19.0.0",
@@ -35,6 +37,7 @@
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-typescript": "^12.1.2",
     "@storybook/addon-a11y": "^8.6.4",
+    "@storybook/addon-console": "^3.0.0",
     "@storybook/addon-docs": "^8.6.4",
     "@storybook/addon-essentials": "^8.6.4",
     "@storybook/addon-interactions": "^8.6.4",

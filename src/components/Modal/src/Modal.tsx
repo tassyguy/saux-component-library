@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../../Button/src/Button';
 import './Modal.css';
+import { H3 } from '../../Header';
 
 export interface ModalProps {
   /** Whether the modal is open */
@@ -11,24 +12,41 @@ export interface ModalProps {
   title?: string;
   /** The modal body content */
   children: React.ReactNode;
+  /** Whether clicking the overlay should close the modal */
+  closeOnOverlayClick?: boolean;
+  /** Optional size of the modal (small, medium, large) */
+  size?: 'small' | 'medium' | 'large';
 }
 
-const Modal: React.FC<ModalProps> = ({ open, onClose, title, children }) => {
+const Modal: React.FC<ModalProps> = ({
+  open,
+  onClose,
+  title,
+  children,
+  closeOnOverlayClick = true,
+  size = 'medium',
+}) => {
   if (!open) return null;
 
-  // Clicking the overlay closes the modal, but clicking inside content does not.
+  const sizeClass = `modal-${size}`;
+
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+    <div
+      className="modal-overlay"
+      onClick={closeOnOverlayClick ? onClose : undefined}
+    >
+      <div
+        className={`modal-content ${sizeClass}`}
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="modal-header">
-          {title && <h3>{title}</h3>}
-          <button
+          {title && <H3 text={title} />}
+          <Button
             className="modal-close"
             onClick={onClose}
             aria-label="Close modal"
-          >
-            &times;
-          </button>
+            label="×"
+          />
         </div>
         <div className="modal-body">{children}</div>
       </div>

@@ -3,13 +3,17 @@ import { themes } from '@storybook/theming';
 import { ThemeProvider } from '../src/components';
 import { useDarkMode } from 'storybook-dark-mode';
 import React, { useEffect, useState } from 'react';
+import { withConsole } from '@storybook/addon-console';
+import Container from '../src/components/Container';
 
 const withThemeProvider = (Story, context) => {
   const isDarkMode = useDarkMode();
   return (
     <ThemeProvider>
       <div className={isDarkMode ? 'dark-theme' : ''}>
-        <Story {...context} />
+        <Container maxWidth="900px" padding="2rem">
+          <Story {...context} />
+        </Container>
       </div>
     </ThemeProvider>
   );
@@ -50,7 +54,11 @@ const preview: Preview = {
       light: { ...themes.normal },
     },
   },
-  decorators: [withDynamicBackground, withThemeProvider],
+  decorators: [
+    withDynamicBackground,
+    withThemeProvider,
+    (storyFn, context) => withConsole()(storyFn)(context),
+  ],
 };
 
 export default preview;

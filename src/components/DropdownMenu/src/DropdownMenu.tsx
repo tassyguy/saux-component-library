@@ -1,25 +1,31 @@
-import React, { useState, useRef, useEffect } from "react";
-import "./DropdownMenu.css";
+import React, { useState, useRef, useEffect } from 'react';
+import './DropdownMenu.css';
+import { UnorderedList } from '../../List';
+import { ListItem } from '../../List';
+import Button from '../../Button';
 
 export interface DropdownMenuItem {
   value: string;
   label: string;
   onClick?: () => void;
+  disabled?: boolean;
+  icon?: React.ReactNode;
 }
 
 export interface DropdownMenuProps {
-  /** The text to display on the trigger button */
   label: string;
-  /** Array of menu items */
   items: DropdownMenuItem[];
-  /** Disable the menu */
   disabled?: boolean;
+  align?: 'left' | 'right' | 'center';
+  fullWidth?: boolean;
 }
 
 const DropdownMenu: React.FC<DropdownMenuProps> = ({
   label,
   items,
   disabled = false,
+  align = 'left',
+  fullWidth = false,
 }) => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -28,45 +34,50 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
     if (!disabled) setOpen((prev) => !prev);
   };
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
         setOpen(false);
       }
     };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const handleItemClick = (item: DropdownMenuItem) => {
-    if (item.onClick) item.onClick();
+    if (item.onClick && !item.disabled) item.onClick();
     setOpen(false);
   };
 
+  const listItems: ListItem[] = items.map((item) => ({
+    key: item.value,
+    label: item.label,
+    icon: item.icon,
+    disabled: item.disabled,
+    onClick: item.onClick,
+  }));
+
   return (
-    <div className="dropdown-menu" ref={containerRef}>
-      <button
-        type="button"
-        className="dropdown-menu__trigger"
+    <div
+      className={`dropdown-menu ${fullWidth ? 'dropdown-menu--fullWidth' : ''}`.trim()}
+      ref={containerRef}
+    >
+      <Button
+        label={label}
         onClick={toggleOpen}
         disabled={disabled}
-      >
-        {label}
-        <span className="dropdown-menu__arrow">{open ? "▲" : "▼"}</span>
-      </button>
+        variant="primary"
+        className="dropdown-menu__trigger"
+        icon={<span className="dropdown-menu__arrow">{open ? '▲' : '▼'}</span>}
+      />
       {open && (
-        <ul className="dropdown-menu__list">
-          {items.map((item) => (
-            <li
-              key={item.value}
-              className="dropdown-menu__item"
-              onClick={() => handleItemClick(item)}
-            >
-              {item.label}
-            </li>
-          ))}
-        </ul>
+        <UnorderedList
+          className={`dropdown-menu__list dropdown-menu--${align}`.trim()}
+          items={listItems}
+        />
       )}
     </div>
   );

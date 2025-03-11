@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import Button, { ButtonProps } from './Button';
+import { CheckCircle, AlertTriangle, Info } from 'react-feather';
 
 export default {
   title: 'Components/Button',
@@ -49,7 +50,7 @@ Disabled.args = {
 export const WithIcon = Template.bind({});
 WithIcon.args = {
   label: 'Button with Icon',
-  icon: <i className="icon-class" />,
+  icon: <CheckCircle size={16} />,
 };
 
 export const FullWidth = Template.bind({});

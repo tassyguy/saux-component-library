@@ -33,3 +33,21 @@ Default.args = {
   open: false,
   title: 'Modal Title',
 };
+
+export const Small = Template.bind({});
+Small.args = {
+  ...Default.args,
+  size: 'small',
+};
+
+export const Large = Template.bind({});
+Large.args = {
+  ...Default.args,
+  size: 'large',
+};
+
+export const NoOverlayClose = Template.bind({});
+NoOverlayClose.args = {
+  ...Default.args,
+  closeOnOverlayClick: false,
+};

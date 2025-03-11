@@ -1,39 +1,60 @@
-import React from "react";
-import "./Breadcrumb.css";
+import React from 'react';
+import './Breadcrumb.css';
 
 export interface BreadcrumbItem {
-  /** The text to display for this breadcrumb */
   label: string;
-  /** Optional URL for navigation */
   href?: string;
 }
 
 export interface BreadcrumbProps {
-  /** Array of breadcrumb items */
-  items?: BreadcrumbItem[];
-  /** Optional additional CSS class */
-  className?: string;
+  items: BreadcrumbItem[];
+  separator?: string;
+  onClick?: (item: BreadcrumbItem) => void;
+  truncate?: boolean;
+  boldCurrent?: boolean;
 }
 
-const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, className = "" }) => {
+const Breadcrumb: React.FC<BreadcrumbProps> = ({
+  items,
+  separator = '/',
+  onClick,
+  truncate = false,
+  boldCurrent = false,
+}) => {
   return (
-    <nav className={`breadcrumb ${className}`} aria-label="Breadcrumb">
-      <ol className="breadcrumb__list">
-        {items?.map((item, index) => (
-          <li key={index} className="breadcrumb__item">
-            {item.href ? (
-              <a href={item.href} className="breadcrumb__link">
-                {item.label}
-              </a>
-            ) : (
-              <span className="breadcrumb__current">{item.label}</span>
-            )}
-            {index < items.length - 1 && (
-              <span className="breadcrumb__separator">/</span>
-            )}
-          </li>
-        ))}
-      </ol>
+    <nav className="breadcrumb">
+      <ul
+        className={`breadcrumb__list ${truncate ? 'breadcrumb--truncate' : ''}`.trim()}
+      >
+        {items.map((item, index) => {
+          const isLast = index === items.length - 1;
+          return (
+            <li key={item.label} className="breadcrumb__item">
+              {item.href && !isLast ? (
+                <a
+                  href={item.href}
+                  className="breadcrumb__link"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onClick?.(item);
+                  }}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <span
+                  className={`breadcrumb__current ${boldCurrent ? 'breadcrumb--bold' : ''}`.trim()}
+                >
+                  {item.label}
+                </span>
+              )}
+              {!isLast && (
+                <span className="breadcrumb__separator">{separator}</span>
+              )}
+            </li>
+          );
+        })}
+      </ul>
     </nav>
   );
 };

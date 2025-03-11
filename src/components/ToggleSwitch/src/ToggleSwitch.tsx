@@ -1,34 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ToggleSwitch.css';
 
 export interface ToggleSwitchProps {
   /** Indicates whether the switch is on or off */
-  isOn: boolean;
+  isOn?: boolean;
   /** Callback triggered when the switch is toggled */
-  onToggle: () => void;
+  onToggle?: (newState: boolean) => void;
   /** Optional flag to disable the switch */
   disabled?: boolean;
+  /** Label text for accessibility */
   label?: string;
+  /** Custom size: small, medium, large */
+  size?: 'small' | 'medium' | 'large';
+  /** Color variant: primary, secondary, success, warning, error */
+  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error';
 }
 
 const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
-  isOn,
+  isOn = false,
   onToggle,
   disabled = false,
   label,
+  size = 'medium',
+  variant = 'primary',
 }) => {
-  const buttonClasses = `toggle-switch ${isOn ? 'on' : ''} ${
-    disabled ? 'disabled' : ''
-  }`.trim();
+  const [toggled, setToggled] = useState(isOn);
+
+  const handleToggle = () => {
+    if (disabled) return;
+    const newState = !toggled;
+    setToggled(newState);
+    onToggle?.(newState);
+  };
+
+  const buttonClasses =
+    `toggle-switch toggle-switch--${size} toggle-switch--${variant} ${toggled ? 'on' : ''} ${
+      disabled ? 'disabled' : ''
+    }`.trim();
 
   return (
     <button
       type="button"
       disabled={disabled}
-      onClick={onToggle}
+      onClick={handleToggle}
       className={buttonClasses}
       aria-label={label || 'Toggle Switch'}
-      aria-pressed={isOn}
+      aria-pressed={toggled}
     >
       <span className="toggle-switch__handle" />
     </button>

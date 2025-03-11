@@ -1,8 +1,41 @@
 .form {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 1em;
-    box-sizing: border-box;
-  }
-  
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+/* Layouts */
+.form--horizontal .form-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form--inline .form-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 1em;
+}
+
+/* Sizes */
+.form--small input,
+.form--small textarea,
+.form--small select {
+  padding: 0.5em;
+  font-size: 0.8em;
+}
+
+.form--large input,
+.form--large textarea,
+.form--large select {
+  padding: 1em;
+  font-size: 1.1em;
+}
+
+/* Loading state */
+.form--loading {
+  opacity: 0.5;
+  pointer-events: none;
+}

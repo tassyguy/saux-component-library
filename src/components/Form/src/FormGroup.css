@@ -14,3 +14,30 @@
   display: flex;
   flex-direction: column;
 }
+
+/* Required field indicator */
+.form-group__required {
+  color: red;
+  margin-left: 0.3em;
+}
+
+/* Error message */
+.form-group__error {
+  color: red;
+  font-size: 0.85em;
+  margin-top: 0.3em;
+}
+
+/* Description text */
+.form-group__description {
+  font-size: 0.85em;
+  color: var(--text-muted);
+  margin-top: 0.3em;
+}
+
+/* Inline form-group */
+.form-group--inline {
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
+}

@@ -6,6 +6,7 @@ import DropdownMenu, {
 } from './DropdownMenu';
 import { ThemeProvider } from '../../Theme/src/ThemeProvider';
 import { useDarkMode } from 'storybook-dark-mode';
+import { Settings, User, LogOut } from 'react-feather';
 
 export default {
   title: 'Components/Dropdown Menu',
@@ -25,25 +26,52 @@ const Template: StoryFn<DropdownMenuProps> = (args) => {
 
 const sampleItems: DropdownMenuItem[] = [
   {
-    value: 'option1',
-    label: 'Option 1',
-    onClick: () => alert('Option 1 selected'),
+    value: 'profile',
+    label: 'Profile',
+    icon: <User size={16} />,
+    onClick: () => alert('Profile clicked'),
   },
   {
-    value: 'option2',
-    label: 'Option 2',
-    onClick: () => alert('Option 2 selected'),
+    value: 'settings',
+    label: 'Settings',
+    icon: <Settings size={16} />,
+    onClick: () => alert('Settings clicked'),
   },
   {
-    value: 'option3',
-    label: 'Option 3',
-    onClick: () => alert('Option 3 selected'),
+    value: 'logout',
+    label: 'Logout',
+    icon: <LogOut size={16} />,
+    onClick: () => alert('Logged out'),
   },
 ];
 
 export const Default = Template.bind({});
 Default.args = {
-  label: 'Select an Option',
+  label: 'Menu',
   items: sampleItems,
   disabled: false,
+};
+
+export const RightAligned = Template.bind({});
+RightAligned.args = {
+  ...Default.args,
+  align: 'right',
+};
+
+export const CenterAligned = Template.bind({});
+CenterAligned.args = {
+  ...Default.args,
+  align: 'center',
+};
+
+export const FullWidth = Template.bind({});
+FullWidth.args = {
+  ...Default.args,
+  fullWidth: true,
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  ...Default.args,
+  disabled: true,
 };

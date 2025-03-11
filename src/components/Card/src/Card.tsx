@@ -1,7 +1,7 @@
 // filepath: /c:/Users/simonp/Documents/Extra/saux-component-library/src/components/Card/CardItem.tsx
 import React from 'react';
 import { useTheme } from '../../Theme/src/ThemeProvider';
-import './CardItem.css';
+import './Card.css';
 
 export interface CardItem {
   title: string;

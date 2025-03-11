@@ -15,15 +15,7 @@ const Template: StoryFn<ContainerProps> = (args) => {
     <ThemeProvider>
       <div className={isDarkMode ? 'dark-theme' : ''}>
         <Container {...args}>
-          <div
-            style={{
-              background: '#f0f0f0',
-              padding: '2rem',
-              textAlign: 'center',
-            }}
-          >
-            This is content inside a container.
-          </div>
+          <p>This is a responsive container.</p>
         </Container>
       </div>
     </ThemeProvider>
@@ -32,5 +24,27 @@ const Template: StoryFn<ContainerProps> = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  maxWidth: '1200px',
+  maxWidth: '900px',
+  padding: '2rem',
+  backgroundColor: 'var(--background-color)',
+  borderRadius: '8px',
+  shadow: 'medium',
+};
+
+export const FullHeight = Template.bind({});
+FullHeight.args = {
+  ...Default.args,
+  fullHeight: true,
+};
+
+export const NoShadow = Template.bind({});
+NoShadow.args = {
+  ...Default.args,
+  shadow: 'none',
+};
+
+export const CustomMargin = Template.bind({});
+CustomMargin.args = {
+  ...Default.args,
+  margin: '2rem auto',
 };

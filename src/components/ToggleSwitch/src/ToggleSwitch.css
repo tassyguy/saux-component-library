@@ -7,16 +7,20 @@
   outline: none;
   cursor: pointer;
   position: relative;
-  transition: background-color 0.2s;
+  transition:
+    background-color 0.2s,
+    box-shadow 0.2s;
   padding: 0;
 }
 
 .toggle-switch.on {
   background-color: var(--toggle-switch-on-background);
+  box-shadow: 0 0 5px var(--toggle-switch-on-background);
 }
 
 .toggle-switch.disabled {
   cursor: not-allowed;
+  opacity: 0.6;
 }
 
 .toggle-switch__handle {
@@ -32,4 +36,55 @@
 
 .toggle-switch.on .toggle-switch__handle {
   left: 26px;
+}
+
+/* Size Variants */
+.toggle-switch--small {
+  width: 40px;
+  height: 20px;
+}
+
+.toggle-switch--small .toggle-switch__handle {
+  width: 18px;
+  height: 18px;
+  left: 1px;
+}
+
+.toggle-switch--small.on .toggle-switch__handle {
+  left: 20px;
+}
+
+.toggle-switch--large {
+  width: 60px;
+  height: 30px;
+}
+
+.toggle-switch--large .toggle-switch__handle {
+  width: 28px;
+  height: 28px;
+}
+
+.toggle-switch--large.on .toggle-switch__handle {
+  left: 30px;
+}
+
+/* Color Variants */
+.toggle-switch--primary.on {
+  background-color: var(--primary-color);
+}
+
+.toggle-switch--secondary.on {
+  background-color: var(--secondary-color);
+}
+
+.toggle-switch--success.on {
+  background-color: var(--success-color);
+}
+
+.toggle-switch--warning.on {
+  background-color: var(--warning-color);
+}
+
+.toggle-switch--error.on {
+  background-color: var(--error-color);
 }

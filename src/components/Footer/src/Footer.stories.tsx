@@ -29,3 +29,22 @@ Default.args = {
     </div>
   ),
 };
+
+export const CustomBackground = Template.bind({});
+CustomBackground.args = {
+  backgroundColor: 'var(--primary-color)',
+  textColor: '#fff',
+  children: <p>Custom Background Footer</p>,
+};
+
+export const LeftAligned = Template.bind({});
+LeftAligned.args = {
+  align: 'left',
+  children: <p>Left-Aligned Footer</p>,
+};
+
+export const WithDivider = Template.bind({});
+WithDivider.args = {
+  showDivider: true,
+  children: <p>Footer with Divider</p>,
+};

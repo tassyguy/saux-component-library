@@ -1,61 +1,79 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
-import UnorderedList, { UnorderedListProps } from './UL';
-import OrderedList, { OrderedListProps } from './OL';
+import OrderedList from './OL';
+import UnorderedList from './UL';
+import { ListProps, ListItem } from './List';
+import { ThemeProvider } from '../../Theme/src/ThemeProvider';
+import { useDarkMode } from 'storybook-dark-mode';
+import { CheckCircle, AlertTriangle, Info } from 'react-feather';
 
 export default {
-  title: 'Components/Lists',
+  title: 'Components/List',
   component: UnorderedList,
-  argTypes: {
-    ordered: { control: 'boolean' },
-    className: { control: 'text' },
-    style: { control: 'object' },
-    emptyMessage: { control: 'text' },
-  },
 } as Meta;
 
-const UnorderedTemplate: StoryFn<UnorderedListProps> = (args) => (
-  <UnorderedList {...args} />
-);
+const sampleItems: ListItem[] = [
+  {
+    key: 'success',
+    label: 'Success Item',
+    icon: <CheckCircle size={16} />,
+    onClick: () => alert('Success clicked'),
+  },
+  {
+    key: 'warning',
+    label: 'Warning Item',
+    icon: <AlertTriangle size={16} />,
+    onClick: () => alert('Warning clicked'),
+  },
+  {
+    key: 'info',
+    label: 'Info Item',
+    icon: <Info size={16} />,
+    onClick: () => alert('Info clicked'),
+  },
+  { key: 'disabled', label: 'Disabled Item', disabled: true },
+];
 
-const OrderedTemplate: StoryFn<OrderedListProps> = (args) => (
-  <OrderedList {...args} />
-);
-
-export const UnorderedListStory = UnorderedTemplate.bind({});
-UnorderedListStory.args = {
-  items: [
-    { label: 'Unordered Item 1' },
-    { label: 'Unordered Item 2' },
-    { label: 'Unordered Item 3' },
-  ],
+const TemplateUnordered: StoryFn<ListProps> = (args) => {
+  const isDarkMode = useDarkMode();
+  return (
+    <ThemeProvider>
+      <div className={isDarkMode ? 'dark-theme' : ''}>
+        <UnorderedList {...args} />
+      </div>
+    </ThemeProvider>
+  );
 };
 
-export const OrderedListStory = OrderedTemplate.bind({});
-OrderedListStory.args = {
-  items: [
-    { label: 'Ordered Item 1' },
-    { label: 'Ordered Item 2' },
-    { label: 'Ordered Item 3' },
-  ],
+const TemplateOrdered: StoryFn<ListProps> = (args) => {
+  const isDarkMode = useDarkMode();
+  return (
+    <ThemeProvider>
+      <div className={isDarkMode ? 'dark-theme' : ''}>
+        <OrderedList {...args} />
+      </div>
+    </ThemeProvider>
+  );
 };
 
-export const EmptyListStory = UnorderedTemplate.bind({});
-EmptyListStory.args = {
+export const Default = TemplateUnordered.bind({});
+Default.args = {
+  items: sampleItems,
+};
+
+export const Ordered = TemplateOrdered.bind({});
+Ordered.args = {
+  items: sampleItems,
+};
+
+export const EmptyUnordered = TemplateUnordered.bind({});
+EmptyUnordered.args = {
   items: [],
-  emptyMessage: 'No items to display',
+  emptyMessage: 'No items available.',
 };
 
-export const CustomRenderItemStory = UnorderedTemplate.bind({});
-CustomRenderItemStory.args = {
-  items: [
-    { label: 'Custom Item 1' },
-    { label: 'Custom Item 2' },
-    { label: 'Custom Item 3' },
-  ],
-  renderItem: (item, index) => (
-    <div>
-      <strong>{index + 1}.</strong> {item.label}
-    </div>
-  ),
+export const EmptyOrdered = TemplateOrdered.bind({});
+EmptyOrdered.args = {
+  items: [],
+  emptyMessage: 'No items available.',
 };

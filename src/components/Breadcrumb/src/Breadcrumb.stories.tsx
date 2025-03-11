@@ -25,7 +25,24 @@ Default.args = {
   items: [
     { label: 'Home', href: '/' },
     { label: 'Products', href: '/products' },
-    { label: 'Electronics', href: '/products/electronics' },
     { label: 'Laptops' },
   ],
+};
+
+export const CustomSeparator = Template.bind({});
+CustomSeparator.args = {
+  ...Default.args,
+  separator: '→',
+};
+
+export const Truncated = Template.bind({});
+Truncated.args = {
+  ...Default.args,
+  truncate: true,
+};
+
+export const BoldCurrent = Template.bind({});
+BoldCurrent.args = {
+  ...Default.args,
+  boldCurrent: true,
 };

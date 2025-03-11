@@ -1,4 +1,4 @@
-/* filepath: /c:/Users/simonp/Documents/Extra/saux-component-library/src/components/Accordion/Accordion.css */
+/* Accordion Styling */
 .accordion-item {
   margin-bottom: 8px;
   border-radius: 5px;
@@ -13,19 +13,33 @@
   border: 1px solid var(--border-color);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  transition: background 0.3s ease;
+  justify-content: flex-start;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+  gap: 8px;
 }
 
 .accordion-title:hover {
   background: var(--primary-color-hover);
-  color: var(--text-color);
+  color: var(--hover-text-color);
+}
+
+.accordion-item.open .accordion-title {
+  background: var(--primary-color-hover);
+  color: var(--hover-text-color);
+}
+
+.accordion-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
 }
 
 .accordion-title h3 {
-  margin: 0;
-  font-family: var(--font-family);
-  color: var(--text-color);
+  flex-grow: 1;
+  margin-left: 0;
 }
 
 .accordion-content {

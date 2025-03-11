@@ -1,22 +1,49 @@
-import React from "react";
-import "./Container.css";
+import React from 'react';
+import './Container.css';
 
 export interface ContainerProps {
-  /** The content inside the container */
   children: React.ReactNode;
-  /** Additional CSS class names for custom styling */
-  className?: string;
-  /** Optional maximum width (default: 1200px) */
   maxWidth?: string;
+  padding?: string;
+  margin?: string;
+  backgroundColor?: string;
+  borderRadius?: string;
+  shadow?: 'small' | 'medium' | 'large' | 'none';
+  fullHeight?: boolean;
+  className?: string;
 }
 
 const Container: React.FC<ContainerProps> = ({
   children,
-  className = "",
-  maxWidth = "1200px",
+  maxWidth = '1200px',
+  padding = '1rem',
+  margin = '0 auto',
+  backgroundColor = 'var(--background-color)',
+  borderRadius = '0',
+  shadow = 'none',
+  fullHeight = false,
+  className = '',
 }) => {
+  const boxShadowStyles = {
+    small: '0 2px 4px rgba(0, 0, 0, 0.1)',
+    medium: '0 4px 8px rgba(0, 0, 0, 0.15)',
+    large: '0 6px 12px rgba(0, 0, 0, 0.2)',
+    none: 'none',
+  };
+
   return (
-    <div className={`container ${className}`} style={{ maxWidth }}>
+    <div
+      className={`container ${className}`.trim()}
+      style={{
+        maxWidth,
+        padding,
+        margin,
+        backgroundColor,
+        borderRadius,
+        boxShadow: boxShadowStyles[shadow],
+        height: fullHeight ? '100vh' : 'auto',
+      }}
+    >
       {children}
     </div>
   );

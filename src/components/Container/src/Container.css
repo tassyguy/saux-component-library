@@ -1,7 +1,28 @@
 .container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 1rem; /* Provides horizontal padding */
-    box-sizing: border-box;
-  }
-  
+  width: 100%;
+  margin: var(--container-margin, 0 auto);
+  padding: var(--container-padding, 1rem);
+  box-sizing: border-box;
+  max-width: var(--container-max-width, 1200px);
+  background-color: var(--container-background, var(--background-color));
+  border-radius: var(--container-border-radius, 0);
+  box-shadow: var(--container-shadow, none);
+  height: var(--container-height, auto);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Box shadow variations */
+.container--shadow-small {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container--shadow-medium {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.container--shadow-large {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}

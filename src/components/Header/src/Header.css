@@ -1,5 +1,7 @@
-/* filepath: /c:/Users/simonp/Documents/Extra/saux-component-library/src/components/Header/Header.css */
+/* Global Header Styling */
 .header {
   font-family: Arial, sans-serif;
   color: var(--text-color);
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
