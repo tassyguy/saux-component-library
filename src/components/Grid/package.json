@@ -2,8 +2,8 @@
   "name": "@saux/grid",
   "version": "1.0.0",
   "description": "Grid component for the SAUX component library",
-  "main": "src/Grid.tsx",
-  "types": "src/Grid.tsx",
+  "main": "index.ts",
+  "types": "index.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"

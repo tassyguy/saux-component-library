@@ -10,9 +10,13 @@ export interface ButtonProps {
   size?: 'small' | 'medium' | 'large';
   type?: 'button' | 'submit' | 'reset';
   icon?: React.ReactNode;
+  iconPosition?: 'left' | 'right';
   fullWidth?: boolean;
   className?: string;
   style?: React.CSSProperties;
+  loading?: boolean;
+  tooltip?: string;
+  ariaLabel?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -23,9 +27,13 @@ const Button: React.FC<ButtonProps> = ({
   size = 'medium',
   type = 'button',
   icon,
+  iconPosition = 'left',
   fullWidth = false,
   className = '',
   style,
+  loading = false,
+  tooltip,
+  ariaLabel,
 }) => {
   const { theme } = useTheme();
 
@@ -33,12 +41,25 @@ const Button: React.FC<ButtonProps> = ({
     <button
       onClick={onClick}
       className={`button ${variant} ${size} ${fullWidth ? 'full-width' : ''} ${className}`}
-      disabled={disabled}
+      disabled={disabled || loading}
       type={type}
       style={style}
+      aria-label={ariaLabel}
+      title={tooltip}
     >
-      {icon && <span className="button-icon">{icon}</span>}
-      {label}
+      {loading ? (
+        <span className="button-spinner">Loading...</span>
+      ) : (
+        <>
+          {icon && iconPosition === 'left' && (
+            <span className="button-icon">{icon}</span>
+          )}
+          {label}
+          {icon && iconPosition === 'right' && (
+            <span className="button-icon">{icon}</span>
+          )}
+        </>
+      )}
     </button>
   );
 };

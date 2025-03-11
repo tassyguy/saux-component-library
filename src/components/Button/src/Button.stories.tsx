@@ -17,6 +17,9 @@ export default {
     type: {
       control: { type: 'select', options: ['button', 'submit', 'reset'] },
     },
+    iconPosition: {
+      control: { type: 'select', options: ['left', 'right'] },
+    },
   },
 } as Meta;
 
@@ -51,10 +54,25 @@ export const WithIcon = Template.bind({});
 WithIcon.args = {
   label: 'Button with Icon',
   icon: <CheckCircle size={16} />,
+  iconPosition: 'left',
 };
 
 export const FullWidth = Template.bind({});
 FullWidth.args = {
   label: 'Full Width Button',
   fullWidth: true,
+};
+
+export const Loading = Template.bind({});
+Loading.args = {
+  label: 'Loading Button',
+  loading: true,
+  variant: 'primary',
+};
+
+export const WithTooltip = Template.bind({});
+WithTooltip.args = {
+  label: 'Button with Tooltip',
+  tooltip: 'This is a tooltip',
+  variant: 'primary',
 };

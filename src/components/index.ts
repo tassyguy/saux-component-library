@@ -34,8 +34,8 @@ export type { FooterProps } from './Footer';
 export { Form, FormGroup } from './Form';
 export type { FormProps, FormGroupProps } from './Form';
 
-export { default as Grid } from './Grid';
-export type { GridProps } from './Grid';
+export { Grid, GridItem } from './Grid';
+export type { GridProps, GridItemProps } from './Grid';
 
 export { Header, H1, H2, H3, H4, H5 } from './Header';
 export type { HeaderProps } from './Header';
