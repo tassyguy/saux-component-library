@@ -6,8 +6,6 @@ import { Meta, StoryFn } from '@storybook/react';
 import {
   Column,
   Table,
-  OL,
-  UL,
   Accordion,
   Pagination,
   Sidebar,
@@ -23,6 +21,8 @@ import {
   H3,
   H4,
   H5,
+  OrderedList,
+  UnorderedList,
 } from '../../components';
 import { SidebarItem } from '../../components/Sidebar/src/Sidebar';
 
@@ -65,8 +65,8 @@ const Template: StoryFn = () => {
         <label className="form-group__label">Table:</label>
         <Table columns={tableData} data={[]}></Table>
         <label className="form-group__label">Ordered/Unordered Lists:</label>
-        <OL items={[]}></OL>
-        <UL items={[]}></UL>
+        <OrderedList items={[]}></OrderedList>
+        <UnorderedList items={[]}></UnorderedList>
         <label className="form-group__label">Accordion:</label>
         <Accordion items={[]}></Accordion>
         <label className="form-group__label">Pagination:</label>
