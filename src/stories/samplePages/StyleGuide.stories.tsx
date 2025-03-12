@@ -58,137 +58,102 @@ const Template: StoryFn = () => {
 
   return (
     <ThemeProvider>
-      <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-        <label className="form-group__label">Header tags:</label>
-        <H1 text="H1" />
-        <H2 text="H2" />
-        <H3 text="H3" />
-        <H4 text="H4" /> 
-        <H5 text="H5" />
-        <label className="form-group__label">Table:</label>
-        <Table columns={tableData} data={[]}></Table>
-        <label className="form-group__label">Ordered/Unordered Lists:</label>
-        <OrderedList items={[
-         {
-          icon: <CheckCircle size={16} />,
-          key: 'success',
-          label: 'Success Item',
-          onClick: () => {}
-        },
-        {
-          key: 'warning',
-          label: 'Warning Item',
-          onClick: () => {}
-        },
-        {
-          key: 'info',
-          label: 'Info Item',
-          onClick: () => {}
-        },
-        {
-          disabled: true,
-          key: 'disabled',
-          label: 'Disabled Item'
-        }
-        ]}></OrderedList>
+      <div className="padding-lg font-family-alt">
+        <label className="form-group__label margin-bottom-sm">Header tags:</label>
+        <H1 text="H1" className="margin-bottom-xs" />
+        <H2 text="H2" className="margin-bottom-xs" />
+        <H3 text="H3" className="margin-bottom-xs" />
+        <H4 text="H4" className="margin-bottom-xs" /> 
+        <H5 text="H5" className="margin-bottom-md" />
+        
+        <label className="form-group__label margin-bottom-sm">Table:</label>
+        <Table columns={tableData} data={[]} className="margin-bottom-lg" />
+
+        <label className="form-group__label margin-bottom-sm">Ordered Lists:</label>
+        <OrderedList
+          className="padding-md"
+          items={[
+            { icon: <CheckCircle size={16} />, key: 'success', label: 'Success Item', onClick: () => {} },
+            { key: 'warning', label: 'Warning Item', onClick: () => {} },
+            { key: 'info', label: 'Info Item', onClick: () => {} },
+            { disabled: true, key: 'disabled', label: 'Disabled Item' },
+          ]}
+        />
+
+        <label className="form-group__label margin-bottom-sm">Unordered Lists:</label>
         <UnorderedList
-      items={[
-        {
-          icon: <CheckCircle size={16} />,
-          key: 'success',
-          label: 'Success Item',
-          onClick: () => {}
-        },
-        {
-          key: 'warning',
-          label: 'Warning Item',
-          onClick: () => {}
-        },
-        {
-          key: 'info',
-          label: 'Info Item',
-          onClick: () => {}
-        },
-        {
-          disabled: true,
-          key: 'disabled',
-          label: 'Disabled Item'
-        }
-      ]}
-     />
-        <label className="form-group__label">Accordion:</label>
+          className="padding-md"
+          items={[
+            { icon: <CheckCircle size={16} />, key: 'success', label: 'Success Item', onClick: () => {} },
+            { key: 'warning', label: 'Warning Item', onClick: () => {} },
+            { key: 'info', label: 'Info Item', onClick: () => {} },
+            { disabled: true, key: 'disabled', label: 'Disabled Item' },
+          ]}
+        />
+
+        <label className="form-group__label margin-bottom-sm">Accordion:</label>
         <Accordion
-        items={[
-          {
-            content: <p>Content 1</p>,
-            icon: <ChevronDown size={16} />,
-            title: 'Item 1'
-          },
-          {
-            content: <p>Content 2</p>,
-            icon: <ChevronDown size={16} />,
-            title: 'Item 2'
-          },
-          {
-            content: <p>Content 3</p>,
-            icon: <ChevronDown size={16} />,
-            title: 'Item 3'
-          }
-        ]}
-      />
-        <label className="form-group__label">Pagination:</label>
+          className="margin-bottom-lg"
+          items={[
+            { content: <p>Content 1</p>, icon: <ChevronDown size={16} />, title: 'Item 1' },
+            { content: <p>Content 2</p>, icon: <ChevronDown size={16} />, title: 'Item 2' },
+            { content: <p>Content 3</p>, icon: <ChevronDown size={16} />, title: 'Item 3' },
+          ]}
+        />
+
+        <label className="form-group__label margin-bottom-sm">Pagination:</label>
         <Pagination
           currentPage={0}
           totalPages={0}
-          onPageChange={function (page: number): void {
-            throw new Error('Function not implemented.');
-          }}
-        ></Pagination>
-        <label className="form-group__label">Sidebar Component:</label>
-        <Sidebar title={'Sidebar'} items={sampleItems} className=""></Sidebar>
-        <Breadcrumb items={breadcrumbs} />
-        <label className="form-group__label">Dark Mode</label>
-        <ToggleSwitch isOn={darkMode} onToggle={() => setDarkMode(!darkMode)} />
-        <Footer>
-          <label className="form-group__label">Dark Mode</label>
-          <ToggleSwitch
-            isOn={darkMode}
-            onToggle={() => setDarkMode(!darkMode)}
-          />
+          className="margin-bottom-lg"
+          onPageChange={(page: number) => console.log(`Page changed to ${page}`)}
+        />
+
+        <label className="form-group__label margin-bottom-sm">Sidebar Component:</label>
+        <Sidebar title={'Sidebar'} items={sampleItems} className="padding-lg margin-bottom-lg" />
+        
+        <Breadcrumb items={breadcrumbs} className="margin-bottom-md" />
+
+        <label className="form-group__label margin-bottom-sm">Dark Mode</label>
+        <ToggleSwitch isOn={darkMode} onToggle={() => setDarkMode(!darkMode)} className="margin-bottom-md" />
+
+        <Footer className="padding-md">
+          <label className="form-group__label margin-bottom-sm">Dark Mode</label>
+          <ToggleSwitch isOn={darkMode} onToggle={() => setDarkMode(!darkMode)} />
         </Footer>
 
-        <FormGroup>
-          <label className="form-group__label">Dark Mode</label>
-          <ToggleSwitch
-            isOn={darkMode}
-            onToggle={() => setDarkMode(!darkMode)}
-          />
+        <FormGroup className="padding-md">
+          <label className="form-group__label margin-bottom-sm">Dark Mode</label>
+          <ToggleSwitch isOn={darkMode} onToggle={() => setDarkMode(!darkMode)} />
         </FormGroup>
-        <div className="dashboard-section">
-          <h2>Statistics</h2>
-          <div className="dashboard-item">
+
+        <div className="dashboard-section margin-bottom-lg">
+          <h2 className="margin-bottom-md">Statistics</h2>
+          <div className="dashboard-item padding-md">
             <Tooltip content="Total number of users">
               <span>Total Users: 1,234</span>
             </Tooltip>
           </div>
-          <div className="dashboard-item">
+          <div className="dashboard-item padding-md">
             <Tooltip content="Total number of orders">
               <span>Total Orders: 567</span>
             </Tooltip>
           </div>
         </div>
-        <div className="dashboard-section">
-          <h2>Actions</h2>
-          <div className="dashboard-item">
-            <Button label="Add User" variant="primary" />
+
+        <div className="dashboard-section margin-bottom-lg">
+          <h2 className="margin-bottom-md">Actions</h2>
+          <div className="dashboard-item margin-bottom-sm">
+            <Button label="Add User" variant="primary" className="padding-sm" />
           </div>
           <div className="dashboard-item">
-            <Button label="Generate Report" variant="secondary" />
+            <Button label="Generate Report" variant="secondary" className="padding-sm" />
           </div>
         </div>
       </div>
     </ThemeProvider>
   );
 };
+
 
 export const Dashboard = Template.bind({});
