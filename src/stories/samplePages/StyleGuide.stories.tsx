@@ -68,7 +68,29 @@ const Template: StoryFn = () => {
         <label className="form-group__label">Table:</label>
         <Table columns={tableData} data={[]}></Table>
         <label className="form-group__label">Ordered/Unordered Lists:</label>
-        <OrderedList items={[]}></OrderedList>
+        <OrderedList items={[
+         {
+          icon: <CheckCircle size={16} />,
+          key: 'success',
+          label: 'Success Item',
+          onClick: () => {}
+        },
+        {
+          key: 'warning',
+          label: 'Warning Item',
+          onClick: () => {}
+        },
+        {
+          key: 'info',
+          label: 'Info Item',
+          onClick: () => {}
+        },
+        {
+          disabled: true,
+          key: 'disabled',
+          label: 'Disabled Item'
+        }
+        ]}></OrderedList>
         <UnorderedList
       items={[
         {
