@@ -60,19 +60,20 @@ const Template: StoryFn = () => {
 
   return (
     <ThemeProvider>
-      <div {...globalComponentProps('lg')}> {/* Apply 'lg' spacing globally */}
+      <div {...globalComponentProps('padding', 'all', 'lg')}> {/* Large padding all around */}
+        
         <label className="form-group__label">Header tags:</label>
-        <H1 text="H1" />
-        <H2 text="H2" />
-        <H3 text="H3" />
-        <H4 text="H4" /> 
-        <H5 text="H5" />
+        <H1 text="H1" {...globalComponentProps('margin', 'bottom', 'sm')} />
+        <H2 text="H2" {...globalComponentProps('margin', 'bottom', 'sm')} />
+        <H3 text="H3" {...globalComponentProps('margin', 'bottom', 'sm')} />
+        <H4 text="H4" {...globalComponentProps('margin', 'bottom', 'sm')} />
+        <H5 text="H5" {...globalComponentProps('margin', 'bottom', 'md')} />
 
         <label className="form-group__label">Table:</label>
-        <Table columns={tableData} data={[]} {...globalComponentProps('md')} />
+        <Table columns={tableData} data={[]} {...globalComponentProps('margin', 'bottom', 'lg')} />
 
         <label className="form-group__label">Ordered Lists:</label>
-        <OrderedList {...globalComponentProps('sm')} items={[
+        <OrderedList {...globalComponentProps('margin', 'top', 'sm')} items={[
           { icon: <CheckCircle size={16} />, key: 'success', label: 'Success Item', onClick: () => {} },
           { key: 'warning', label: 'Warning Item', onClick: () => {} },
           { key: 'info', label: 'Info Item', onClick: () => {} },
@@ -80,7 +81,7 @@ const Template: StoryFn = () => {
         ]}/>
 
         <label className="form-group__label">Unordered Lists:</label>
-        <UnorderedList {...globalComponentProps('sm')} items={[
+        <UnorderedList {...globalComponentProps('padding', 'left', 'sm')} items={[
           { icon: <CheckCircle size={16} />, key: 'success', label: 'Success Item', onClick: () => {} },
           { key: 'warning', label: 'Warning Item', onClick: () => {} },
           { key: 'info', label: 'Info Item', onClick: () => {} },
@@ -88,29 +89,29 @@ const Template: StoryFn = () => {
         ]}/>
 
         <label className="form-group__label">Accordion:</label>
-        <Accordion {...globalComponentProps('md')} items={[
+        <Accordion {...globalComponentProps('padding', 'top', 'md')} items={[
           { content: <p>Content 1</p>, icon: <ChevronDown size={16} />, title: 'Item 1' },
           { content: <p>Content 2</p>, icon: <ChevronDown size={16} />, title: 'Item 2' },
           { content: <p>Content 3</p>, icon: <ChevronDown size={16} />, title: 'Item 3' }
         ]} />
 
         <label className="form-group__label">Pagination:</label>
-        <Pagination {...globalComponentProps('sm')} currentPage={0} totalPages={0} onPageChange={(page: number) => console.log(page)} />
+        <Pagination {...globalComponentProps('margin', 'top', 'sm')} currentPage={0} totalPages={0} onPageChange={(page: number) => console.log(page)} />
 
         <label className="form-group__label">Sidebar Component:</label>
-        <Sidebar title={'Sidebar'} items={sampleItems} {...globalComponentProps('lg')} />
+        <Sidebar title={'Sidebar'} items={sampleItems} {...globalComponentProps('padding', 'all', 'lg')} />
 
-        <Breadcrumb items={breadcrumbs} {...globalComponentProps('md')} />
-        
+        <Breadcrumb items={breadcrumbs} {...globalComponentProps('margin', 'bottom', 'md')} />
+
         <label className="form-group__label">Dark Mode</label>
         <ToggleSwitch isOn={darkMode} onToggle={() => setDarkMode(!darkMode)} />
 
-        <Footer {...globalComponentProps('lg')}>
+        <Footer {...globalComponentProps('padding', 'top', 'lg')}>
           <label className="form-group__label">Dark Mode</label>
           <ToggleSwitch isOn={darkMode} onToggle={() => setDarkMode(!darkMode)} />
         </Footer>
 
-        <FormGroup {...globalComponentProps('md')}>
+        <FormGroup {...globalComponentProps('margin', 'bottom', 'md')}>
           <label className="form-group__label">Dark Mode</label>
           <ToggleSwitch isOn={darkMode} onToggle={() => setDarkMode(!darkMode)} />
         </FormGroup>
