@@ -13,6 +13,7 @@ export interface AccordionProps {
   items: AccordionItem[];
   defaultOpenIndex?: number;
   allowMultiple?: boolean;
+  className?: string; // allows us to use padding and margin classes
 }
 
 const Accordion: React.FC<AccordionProps> = ({
