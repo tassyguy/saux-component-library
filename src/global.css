@@ -1,3 +1,6 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&family=Lato:wght@300;400;700&display=swap');
+  
 /* Global Reset */
 *,
 *::before,
@@ -15,98 +18,20 @@
   --secondary-color-hover: #e68900;
   --background-color: #f8f9fa;
   --text-color: #212529;
-  --font-family: 'Arial, sans-serif';
+  --font-family: 'Raleway', sans-serif;
+  --alternate-font-family: 'Lato', sans-serif;
   --font-size-base: 16px;
   --font-size-small: 14px;
   --border-color: #dee2e6;
   --disabled-background-color: #f5f5f5;
   --text-muted: #666;
   --spacing-unit: 1rem;
-  --success-background-color: #d4edda;
-  --success-text-color: #155724;
-  --success-border-color: #c3e6cb;
-  --error-background-color: #f8d7da;
-  --error-text-color: #721c24;
-  --error-border-color: #f5c6cb;
-  --warning-background-color: #fff3cd;
-  --warning-text-color: #856404;
-  --warning-border-color: #ffeeba;
-  --info-background-color: #d1ecf1;
-  --info-text-color: #0c5460;
-  --info-border-color: #bee5eb;
-  --pagination-button-background: #fff;
-  --pagination-button-border: #ccc;
-  --pagination-button-hover-background: #f0f0f0;
-  --pagination-button-active-background: #06d6a0;
-  --pagination-button-active-border: #06d6a0;
-  --pagination-button-active-color: #fff;
-  --toggle-switch-background: #ccc;
-  --toggle-switch-on-background: #06d6a0;
-  --toggle-switch-handle-background: #fff;
-  --hover-background: #e0e0e0;
-  --text-on-primary: #ffffff;
-
-  /* High Contrast Light Mode */
-  --hc-background-color: #ffffff;
-  --hc-text-color: #000000;
-  --hc-border-color: #000000;
-  --hc-primary-color: #0000ff;
-  --hc-primary-hover: #000080;
-  --hc-secondary-color: #ff4500;
-  --hc-secondary-hover: #c23616;
 }
 
 /* Dark Theme Overrides */
 .dark-theme {
-  --primary-color: #1a73e8;
-  --primary-color-hover: #185abc;
-  --secondary-color: #ff9800;
-  --secondary-color-hover: #e68900;
   --background-color: #202124;
   --text-color: #e8eaed;
-  --border-color: #5f6368;
-  --disabled-background-color: #333;
-  --text-muted: #aaa;
-  --success-background-color: #155724;
-  --success-text-color: #d4edda;
-  --success-border-color: #c3e6cb;
-  --error-background-color: #721c24;
-  --error-text-color: #f8d7da;
-  --error-border-color: #f5c6cb;
-  --warning-background-color: #856404;
-  --warning-text-color: #fff3cd;
-  --warning-border-color: #ffeeba;
-  --info-background-color: #0c5460;
-  --info-text-color: #d1ecf1;
-  --info-border-color: #bee5eb;
-  --pagination-button-background: #333;
-  --pagination-button-border: #555;
-  --pagination-button-hover-background: #444;
-  --pagination-button-active-background: #06d6a0;
-  --pagination-button-active-border: #06d6a0;
-  --pagination-button-active-color: #fff;
-  --toggle-switch-background: #555;
-  --toggle-switch-on-background: #06d6a0;
-  --toggle-switch-handle-background: #fff;
-  --hover-background: #33373a;
-}
-
-/* High Contrast Dark Mode */
-.high-contrast.dark-theme {
-  --hc-background-color: #000000;
-  --hc-text-color: #ffffff;
-  --hc-border-color: #ffffff;
-  --hc-primary-color: #00ffff;
-  --hc-primary-hover: #00aaff;
-  --hc-secondary-color: #ff00ff;
-  --hc-secondary-hover: #cc00cc;
-}
-
-/* Apply High Contrast Styles */
-.high-contrast {
-  background-color: var(--hc-background-color) !important;
-  color: var(--hc-text-color) !important;
-  border-color: var(--hc-border-color) !important;
 }
 
 /* Base Styles */
@@ -120,93 +45,18 @@ body {
   padding: 0;
 }
 
-/* Typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: bold;
-  margin-bottom: var(--spacing-unit);
-}
-
-p {
-  margin-bottom: var(--spacing-unit);
-  color: var(--text-color);
-}
-
-/* Links */
-a {
-  color: var(--primary-color);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-a:hover,
-a:focus {
-  color: var(--primary-color-hover);
-  text-decoration: underline;
-}
-
-/* Utility Classes */
-.text-center {
-  text-align: center;
-}
-
-.mt-1 {
-  margin-top: 0.25rem;
-}
-.mt-2 {
-  margin-top: 0.5rem;
-}
-.mt-3 {
-  margin-top: 1rem;
-}
-.mb-1 {
-  margin-bottom: 0.25rem;
-}
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
-.mb-3 {
-  margin-bottom: 1rem;
-}
-
-/* Container Utility */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--spacing-unit);
-  box-sizing: border-box;
-}
-
-/* ------------------------
-   Generic Clickable Elements
---------------------------- */
-button,
-a,
-input[type='button'],
-input[type='submit'] {
-  cursor: pointer;
-  transition:
-    background-color 0.2s,
-    color 0.2s,
-    opacity 0.2s;
-    border-radius: 4px;
-}
-
-/* ------------------------
-   Button States
---------------------------- */
+/* Buttons */
 button {
   background-color: var(--primary-color);
   color: #fff;
   border: none;
   padding: 0.5rem 1rem;
   font-size: var(--font-size-base);
+  font-family: var(--alternate-font-family);
   border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease-in-out;
 }
 
 button:hover:not(:disabled) {
@@ -219,56 +69,40 @@ button:disabled {
   opacity: 0.6;
 }
 
-button{
+/* Button Click Animation */
+button::before {
+  content: '';
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  margin-top: -12px;
+  width: 24px;
+  height: 24px;
+  border: 2px solid;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.5s;
+  animation: 0.8s linear infinite rotate;
+}
+
+button.sending {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+button.sending::before {
+  transition-delay: 0.5s;
+  transition-duration: 1s;
+  opacity: 1;
+}
   
-  &:before {
-    content: '';
-    border: 2px solid;
-    border-left-color: transparent;
-    border-right-color: transparent;
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 0.5s;
-    animation: 0.8s linear infinite rotate;
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
   }
-  &.sending{
-    pointer-events: none;
-    cursor: not-allowed;
-    
-    &:before {
-      transition-delay: 0.5s;
-      transition-duration: 1s;
-      opacity: 1;
-    }
+  100% {
+    transform: rotate(360deg);
   }
-}
-
-/* ------------------------
-   Link States
---------------------------- */
-a {
-  color: var(--primary-color);
-  text-decoration: none;
-}
-
-a:hover:not(.disabled) {
-  color: var(--primary-color-hover);
-  text-decoration: underline;
-}
-
-/* Use a .disabled class for links (since :disabled doesn't work on <a>) */
-a.disabled {
-  pointer-events: none;
-  color: #999;
-  cursor: not-allowed;
-  text-decoration: none;
-}
-
-/* ------------------------
-   Generic Disabled State Utility
---------------------------- */
-.disabled {
-  pointer-events: none;
-  opacity: 0.6;
-  cursor: not-allowed;
 }
