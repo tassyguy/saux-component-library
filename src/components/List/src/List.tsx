@@ -52,6 +52,7 @@ const List: React.FC<ListProps> = ({
 
 export default List;
 */
+
 import React from 'react';
 import { useTheme } from '../../Theme/src/ThemeProvider';
 import './List.css';
@@ -95,8 +96,10 @@ const List: React.FC<ListProps> = ({
           key={item.key || index}
           className={`list-item ${item.disabled ? 'list-item--disabled' : ''}`.trim()}
           onClick={!item.disabled ? item.onClick : undefined}
-          style={{ listStyleType: item.icon ? 'none' : 'disc' }} // Default to bullet if no icon
+          style={{ display: 'flex', alignItems: 'center', gap: '8px' }} // Ensure alignment
         >
+          {/* Render a bullet manually if no icon is provided */}
+          {!item.icon && !ordered && <span className="list-bullet">•</span>}
           {item.icon && <span className="list-item-icon">{item.icon}</span>}
           {renderItem ? renderItem(item, index) : item.label}
         </li>
