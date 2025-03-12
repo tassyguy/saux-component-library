@@ -98,8 +98,10 @@ const List: React.FC<ListProps> = ({
           onClick={!item.disabled ? item.onClick : undefined}
           style={{ display: 'flex', alignItems: 'center', gap: '8px' }} // Ensure alignment
         >
-          {/* Render a bullet manually if no icon is provided */}
+          {/* Render a bullet for unordered lists if no icon is provided */}
           {!item.icon && !ordered && <span className="list-bullet">•</span>}
+          {/* Render the number for ordered lists if no icon is provided */}
+          {!item.icon && ordered && <span className="list-number">{index + 1}.</span>}
           {item.icon && <span className="list-item-icon">{item.icon}</span>}
           {renderItem ? renderItem(item, index) : item.label}
         </li>
