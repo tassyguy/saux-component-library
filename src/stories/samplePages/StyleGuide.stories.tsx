@@ -60,7 +60,7 @@ const Template: StoryFn = () => {
         <H1 text="H1" />
         <H2 text="H2" />
         <H3 text="H3" />
-        <H4 text="H4" />
+        <H4 text="H4" /> 
         <H5 text="H5" />
         <label className="form-group__label">Table:</label>
         <Table columns={tableData} data={[]}></Table>
