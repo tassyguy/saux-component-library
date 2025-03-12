@@ -25,6 +25,9 @@ import {
   UnorderedList,
 } from '../../components';
 import { SidebarItem } from '../../components/Sidebar/src/Sidebar';
+import { ChevronDown, 
+  CheckCircle
+} from 'react-feather';
 
 export default {
   title: 'Sample Pages/Style Guide',
@@ -66,9 +69,51 @@ const Template: StoryFn = () => {
         <Table columns={tableData} data={[]}></Table>
         <label className="form-group__label">Ordered/Unordered Lists:</label>
         <OrderedList items={[]}></OrderedList>
-        <UnorderedList items={[]}></UnorderedList>
+        <UnorderedList
+      items={[
+        {
+          icon: <CheckCircle size={16} />,
+          key: 'success',
+          label: 'Success Item',
+          onClick: () => {}
+        },
+        {
+          key: 'warning',
+          label: 'Warning Item',
+          onClick: () => {}
+        },
+        {
+          key: 'info',
+          label: 'Info Item',
+          onClick: () => {}
+        },
+        {
+          disabled: true,
+          key: 'disabled',
+          label: 'Disabled Item'
+        }
+      ]}
+     />
         <label className="form-group__label">Accordion:</label>
-        <Accordion items={[]}></Accordion>
+        <Accordion
+        items={[
+          {
+            content: <p>Content 1</p>,
+            icon: <ChevronDown size={16} />,
+            title: 'Item 1'
+          },
+          {
+            content: <p>Content 2</p>,
+            icon: <ChevronDown size={16} />,
+            title: 'Item 2'
+          },
+          {
+            content: <p>Content 3</p>,
+            icon: <ChevronDown size={16} />,
+            title: 'Item 3'
+          }
+        ]}
+      />
         <label className="form-group__label">Pagination:</label>
         <Pagination
           currentPage={0}
