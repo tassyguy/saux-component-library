@@ -7,17 +7,23 @@
 }
 
 .pagination__button {
-  border: 1px solid var(--pagination-button-border);
-  background: var(--pagination-button-background);
+  border: 1px solid var(--pagination-button-border, #ccc); /* Fallback to a default border color */
+  background: var(
+    --pagination-button-background,
+    #fff
+  ); /* Fallback to a default background color */
   padding: 6px 10px;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.2s;
-  color: var(--text-color);
+  color: var(--text-color, #000); /* Fallback to a default text color */
 }
 
 .pagination__button:hover:not(:disabled) {
-  background-color: var(--pagination-button-hover-background);
+  background-color: var(
+    --pagination-button-hover-background,
+    #f0f0f0
+  ); /* Fallback to a default hover background color */
 }
 
 .pagination__button:disabled {
@@ -26,7 +32,16 @@
 }
 
 .pagination__button.active {
-  background-color: var(--pagination-button-active-background);
-  color: var(--pagination-button-active-color);
-  border-color: var(--pagination-button-active-border);
+  background-color: var(
+    --pagination-button-active-background,
+    #007bff
+  ); /* Fallback to a default active background color */
+  color: var(
+    --pagination-button-active-color,
+    #fff
+  ); /* Fallback to a default active text color */
+  border-color: var(
+    --pagination-button-active-border,
+    #007bff
+  ); /* Fallback to a default active border color */
 }

@@ -2,7 +2,10 @@
   width: 50px;
   height: 25px;
   border-radius: 25px;
-  background-color: var(--toggle-switch-background);
+  background-color: var(
+    --toggle-switch-background,
+    #ccc
+  ); /* Fallback to a default background color */
   border: none;
   outline: none;
   cursor: pointer;
@@ -14,8 +17,11 @@
 }
 
 .toggle-switch.on {
-  background-color: var(--toggle-switch-on-background);
-  box-shadow: 0 0 5px var(--toggle-switch-on-background);
+  background-color: var(
+    --toggle-switch-on-background,
+    #4caf50
+  ); /* Fallback to a default on background color */
+  box-shadow: 0 0 5px var(--toggle-switch-on-background, #4caf50); /* Fallback to a default on background color */
 }
 
 .toggle-switch.disabled {
@@ -30,7 +36,10 @@
   width: 23px;
   height: 23px;
   border-radius: 50%;
-  background-color: var(--toggle-switch-handle-background);
+  background-color: var(
+    --toggle-switch-handle-background,
+    #fff
+  ); /* Fallback to a default handle background color */
   transition: left 0.2s;
 }
 
@@ -70,21 +79,36 @@
 
 /* Color Variants */
 .toggle-switch--primary.on {
-  background-color: var(--primary-color);
+  background-color: var(
+    --primary-color,
+    #007bff
+  ); /* Fallback to a default primary color */
 }
 
 .toggle-switch--secondary.on {
-  background-color: var(--secondary-color);
+  background-color: var(
+    --secondary-color,
+    #6c757d
+  ); /* Fallback to a default secondary color */
 }
 
 .toggle-switch--success.on {
-  background-color: var(--success-color);
+  background-color: var(
+    --success-color,
+    #28a745
+  ); /* Fallback to a default success color */
 }
 
 .toggle-switch--warning.on {
-  background-color: var(--warning-color);
+  background-color: var(
+    --warning-color,
+    #ffc107
+  ); /* Fallback to a default warning color */
 }
 
 .toggle-switch--error.on {
-  background-color: var(--error-color);
+  background-color: var(
+    --error-color,
+    #dc3545
+  ); /* Fallback to a default error color */
 }

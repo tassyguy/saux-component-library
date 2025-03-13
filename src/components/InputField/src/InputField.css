@@ -7,7 +7,7 @@
 
 .input-field {
   padding: 8px 12px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-color, #ddd); /* Fallback to a default border color */
   border-radius: 4px;
   font-size: 1rem;
   transition:
@@ -15,14 +15,20 @@
     box-shadow 0.2s;
   flex-grow: 1;
   width: 100%;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(
+    --background-color,
+    #fff
+  ); /* Fallback to a default background color */
+  color: var(--text-color, #000); /* Fallback to a default text color */
 }
 
 .input-field:focus {
   outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(6, 214, 160, 0.2);
+  border-color: var(
+    --primary-color,
+    #007bff
+  ); /* Fallback to a default primary color */
+  box-shadow: 0 0 0 2px rgba(6, 214, 160, 0.2); /* Fallback to a default focus shadow color */
 }
 
 .input-field--fullWidth {
@@ -30,23 +36,32 @@
 }
 
 .input-field.disabled {
-  background-color: var(--disabled-background-color);
+  background-color: var(
+    --disabled-background-color,
+    #f0f0f0
+  ); /* Fallback to a default disabled background color */
   cursor: not-allowed;
 }
 
 .input-field--error {
-  border-color: var(--error-border-color);
+  border-color: var(
+    --error-border-color,
+    #ff0000
+  ); /* Fallback to a default error border color */
 }
 
 .input-field-error {
-  color: var(--error-text-color);
+  color: var(
+    --error-text-color,
+    #ff0000
+  ); /* Fallback to a default error text color */
   font-size: 12px;
   margin-top: 0.25em;
 }
 
 .input-field-char-count {
   font-size: 12px;
-  color: var(--text-muted);
+  color: var(--text-muted, #888); /* Fallback to a default muted text color */
   margin-top: 0.25em;
   text-align: right;
 }
@@ -60,7 +75,7 @@
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  color: var(--text-color);
+  color: var(--text-color, #000); /* Fallback to a default text color */
 }
 
 .input-field.has-icon {

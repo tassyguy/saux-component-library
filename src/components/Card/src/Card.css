@@ -5,15 +5,17 @@
 }
 
 .card-item {
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color, #ddd); /* Fallback to a default border color */
   border-radius: 8px;
   padding: 16px;
   width: 300px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   cursor: default;
-  border-color: var(--border-color);
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(
+    --background-color,
+    #fff
+  ); /* Fallback to a default background color */
+  color: var(--text-color, #000); /* Fallback to a default text color */
 }
 
 .card-item.clickable {

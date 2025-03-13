@@ -10,25 +10,43 @@
   white-space: nowrap;
   vertical-align: baseline;
   border-radius: 0.25rem;
-  color: #fff;
+  color: var(--badge-text-color, #fff); /* Fallback to a default text color */
 }
 
 /* Variants */
 .badge--primary {
-  background-color: #007bff;
+  background-color: var(
+    --primary-color,
+    #007bff
+  ); /* Fallback to a default primary color */
 }
 .badge--secondary {
-  background-color: #6c757d;
+  background-color: var(
+    --secondary-color,
+    #6c757d
+  ); /* Fallback to a default secondary color */
 }
 .badge--success {
-  background-color: #28a745;
+  background-color: var(
+    --success-color,
+    #28a745
+  ); /* Fallback to a default success color */
 }
 .badge--warning {
-  background-color: #ffc107;
-  color: #212529;
+  background-color: var(
+    --warning-color,
+    #ffc107
+  ); /* Fallback to a default warning color */
+  color: var(
+    --warning-text-color,
+    #212529
+  ); /* Fallback to a default warning text color */
 }
 .badge--error {
-  background-color: #dc3545;
+  background-color: var(
+    --error-color,
+    #dc3545
+  ); /* Fallback to a default error color */
 }
 
 /* Sizes */

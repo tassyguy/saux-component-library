@@ -5,8 +5,11 @@
 
 .tooltip-content {
   position: absolute;
-  background-color: #333;
-  color: #fff;
+  background-color: var(
+    --tooltip-background-color,
+    #333
+  ); /* Fallback to a default background color */
+  color: var(--tooltip-text-color, #fff); /* Fallback to a default text color */
   padding: 5px 10px;
   border-radius: 4px;
   white-space: nowrap;

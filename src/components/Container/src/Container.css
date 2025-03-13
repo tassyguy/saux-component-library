@@ -4,7 +4,10 @@
   padding: var(--container-padding, 1rem);
   box-sizing: border-box;
   max-width: var(--container-max-width, 1200px);
-  background-color: var(--container-background, var(--background-color));
+  background-color: var(
+    --container-background,
+    var(--background-color, #fff)
+  ); /* Fallback to a default background color */
   border-radius: var(--container-border-radius, 0);
   box-shadow: var(--container-shadow, none);
   height: var(--container-height, auto);

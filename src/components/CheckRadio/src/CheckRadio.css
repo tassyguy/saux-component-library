@@ -22,7 +22,7 @@
 .check-radio__box {
   width: 20px;
   height: 20px;
-  border: 2px solid var(--border-color);
+  border: 2px solid var(--border-color, #ccc); /* Fallback to a default border color */
   border-radius: 4px;
   transition:
     border-color 0.2s,
@@ -30,22 +30,31 @@
   display: inline-block;
   vertical-align: middle;
   margin-right: 8px;
-  background-color: var(--background-color);
+  background-color: var(
+    --background-color,
+    #fff
+  ); /* Fallback to a default background color */
 }
 
 /* When checked, show the active styling */
 .check-radio__input:checked + .check-radio__box {
-  border-color: var(--primary-color);
-  background-color: var(--primary-color);
+  border-color: var(
+    --primary-color,
+    #007bff
+  ); /* Fallback to a default primary color */
+  background-color: var(
+    --primary-color,
+    #007bff
+  ); /* Fallback to a default primary color */
 }
 
 .check-radio__input:focus + .check-radio__box {
-  box-shadow: 0 0 0 2px rgba(6, 214, 160, 0.5);
+  box-shadow: 0 0 0 2px rgba(6, 214, 160, 0.5); /* Fallback to a default focus shadow color */
 }
 
 .check-radio__label {
   font-size: 14px;
-  color: var(--text-color);
+  color: var(--text-color, #000); /* Fallback to a default text color */
 }
 
 /* For radio buttons, make the box round */
@@ -66,21 +75,36 @@
 
 /* Color Variants */
 .check-radio--primary .check-radio__box {
-  border-color: var(--primary-color);
+  border-color: var(
+    --primary-color,
+    #007bff
+  ); /* Fallback to a default primary color */
 }
 
 .check-radio--secondary .check-radio__box {
-  border-color: var(--secondary-color);
+  border-color: var(
+    --secondary-color,
+    #6c757d
+  ); /* Fallback to a default secondary color */
 }
 
 .check-radio--success .check-radio__box {
-  border-color: var(--success-color);
+  border-color: var(
+    --success-color,
+    #28a745
+  ); /* Fallback to a default success color */
 }
 
 .check-radio--warning .check-radio__box {
-  border-color: var(--warning-color);
+  border-color: var(
+    --warning-color,
+    #ffc107
+  ); /* Fallback to a default warning color */
 }
 
 .check-radio--error .check-radio__box {
-  border-color: var(--error-color);
+  border-color: var(
+    --error-color,
+    #dc3545
+  ); /* Fallback to a default error color */
 }

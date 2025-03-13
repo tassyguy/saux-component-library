@@ -8,9 +8,12 @@
 
 .accordion-title {
   cursor: pointer;
-  background: var(--background-color);
+  background: var(
+    --background-color,
+    #fff
+  ); /* Fallback to a default background color */
   padding: 15px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-color, #ddd); /* Fallback to a default border color */
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -21,13 +24,25 @@
 }
 
 .accordion-title:hover {
-  background: var(--primary-color-hover);
-  color: var(--hover-text-color);
+  background: var(
+    --primary-color-hover,
+    #0056b3
+  ); /* Fallback to a default hover background color */
+  color: var(
+    --hover-text-color,
+    #fff
+  ); /* Fallback to a default hover text color */
 }
 
 .accordion-item.open .accordion-title {
-  background: var(--primary-color-hover);
-  color: var(--hover-text-color);
+  background: var(
+    --primary-color-hover,
+    #0056b3
+  ); /* Fallback to a default hover background color */
+  color: var(
+    --hover-text-color,
+    #fff
+  ); /* Fallback to a default hover text color */
 }
 
 .accordion-icon {
@@ -44,9 +59,16 @@
 
 .accordion-content {
   padding: 15px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-color, #ddd); /* Fallback to a default border color */
   border-top: none;
-  background: var(--background-color);
-  color: var(--text-color);
-  font-family: var(--font-family);
+  background: var(
+    --background-color,
+    #fff
+  ); /* Fallback to a default background color */
+  color: var(--text-color, #000); /* Fallback to a default text color */
+  font-family: var(
+    --font-family,
+    Arial,
+    sans-serif
+  ); /* Fallback to a default font family */
 }

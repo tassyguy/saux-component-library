@@ -2,36 +2,55 @@
   display: flex;
   flex-direction: column;
   margin: 0.5em 0;
-  font-family: var(--font-family);
+  font-family: var(
+    --font-family,
+    Arial,
+    sans-serif
+  ); /* Fallback to a default font family */
 }
 
 .textarea-label {
   margin-bottom: 0.25em;
-  font-size: var(--font-size-small);
-  color: var(--text-color);
+  font-size: var(
+    --font-size-small,
+    0.875rem
+  ); /* Fallback to a default font size */
+  color: var(--text-color, #000); /* Fallback to a default text color */
 }
 
 .textarea-input {
   padding: 8px 12px;
-  font-size: var(--font-size-small);
-  border: 1px solid var(--border-color);
+  font-size: var(
+    --font-size-small,
+    0.875rem
+  ); /* Fallback to a default font size */
+  border: 1px solid var(--border-color, #ddd); /* Fallback to a default border color */
   border-radius: 4px;
   resize: vertical;
   transition:
     border-color 0.2s,
     box-shadow 0.2s;
   outline: none;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(
+    --background-color,
+    #fff
+  ); /* Fallback to a default background color */
+  color: var(--text-color, #000); /* Fallback to a default text color */
 }
 
 .textarea-input:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(6, 214, 160, 0.3);
+  border-color: var(
+    --primary-color,
+    #007bff
+  ); /* Fallback to a default primary color */
+  box-shadow: 0 0 0 2px rgba(6, 214, 160, 0.3); /* Fallback to a default focus shadow color */
 }
 
 .textarea-input:disabled {
-  background-color: var(--disabled-background-color);
+  background-color: var(
+    --disabled-background-color,
+    #f0f0f0
+  ); /* Fallback to a default disabled background color */
   cursor: not-allowed;
 }
 
@@ -42,11 +61,17 @@
 
 /* Error State */
 .textarea--error {
-  border-color: var(--error-border-color);
+  border-color: var(
+    --error-border-color,
+    #ff0000
+  ); /* Fallback to a default error border color */
 }
 
 .textarea-error {
-  color: var(--error-text-color);
+  color: var(
+    --error-text-color,
+    #ff0000
+  ); /* Fallback to a default error text color */
   font-size: 12px;
   margin-top: 0.25em;
 }
@@ -54,7 +79,7 @@
 /* Character Counter */
 .textarea-char-count {
   font-size: 12px;
-  color: var(--text-muted);
+  color: var(--text-muted, #888); /* Fallback to a default muted text color */
   margin-top: 0.25em;
   text-align: right;
 }

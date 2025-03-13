@@ -1,7 +1,11 @@
 /* Global Header Styling */
 .header {
-  font-family: Arial, sans-serif;
-  color: var(--text-color);
+  font-family: var(
+    --font-family,
+    Arial,
+    sans-serif
+  ); /* Fallback to a default font family */
+  color: var(--text-color, #000); /* Fallback to a default text color */
   font-weight: bold;
   transition: color 0.3s ease;
 }

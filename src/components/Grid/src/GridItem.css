@@ -1,7 +1,9 @@
 .grid-item {
-    background-color: #f7f7f7;
-    padding: 1em;
-    border: 1px solid #eee;
-    border-radius: 4px;
-  }
-  
+  background-color: var(
+    --grid-item-background-color,
+    #f7f7f7
+  ); /* Fallback to a default background color */
+  padding: 1em;
+  border: 1px solid var(--grid-item-border-color, #eee); /* Fallback to a default border color */
+  border-radius: 4px;
+}

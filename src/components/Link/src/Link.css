@@ -1,15 +1,29 @@
 .link {
-  background-color: var(--primary-color);
-  color: #fff;
-  font-family: var(--font-family);
+  background-color: var(
+    --primary-color,
+    #007bff
+  ); /* Fallback to a default primary color */
+  color: var(
+    --text-on-primary,
+    #fff
+  ); /* Fallback to a default text color on primary */
+  font-family: var(
+    --font-family,
+    Arial,
+    sans-serif
+  ); /* Fallback to a default font family */
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
+  transition: background-color 0.2s;
 }
 
 .link:hover {
-  background-color: var(--primary-color-hover);
+  background-color: var(
+    --primary-color-hover,
+    #0056b3
+  ); /* Fallback to a default hover color */
 }

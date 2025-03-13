@@ -1,23 +1,30 @@
 .select-input {
   display: inline-flex;
   flex-direction: column;
-  font-family: sans-serif;
+  font-family: var(
+    --font-family,
+    Arial,
+    sans-serif
+  ); /* Fallback to a default font family */
   margin: 0.5em;
 }
 
 .select-input__label {
   margin-bottom: 0.25em;
-  font-size: 14px;
-  color: var(--text-color);
+  font-size: var(--font-size-small, 14px); /* Fallback to a default font size */
+  color: var(--text-color, #000); /* Fallback to a default text color */
 }
 
 .select-input__select {
   padding: 8px 12px;
-  font-size: 14px;
-  border: 1px solid var(--border-color);
+  font-size: var(--font-size-small, 14px); /* Fallback to a default font size */
+  border: 1px solid var(--border-color, #ddd); /* Fallback to a default border color */
   border-radius: 4px;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(
+    --background-color,
+    #fff
+  ); /* Fallback to a default background color */
+  color: var(--text-color, #000); /* Fallback to a default text color */
   transition:
     border-color 0.2s,
     background-color 0.2s;
@@ -26,43 +33,70 @@
 }
 
 .select-input__select:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(6, 214, 160, 0.3);
+  border-color: var(
+    --primary-color,
+    #007bff
+  ); /* Fallback to a default primary color */
+  box-shadow: 0 0 0 2px rgba(6, 214, 160, 0.3); /* Fallback to a default focus shadow color */
 }
 
 .select-input__select:disabled {
-  background-color: var(--disabled-background-color);
+  background-color: var(
+    --disabled-background-color,
+    #f0f0f0
+  ); /* Fallback to a default disabled background color */
   cursor: not-allowed;
 }
 
 /* Size Variants */
 .select-input--small .select-input__select {
-  font-size: 12px;
+  font-size: var(
+    --font-size-small,
+    12px
+  ); /* Fallback to a default small font size */
   padding: 6px 10px;
 }
 
 .select-input--large .select-input__select {
-  font-size: 16px;
+  font-size: var(
+    --font-size-large,
+    16px
+  ); /* Fallback to a default large font size */
   padding: 10px 14px;
 }
 
 /* Color Variants */
 .select-input--primary .select-input__select {
-  border-color: var(--primary-color);
+  border-color: var(
+    --primary-color,
+    #007bff
+  ); /* Fallback to a default primary color */
 }
 
 .select-input--secondary .select-input__select {
-  border-color: var(--secondary-color);
+  border-color: var(
+    --secondary-color,
+    #6c757d
+  ); /* Fallback to a default secondary color */
 }
 
 .select-input--success .select-input__select {
-  border-color: var(--success-color);
+  border-color: var(
+    --success-color,
+    #28a745
+  ); /* Fallback to a default success color */
 }
 
 .select-input--warning .select-input__select {
-  border-color: var(--warning-color);
+  border-color: var(
+    --warning-color,
+    #ffc107
+  ); /* Fallback to a default warning color */
 }
 
 .select-input--error .select-input__select {
-  border-color: var(--error-color);
+  border-color: var(
+    --error-color,
+    #dc3545
+  ); /* Fallback to a default error color */
 }

@@ -1,8 +1,11 @@
 .list {
   list-style-type: none;
   padding: 0;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(
+    --background-color,
+    #fff
+  ); /* Fallback to a default background color */
+  color: var(--text-color, #000); /* Fallback to a default text color */
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
@@ -10,7 +13,7 @@
 
 .list li {
   padding: 8px;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color, #ddd); /* Fallback to a default border color */
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -18,11 +21,14 @@
 }
 
 .list li:hover {
-  background-color: var(--hover-background);
+  background-color: var(
+    --hover-background,
+    #f0f0f0
+  ); /* Fallback to a default hover background color */
 }
 
 .list-item--disabled {
-  color: var(--text-muted);
+  color: var(--text-muted, #888); /* Fallback to a default muted text color */
   cursor: not-allowed;
 }
 
@@ -40,10 +46,13 @@
 .dropdown-menu__trigger {
   padding: 8px 12px;
   font-size: 14px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-color, #ddd); /* Fallback to a default border color */
   border-radius: 4px;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(
+    --background-color,
+    #fff
+  ); /* Fallback to a default background color */
+  color: var(--text-color, #000); /* Fallback to a default text color */
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -56,12 +65,18 @@
 }
 
 .dropdown-menu__trigger:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(6, 214, 160, 0.3);
+  border-color: var(
+    --primary-color,
+    #007bff
+  ); /* Fallback to a default primary color */
+  box-shadow: 0 0 0 2px rgba(6, 214, 160, 0.3); /* Fallback to a default focus shadow color */
 }
 
 .dropdown-menu__trigger:disabled {
-  background-color: var(--disabled-background-color);
+  background-color: var(
+    --disabled-background-color,
+    #f0f0f0
+  ); /* Fallback to a default disabled background color */
   cursor: not-allowed;
 }
 
@@ -75,8 +90,11 @@
   top: 100%;
   left: 0;
   z-index: 100;
-  background: var(--background-color);
-  border: 1px solid var(--border-color);
+  background: var(
+    --background-color,
+    #fff
+  ); /* Fallback to a default background color */
+  border: 1px solid var(--border-color, #ddd); /* Fallback to a default border color */
   border-radius: 4px;
   padding: 0;
   margin-top: 4px;
@@ -103,11 +121,14 @@
 }
 
 .dropdown-menu__item:hover {
-  background-color: var(--hover-background);
+  background-color: var(
+    --hover-background,
+    #f0f0f0
+  ); /* Fallback to a default hover background color */
 }
 
 .dropdown-menu__item--disabled {
-  color: var(--text-muted);
+  color: var(--text-muted, #888); /* Fallback to a default muted text color */
   cursor: not-allowed;
 }
 
@@ -117,6 +138,12 @@
 
 /* Dropdown Menu Item Hover Effect */
 .dropdown-menu__item:hover {
-  background-color: var(--hover-background);
-  color: var(--primary-color);
+  background-color: var(
+    --hover-background,
+    #f0f0f0
+  ); /* Fallback to a default hover background color */
+  color: var(
+    --primary-color,
+    #007bff
+  ); /* Fallback to a default primary color */
 }

@@ -5,9 +5,12 @@
 }
 
 .form-group__label {
-  font-size: var(--font-size-small);
+  font-size: var(
+    --font-size-small,
+    0.875rem
+  ); /* Fallback to a default font size */
   margin-bottom: 0.5em;
-  color: var(--text-color);
+  color: var(--text-color, #000); /* Fallback to a default text color */
 }
 
 .form-group__control {
@@ -17,13 +20,13 @@
 
 /* Required field indicator */
 .form-group__required {
-  color: red;
+  color: var(--error-color, red); /* Fallback to a default error color */
   margin-left: 0.3em;
 }
 
 /* Error message */
 .form-group__error {
-  color: red;
+  color: var(--error-color, red); /* Fallback to a default error color */
   font-size: 0.85em;
   margin-top: 0.3em;
 }
@@ -31,7 +34,7 @@
 /* Description text */
 .form-group__description {
   font-size: 0.85em;
-  color: var(--text-muted);
+  color: var(--text-muted, #888); /* Fallback to a default muted text color */
   margin-top: 0.3em;
 }
 

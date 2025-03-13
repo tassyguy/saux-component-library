@@ -1,53 +1,59 @@
 .sidebar {
-    width: 250px;
-    background-color: #333;
-    color: #fff;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    padding: 1em;
-    box-sizing: border-box;
-  }
-  
-  .sidebar__header {
-    font-size: 1.25em;
-    font-weight: bold;
-    padding-bottom: 0.75em;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-    margin-bottom: 1em;
-  }
-  
-  .sidebar__nav {
-    flex: 1;
-  }
-  
-  .sidebar__list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .sidebar__item {
-    margin-bottom: 0.5em;
-  }
-  
-  .sidebar__link {
-    color: #fff;
-    text-decoration: none;
-    display: block;
-    padding: 0.5em;
-    border-radius: 4px;
-    transition: background-color 0.2s;
-    background: transparent;
-    border: none;
-    width: 100%;
-    text-align: left;
-    font-size: 1em;
-    cursor: pointer;
-  }
-  
-  .sidebar__link:hover,
-  .sidebar__link:focus {
-    background-color: rgba(255,255,255,0.1);
-  }
-  
+  width: 250px;
+  background-color: var(
+    --sidebar-background-color,
+    #333
+  ); /* Fallback to a default background color */
+  color: var(--sidebar-text-color, #fff); /* Fallback to a default text color */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+.sidebar__header {
+  font-size: 1.25em;
+  font-weight: bold;
+  padding-bottom: 0.75em;
+  border-bottom: 1px solid
+    var(--sidebar-header-border-color, rgba(255, 255, 255, 0.2)); /* Fallback to a default border color */
+  margin-bottom: 1em;
+}
+
+.sidebar__nav {
+  flex: 1;
+}
+
+.sidebar__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar__item {
+  margin-bottom: 0.5em;
+}
+
+.sidebar__link {
+  color: var(--sidebar-link-color, #fff); /* Fallback to a default link color */
+  text-decoration: none;
+  display: block;
+  padding: 0.5em;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.sidebar__link:hover,
+.sidebar__link:focus {
+  background-color: var(
+    --sidebar-link-hover-background,
+    rgba(255, 255, 255, 0.1)
+  ); /* Fallback to a default hover background color */
+}

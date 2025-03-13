@@ -1,8 +1,12 @@
 /* Breadcrumb Styling */
 .breadcrumb {
-  font-family: var(--font-family);
+  font-family: var(
+    --font-family,
+    Arial,
+    sans-serif
+  ); /* Fallback to a default font family */
   font-size: 14px;
-  color: var(--text-color);
+  color: var(--text-color, #000); /* Fallback to a default text color */
   margin: 1em 0;
 }
 
@@ -20,22 +24,31 @@
 }
 
 .breadcrumb__link {
-  color: var(--primary-color);
+  color: var(
+    --primary-color,
+    #007bff
+  ); /* Fallback to a default primary color */
   text-decoration: none;
   transition: color 0.2s ease-in-out;
 }
 
 .breadcrumb__link:hover {
-  color: var(--primary-color-hover);
+  color: var(
+    --primary-color-hover,
+    #0056b3
+  ); /* Fallback to a default hover color */
 }
 
 .breadcrumb__separator {
-  color: var(--text-muted);
+  color: var(--text-muted, #888); /* Fallback to a default muted text color */
   margin: 0 5px;
 }
 
 .breadcrumb__current {
-  color: var(--text-secondary);
+  color: var(
+    --text-secondary,
+    #6c757d
+  ); /* Fallback to a default secondary text color */
 }
 
 .breadcrumb--bold {
