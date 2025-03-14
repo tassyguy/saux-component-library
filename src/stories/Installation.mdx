@@ -1,0 +1,109 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Installation" />
+
+# Installation
+
+This guide explains how to install the SAUX component library in your project. The SAUX component library is available as a set of npm packages that you can install using your preferred package manager.
+
+## Prerequisites
+
+Before installing the SAUX component library, ensure that you have the following prerequisites:
+
+- Node.js (version 14 or higher)
+- npm or pnpm (version 6 or higher)
+
+## Using npm
+
+To install the SAUX component library using npm, run the following command:
+
+```sh
+npm install @saux/button @saux/accordion @saux/dropdownmenu
+```
+
+## Using pnpm
+
+To install the SAUX component library using pnpm, run the following command:
+
+```sh
+pnpm add @saux/button @saux/accordion @saux/dropdownmenu
+```
+
+## Importing Components
+
+After installing the SAUX component library, you can import and use the components in your project.
+
+### Example
+
+```tsx
+import React from 'react';
+import Button from '@saux/button';
+import Accordion from '@saux/accordion';
+import DropdownMenu from '@saux/dropdownmenu';
+
+const App = () => (
+  <div>
+    <Button label="Click Me" onClick={() => alert('Button clicked!')} />
+    <Accordion
+      items={[
+        { title: 'Item 1', content: <p>Content 1</p> },
+        { title: 'Item 2', content: <p>Content 2</p> },
+        { title: 'Item 3', content: <p>Content 3</p> },
+      ]}
+    />
+    <DropdownMenu
+      label="Menu"
+      items={[
+        { value: 'item1', label: 'Item 1' },
+        { value: 'item2', label: 'Item 2' },
+        { value: 'item3', label: 'Item 3' },
+      ]}
+    />
+  </div>
+);
+
+export default App;
+```
+
+## Using with a Theme Provider
+
+If your components rely on a theme provider, make sure to wrap your application with the `ThemeProvider` component.
+
+### Example
+
+```tsx
+import React from 'react';
+import { ThemeProvider } from '@saux/theme';
+import Button from '@saux/button';
+import Accordion from '@saux/accordion';
+import DropdownMenu from '@saux/dropdownmenu';
+
+const App = () => (
+  <ThemeProvider>
+    <div>
+      <Button label="Click Me" onClick={() => alert('Button clicked!')} />
+      <Accordion
+        items={[
+          { title: 'Item 1', content: <p>Content 1</p> },
+          { title: 'Item 2', content: <p>Content 2</p> },
+          { title: 'Item 3', content: <p>Content 3</p> },
+        ]}
+      />
+      <DropdownMenu
+        label="Menu"
+        items={[
+          { value: 'item1', label: 'Item 1' },
+          { value: 'item2', label: 'Item 2' },
+          { value: 'item3', label: 'Item 3' },
+        ]}
+      />
+    </div>
+  </ThemeProvider>
+);
+
+export default App;
+```
+
+## Conclusion
+
+By following these steps, you can easily install and start using the SAUX component library in your project. For more information on how to use and customize the components, refer to the individual component documentation.

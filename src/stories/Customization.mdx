@@ -1,0 +1,137 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Customization" />
+
+# Customizing the Styling
+
+This guide explains how to customize the styling for components in the SAUX component library. You can customize the styles using CSS variables, custom CSS classes, and inline styles.
+
+## Using CSS Variables
+
+The SAUX component library uses CSS variables to allow easy customization of styles. You can override these variables in your global CSS file or within specific components.
+
+### Example
+
+```css
+/* global.css */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --error-color: #dc3545;
+  --text-color: #333;
+  --background-color: #fff;
+  --font-family: 'Arial, sans-serif';
+}
+```
+
+## Custom CSS Classes
+
+You can also apply custom CSS classes to components to override their default styles. Each component accepts a `className` prop that you can use to pass custom classes.
+
+### Example
+
+```tsx
+import React from 'react';
+import Button from '@saux/button';
+import './custom-styles.css';
+
+const CustomButton = () => (
+  <Button label="Custom Button" className="custom-button" />
+);
+
+export default CustomButton;
+```
+
+```css
+/* custom-styles.css */
+.custom-button {
+  background-color: #ff5733;
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px 20px;
+}
+```
+
+## Inline Styles
+
+For quick customizations, you can use the `style` prop to apply inline styles to components.
+
+### Example
+
+```tsx
+import React from 'react';
+import Button from '@saux/button';
+
+const InlineStyledButton = () => (
+  <Button
+    label="Inline Styled Button"
+    style={{ backgroundColor: '#28a745', color: '#fff', padding: '10px 20px' }}
+  />
+);
+
+export default InlineStyledButton;
+```
+
+## Customizing Specific Components
+
+### Button
+
+The `Button` component supports various customization options through CSS variables, custom classes, and inline styles.
+
+#### CSS Variables
+
+```css
+/* global.css */
+:root {
+  --button-primary-bg: #007bff;
+  --button-primary-color: #fff;
+  --button-secondary-bg: #6c757d;
+  --button-secondary-color: #fff;
+}
+```
+
+#### Custom Classes
+
+```tsx
+import React from 'react';
+import Button from '@saux/button';
+import './button-styles.css';
+
+const CustomButton = () => (
+  <Button label="Custom Button" className="custom-button" />
+);
+
+export default CustomButton;
+```
+
+```css
+/* button-styles.css */
+.custom-button {
+  background-color: #ff5733;
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px 20px;
+}
+```
+
+#### Inline Styles
+
+```tsx
+import React from 'react';
+import Button from '@saux/button';
+
+const InlineStyledButton = () => (
+  <Button
+    label="Inline Styled Button"
+    style={{ backgroundColor: '#28a745', color: '#fff', padding: '10px 20px' }}
+  />
+);
+
+export default InlineStyledButton;
+```
+
+## Conclusion
+
+By using CSS variables, custom CSS classes, and inline styles, you can easily customize the styling of components in the SAUX component library to match your application's design requirements.
