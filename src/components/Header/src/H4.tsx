@@ -1,13 +1,10 @@
-// filepath: /c:/Users/simonp/Documents/Extra/saux-component-library/src/components/Header/H4.tsx
-import React from "react";
-import Header from "./Header";
+import React from 'react';
+import Header, { HeaderProps } from './Header';
 
-export interface H4Props {
-  text: string;
-}
+export interface H4Props extends Omit<HeaderProps, 'level'> {}
 
-const H4: React.FC<H4Props> = ({ text }) => {
-  return <Header text={text} level={4} />;
+const H4: React.FC<H4Props> = (props) => {
+  return <Header {...props} level={4} />;
 };
 
 export default H4;

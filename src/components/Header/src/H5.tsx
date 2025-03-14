@@ -1,13 +1,10 @@
-// filepath: /c:/Users/simonp/Documents/Extra/saux-component-library/src/components/Header/H5.tsx
-import React from "react";
-import Header from "./Header";
+import React from 'react';
+import Header, { HeaderProps } from './Header';
 
-export interface H5Props {
-  text: string;
-}
+export interface H5Props extends Omit<HeaderProps, 'level'> {}
 
-const H5: React.FC<H5Props> = ({ text }) => {
-  return <Header text={text} level={5} />;
+const H5: React.FC<H5Props> = (props) => {
+  return <Header {...props} level={5} />;
 };
 
 export default H5;

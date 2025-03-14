@@ -1,13 +1,10 @@
-// filepath: /c:/Users/simonp/Documents/Extra/saux-component-library/src/components/Header/H1.tsx
-import React from "react";
-import Header from "./Header";
+import React from 'react';
+import Header, { HeaderProps } from './Header';
 
-export interface H1Props {
-  text: string;
-}
+export interface H1Props extends Omit<HeaderProps, 'level'> {}
 
-const H1: React.FC<H1Props> = ({ text }) => {
-  return <Header text={text} level={1} />;
+const H1: React.FC<H1Props> = (props) => {
+  return <Header {...props} level={1} />;
 };
 
 export default H1;
