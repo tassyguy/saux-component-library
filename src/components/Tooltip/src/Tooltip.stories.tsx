@@ -20,7 +20,7 @@ const Template: StoryFn<TooltipProps> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
+export const Default: StoryFn<TooltipProps> = Template.bind({});
 Default.args = {
   content: 'Tooltip content',
   children: <span>Hover over me</span>,

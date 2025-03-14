@@ -4,6 +4,9 @@ import './Alert.css';
 
 export type AlertType = 'success' | 'error' | 'warning' | 'info';
 
+/**
+ * Alert component props
+ */
 export interface AlertProps {
   /** The alert message to display */
   message: string;
@@ -27,6 +30,12 @@ export interface AlertProps {
   ariaLabel?: string;
 }
 
+/**
+ * Alert component
+ *
+ * @param {AlertProps} props - The props for the Alert component
+ * @returns {JSX.Element} The rendered Alert component
+ */
 const Alert: React.FC<AlertProps> = ({
   message,
   type = 'info',

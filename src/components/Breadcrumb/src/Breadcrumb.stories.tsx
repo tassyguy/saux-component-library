@@ -20,7 +20,7 @@ const Template: StoryFn<BreadcrumbProps> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
+export const Default: StoryFn<BreadcrumbProps> = Template.bind({});
 Default.args = {
   items: [
     { label: 'Home', href: '/' },
@@ -29,19 +29,19 @@ Default.args = {
   ],
 };
 
-export const CustomSeparator = Template.bind({});
+export const CustomSeparator: StoryFn<BreadcrumbProps> = Template.bind({});
 CustomSeparator.args = {
   ...Default.args,
   separator: '→',
 };
 
-export const Truncated = Template.bind({});
+export const Truncated: StoryFn<BreadcrumbProps> = Template.bind({});
 Truncated.args = {
   ...Default.args,
   truncate: true,
 };
 
-export const BoldCurrent = Template.bind({});
+export const BoldCurrent: StoryFn<BreadcrumbProps> = Template.bind({});
 BoldCurrent.args = {
   ...Default.args,
   boldCurrent: true,

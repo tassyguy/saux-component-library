@@ -9,12 +9,12 @@
     "dist"
   ],
   "scripts": {
-    "build": "rollup -c",
-    "prepublishOnly": "npm run build",
+    "build": "pnpm -r run build",
+    "prepublishOnly": "pnpm run build",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "cross-env STORYBOOK_BUILD=true storybook build",
-    "deploy-storybook": "npm run build-storybook && echo > ./storybook-static/.nojekyll && gh-pages -d storybook-static && git add . && git commit -m 'chore: deploy storybook' && git push",
-    "local-deploy-storybook": "npm run build-storybook -- -o ./storybook-static/index.html && npx http-server ./storybook-static/index.html"
+    "deploy-storybook": "pnpm run build-storybook && echo > ./storybook-static/.nojekyll && gh-pages -d storybook-static && git add . && git commit -m 'chore: deploy storybook' && git push",
+    "local-deploy-storybook": "pnpm run build-storybook -- -o ./storybook-static/index.html && npx http-server ./storybook-static/index.html"
   },
   "homepage": "https://tassyguy.github.io/saux-component-library",
   "keywords": [],
@@ -62,7 +62,6 @@
     "gh-pages": "^6.3.0",
     "husky": "^8.0.0",
     "jest": "^29.7.0",
-    "lerna": "^8.2.1",
     "prettier": "^3.5.2",
     "react-docgen-typescript": "^2.2.2",
     "recast": "^0.23.11",
@@ -71,7 +70,8 @@
     "storybook": "^8.6.4",
     "storybook-dark-mode": "^4.0.2",
     "tslib": "^2.8.1",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "vite": "^6.2.1"
   },
   "eslintConfig": {
     "extends": [

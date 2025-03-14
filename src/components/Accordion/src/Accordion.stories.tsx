@@ -15,7 +15,7 @@ const Template: StoryFn<AccordionProps> = (args) => (
   </ThemeProvider>
 );
 
-export const Default = Template.bind({});
+export const Default: StoryFn<AccordionProps> = Template.bind({});
 Default.args = {
   items: [
     {
@@ -28,13 +28,13 @@ Default.args = {
   ],
 };
 
-export const MultipleOpen = Template.bind({});
+export const MultipleOpen: StoryFn<AccordionProps> = Template.bind({});
 MultipleOpen.args = {
   ...Default.args,
   allowMultiple: true,
 };
 
-export const DefaultOpen = Template.bind({});
+export const DefaultOpen: StoryFn<AccordionProps> = Template.bind({});
 DefaultOpen.args = {
   ...Default.args,
   defaultOpenIndex: 0,

@@ -18,7 +18,7 @@ const Template: StoryFn<TextAreaProps> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
+export const Default: StoryFn<TextAreaProps> = Template.bind({});
 Default.args = {
   label: 'Your Message',
   value: '',
@@ -26,38 +26,38 @@ Default.args = {
   rows: 5,
 };
 
-export const WithMaxLength = Template.bind({});
+export const WithMaxLength: StoryFn<TextAreaProps> = Template.bind({});
 WithMaxLength.args = {
   ...Default.args,
   maxLength: 200,
   characterCount: true,
 };
 
-export const WithError = Template.bind({});
+export const WithError: StoryFn<TextAreaProps> = Template.bind({});
 WithError.args = {
   ...Default.args,
   error: 'Message is required',
 };
 
-export const FullWidth = Template.bind({});
+export const FullWidth: StoryFn<TextAreaProps> = Template.bind({});
 FullWidth.args = {
   ...Default.args,
   fullWidth: true,
 };
 
-export const AutoFocus = Template.bind({});
+export const AutoFocus: StoryFn<TextAreaProps> = Template.bind({});
 AutoFocus.args = {
   ...Default.args,
   autoFocus: true,
 };
 
-export const NonResizable = Template.bind({});
+export const NonResizable: StoryFn<TextAreaProps> = Template.bind({});
 NonResizable.args = {
   ...Default.args,
   resize: 'none',
 };
 
-export const Disabled = Template.bind({});
+export const Disabled: StoryFn<TextAreaProps> = Template.bind({});
 Disabled.args = {
   ...Default.args,
   disabled: true,

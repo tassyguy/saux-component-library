@@ -20,45 +20,45 @@ const Template: StoryFn<ToggleSwitchProps> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
+export const Default: StoryFn<ToggleSwitchProps> = Template.bind({});
 Default.args = {
   isOn: false,
   onToggle: () => {},
 };
 
-export const Disabled = Template.bind({});
+export const Disabled: StoryFn<ToggleSwitchProps> = Template.bind({});
 Disabled.args = {
   ...Default.args,
   disabled: true,
 };
 
-export const Small = Template.bind({});
+export const Small: StoryFn<ToggleSwitchProps> = Template.bind({});
 Small.args = {
   ...Default.args,
   size: 'small',
 };
 
-export const Large = Template.bind({});
+export const Large: StoryFn<ToggleSwitchProps> = Template.bind({});
 Large.args = {
   ...Default.args,
   size: 'large',
 };
 
-export const SuccessVariant = Template.bind({});
+export const SuccessVariant: StoryFn<ToggleSwitchProps> = Template.bind({});
 SuccessVariant.args = {
   ...Default.args,
   isOn: true,
   variant: 'success',
 };
 
-export const WarningVariant = Template.bind({});
+export const WarningVariant: StoryFn<ToggleSwitchProps> = Template.bind({});
 WarningVariant.args = {
   ...Default.args,
   isOn: true,
   variant: 'warning',
 };
 
-export const ErrorVariant = Template.bind({});
+export const ErrorVariant: StoryFn<ToggleSwitchProps> = Template.bind({});
 ErrorVariant.args = {
   ...Default.args,
   isOn: true,

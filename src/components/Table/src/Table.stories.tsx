@@ -14,7 +14,7 @@ const Template: StoryFn<TableProps> = (args) => (
   </ThemeProvider>
 );
 
-export const Default = Template.bind({});
+export const Default: StoryFn<TableProps> = Template.bind({});
 Default.args = {
   columns: [
     { header: 'Name', accessor: 'name' },
@@ -28,7 +28,7 @@ Default.args = {
   ],
 };
 
-export const Empty = Template.bind({});
+export const Empty: StoryFn<TableProps> = Template.bind({});
 Empty.args = {
   columns: [
     { header: 'Name', accessor: 'name' },

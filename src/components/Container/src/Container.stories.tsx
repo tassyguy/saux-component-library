@@ -22,7 +22,7 @@ const Template: StoryFn<ContainerProps> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
+export const Default: StoryFn<ContainerProps> = Template.bind({});
 Default.args = {
   maxWidth: '900px',
   padding: '2rem',
@@ -31,19 +31,19 @@ Default.args = {
   shadow: 'medium',
 };
 
-export const FullHeight = Template.bind({});
+export const FullHeight: StoryFn<ContainerProps> = Template.bind({});
 FullHeight.args = {
   ...Default.args,
   fullHeight: true,
 };
 
-export const NoShadow = Template.bind({});
+export const NoShadow: StoryFn<ContainerProps> = Template.bind({});
 NoShadow.args = {
   ...Default.args,
   shadow: 'none',
 };
 
-export const CustomMargin = Template.bind({});
+export const CustomMargin: StoryFn<ContainerProps> = Template.bind({});
 CustomMargin.args = {
   ...Default.args,
   margin: '2rem auto',

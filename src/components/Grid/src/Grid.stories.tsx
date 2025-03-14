@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
-import Grid from './Grid';
+import Grid, { GridProps } from './Grid';
 import GridItem from './GridItem';
 import { ThemeProvider } from '../../Theme/src/ThemeProvider';
 import { useDarkMode } from 'storybook-dark-mode';
@@ -10,7 +10,7 @@ export default {
   component: Grid,
 } as Meta;
 
-const Template: StoryFn = () => {
+const Template: StoryFn<GridProps> = () => {
   const isDarkMode = useDarkMode();
   return (
     <ThemeProvider>
@@ -28,4 +28,4 @@ const Template: StoryFn = () => {
   );
 };
 
-export const Default = Template.bind({});
+export const Default: StoryFn<GridProps> = Template.bind({});

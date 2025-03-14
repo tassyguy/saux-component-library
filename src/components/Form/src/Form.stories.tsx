@@ -70,7 +70,7 @@ const Template: StoryFn<FormProps> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
+export const Default: StoryFn<FormProps> = Template.bind({});
 Default.args = {
   onSubmit: (e) => {
     e.preventDefault();
@@ -80,11 +80,11 @@ Default.args = {
   size: 'medium',
 };
 
-export const Horizontal = Template.bind({});
+export const Horizontal: StoryFn<FormProps> = Template.bind({});
 Horizontal.args = { ...Default.args, layout: 'horizontal' };
 
-export const Inline = Template.bind({});
+export const Inline: StoryFn<FormProps> = Template.bind({});
 Inline.args = { ...Default.args, layout: 'inline' };
 
-export const Loading = Template.bind({});
+export const Loading: StoryFn<FormProps> = Template.bind({});
 Loading.args = { ...Default.args, isLoading: true };

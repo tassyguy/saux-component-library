@@ -20,7 +20,7 @@ const Template: StoryFn<FooterProps> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
+export const Default: StoryFn<FooterProps> = Template.bind({});
 Default.args = {
   children: (
     <div>
@@ -30,20 +30,20 @@ Default.args = {
   ),
 };
 
-export const CustomBackground = Template.bind({});
+export const CustomBackground: StoryFn<FooterProps> = Template.bind({});
 CustomBackground.args = {
   backgroundColor: 'var(--primary-color)',
   textColor: '#fff',
   children: <p>Custom Background Footer</p>,
 };
 
-export const LeftAligned = Template.bind({});
+export const LeftAligned: StoryFn<FooterProps> = Template.bind({});
 LeftAligned.args = {
   align: 'left',
   children: <p>Left-Aligned Footer</p>,
 };
 
-export const WithDivider = Template.bind({});
+export const WithDivider: StoryFn<FooterProps> = Template.bind({});
 WithDivider.args = {
   showDivider: true,
   children: <p>Footer with Divider</p>,

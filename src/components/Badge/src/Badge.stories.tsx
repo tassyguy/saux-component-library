@@ -21,35 +21,35 @@ const Template: StoryFn<BadgeProps> = (args) => {
   );
 };
 
-export const Primary = Template.bind({});
+export const Primary: StoryFn<BadgeProps> = Template.bind({});
 Primary.args = { text: 'Primary', variant: 'primary' };
 
-export const Secondary = Template.bind({});
+export const Secondary: StoryFn<BadgeProps> = Template.bind({});
 Secondary.args = { text: 'Secondary', variant: 'secondary' };
 
-export const Success = Template.bind({});
+export const Success: StoryFn<BadgeProps> = Template.bind({});
 Success.args = { text: 'Success', variant: 'success' };
 
-export const Warning = Template.bind({});
+export const Warning: StoryFn<BadgeProps> = Template.bind({});
 Warning.args = { text: 'Warning', variant: 'warning' };
 
-export const Error = Template.bind({});
+export const Error: StoryFn<BadgeProps> = Template.bind({});
 Error.args = { text: 'Error', variant: 'error' };
 
 // New stories for additional props
-export const Small = Template.bind({});
+export const Small: StoryFn<BadgeProps> = Template.bind({});
 Small.args = { text: 'Small', variant: 'primary', size: 'small' };
 
-export const Large = Template.bind({});
+export const Large: StoryFn<BadgeProps> = Template.bind({});
 Large.args = { text: 'Large', variant: 'primary', size: 'large' };
 
-export const RoundedFull = Template.bind({});
+export const RoundedFull: StoryFn<BadgeProps> = Template.bind({});
 RoundedFull.args = { text: 'Rounded', variant: 'secondary', rounded: 'full' };
 
-export const Pill = Template.bind({});
+export const Pill: StoryFn<BadgeProps> = Template.bind({});
 Pill.args = { text: 'Pill Badge', variant: 'success', isPill: true };
 
-export const WithIconLeft = Template.bind({});
+export const WithIconLeft: StoryFn<BadgeProps> = Template.bind({});
 WithIconLeft.args = {
   text: 'Info',
   variant: 'primary',
@@ -57,7 +57,7 @@ WithIconLeft.args = {
   iconPosition: 'left',
 };
 
-export const WithIconRight = Template.bind({});
+export const WithIconRight: StoryFn<BadgeProps> = Template.bind({});
 WithIconRight.args = {
   text: 'Check',
   variant: 'success',
@@ -65,14 +65,14 @@ WithIconRight.args = {
   iconPosition: 'right',
 };
 
-export const Clickable = Template.bind({});
+export const Clickable: StoryFn<BadgeProps> = Template.bind({});
 Clickable.args = {
   text: 'Click Me',
   variant: 'warning',
   onClick: () => alert('Badge clicked!'),
 };
 
-export const WithTooltip = Template.bind({});
+export const WithTooltip: StoryFn<BadgeProps> = Template.bind({});
 WithTooltip.args = {
   text: 'Hover Me',
   variant: 'error',

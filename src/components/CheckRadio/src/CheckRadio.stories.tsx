@@ -26,7 +26,7 @@ const Template: StoryFn<CheckRadioProps> = (args) => {
   );
 };
 
-export const Checkbox = Template.bind({});
+export const Checkbox: StoryFn<CheckRadioProps> = Template.bind({});
 Checkbox.args = {
   type: 'checkbox',
   checked: false,
@@ -36,7 +36,7 @@ Checkbox.args = {
   variant: 'primary',
 };
 
-export const RadioButton = Template.bind({});
+export const RadioButton: StoryFn<CheckRadioProps> = Template.bind({});
 RadioButton.args = {
   type: 'radio',
   checked: false,
@@ -47,19 +47,19 @@ RadioButton.args = {
   variant: 'primary',
 };
 
-export const SmallCheckbox = Template.bind({});
+export const SmallCheckbox: StoryFn<CheckRadioProps> = Template.bind({});
 SmallCheckbox.args = {
   ...Checkbox.args,
   size: 'small',
 };
 
-export const LargeCheckbox = Template.bind({});
+export const LargeCheckbox: StoryFn<CheckRadioProps> = Template.bind({});
 LargeCheckbox.args = {
   ...Checkbox.args,
   size: 'large',
 };
 
-export const ErrorCheckbox = Template.bind({});
+export const ErrorCheckbox: StoryFn<CheckRadioProps> = Template.bind({});
 ErrorCheckbox.args = {
   ...Checkbox.args,
   variant: 'error',

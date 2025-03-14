@@ -1,0 +1,18 @@
+# Ignore Storybook files
+*.stories.ts
+*.stories.tsx
+*.stories.js
+*.stories.jsx
+
+# Ignore node_modules and build directories
+node_modules/
+dist/
+
+# Ignore log files
+*.log
+
+# Ignore VSCode settings
+.vscode/
+
+# Ignore Storybook logs
+*storybook.log

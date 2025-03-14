@@ -32,14 +32,14 @@ const Template: StoryFn<PaginationProps> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
+export const Default: StoryFn<PaginationProps> = Template.bind({});
 Default.args = {
   currentPage: 1,
   totalPages: 10,
   onPageChange: (page) => console.log(`Page changed to ${page}`),
 };
 
-export const CustomStyled = Template.bind({});
+export const CustomStyled: StoryFn<PaginationProps> = Template.bind({});
 CustomStyled.args = {
   currentPage: 1,
   totalPages: 10,
@@ -48,7 +48,7 @@ CustomStyled.args = {
   onPageChange: (page) => console.log(`Page changed to ${page}`),
 };
 
-export const WithAriaLabels = Template.bind({});
+export const WithAriaLabels: StoryFn<PaginationProps> = Template.bind({});
 WithAriaLabels.args = {
   currentPage: 1,
   totalPages: 10,

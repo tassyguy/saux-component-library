@@ -20,21 +20,21 @@ const Template: StoryFn<AvatarProps> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
+export const Default: StoryFn<AvatarProps> = Template.bind({});
 Default.args = {
   alt: 'John Doe',
   size: 60,
   src: 'https://i.pravatar.cc/128',
 };
 
-export const WithFallback = Template.bind({});
+export const WithFallback: StoryFn<AvatarProps> = Template.bind({});
 WithFallback.args = {
   alt: 'Jane Doe',
   size: 60,
   src: '',
 };
 
-export const CustomSize = Template.bind({});
+export const CustomSize: StoryFn<AvatarProps> = Template.bind({});
 CustomSize.args = {
   alt: 'Custom Size',
   size: 100,

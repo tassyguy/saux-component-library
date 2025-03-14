@@ -43,27 +43,27 @@ const TemplateH5: StoryFn<H5Props> = (args) => (
   </ThemeProvider>
 );
 
-export const Header1 = TemplateH1.bind({});
+export const Header1: StoryFn<H1Props> = TemplateH1.bind({});
 Header1.args = {
   text: 'Header 1',
 };
 
-export const Header2 = TemplateH2.bind({});
+export const Header2: StoryFn<H2Props> = TemplateH2.bind({});
 Header2.args = {
   text: 'Header 2',
 };
 
-export const Header3 = TemplateH3.bind({});
+export const Header3: StoryFn<H3Props> = TemplateH3.bind({});
 Header3.args = {
   text: 'Header 3',
 };
 
-export const Header4 = TemplateH4.bind({});
+export const Header4: StoryFn<H4Props> = TemplateH4.bind({});
 Header4.args = {
   text: 'Header 4',
 };
 
-export const Header5 = TemplateH5.bind({});
+export const Header5: StoryFn<H5Props> = TemplateH5.bind({});
 Header5.args = {
   text: 'Header 5',
 };

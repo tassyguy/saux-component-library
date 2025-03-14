@@ -14,7 +14,7 @@ const Template: StoryFn<CardProps> = (args) => (
   </ThemeProvider>
 );
 
-export const Default = Template.bind({});
+export const Default: StoryFn<CardProps> = Template.bind({});
 Default.args = {
   items: [
     {

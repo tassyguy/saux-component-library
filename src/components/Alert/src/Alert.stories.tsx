@@ -49,35 +49,35 @@ const Template: StoryFn<AlertProps> = (args) => {
   );
 };
 
-export const InfoAlert = Template.bind({});
+export const InfoAlert: StoryFn<AlertProps> = Template.bind({});
 InfoAlert.args = {
   message: 'This is an informational alert.',
   type: 'info',
   dismissible: true,
 };
 
-export const SuccessAlert = Template.bind({});
+export const SuccessAlert: StoryFn<AlertProps> = Template.bind({});
 SuccessAlert.args = {
   message: 'Operation completed successfully!',
   type: 'success',
   dismissible: true,
 };
 
-export const ErrorAlert = Template.bind({});
+export const ErrorAlert: StoryFn<AlertProps> = Template.bind({});
 ErrorAlert.args = {
   message: 'There was an error processing your request.',
   type: 'error',
   dismissible: true,
 };
 
-export const WarningAlert = Template.bind({});
+export const WarningAlert: StoryFn<AlertProps> = Template.bind({});
 WarningAlert.args = {
   message: 'Warning: Please check your input.',
   type: 'warning',
   dismissible: false,
 };
 
-export const AlertWithIcon = Template.bind({});
+export const AlertWithIcon: StoryFn<AlertProps> = Template.bind({});
 AlertWithIcon.args = {
   message: 'This is an alert with an icon.',
   type: 'info',
@@ -85,7 +85,7 @@ AlertWithIcon.args = {
   dismissible: true,
 };
 
-export const AlertWithTitle = Template.bind({});
+export const AlertWithTitle: StoryFn<AlertProps> = Template.bind({});
 AlertWithTitle.args = {
   message: 'This is an alert with a title.',
   type: 'info',
@@ -93,7 +93,7 @@ AlertWithTitle.args = {
   dismissible: true,
 };
 
-export const AutoDismissAlert = Template.bind({});
+export const AutoDismissAlert: StoryFn<AlertProps> = Template.bind({});
 AutoDismissAlert.args = {
   message: 'This alert will auto-dismiss after 3 seconds.',
   type: 'info',

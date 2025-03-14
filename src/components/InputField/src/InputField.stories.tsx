@@ -27,38 +27,38 @@ const Template: StoryFn<InputFieldProps> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
+export const Default: StoryFn<InputFieldProps> = Template.bind({});
 Default.args = {
   value: '',
   placeholder: 'Enter text here...',
 };
 
-export const WithMaxLength = Template.bind({});
+export const WithMaxLength: StoryFn<InputFieldProps> = Template.bind({});
 WithMaxLength.args = {
   ...Default.args,
   maxLength: 50,
   characterCount: true,
 };
 
-export const WithError = Template.bind({});
+export const WithError: StoryFn<InputFieldProps> = Template.bind({});
 WithError.args = {
   ...Default.args,
   error: 'This field is required',
 };
 
-export const FullWidth = Template.bind({});
+export const FullWidth: StoryFn<InputFieldProps> = Template.bind({});
 FullWidth.args = {
   ...Default.args,
   fullWidth: true,
 };
 
-export const WithIcon = Template.bind({});
+export const WithIcon: StoryFn<InputFieldProps> = Template.bind({});
 WithIcon.args = {
   ...Default.args,
   icon: <Mail size={16} />,
 };
 
-export const PasswordInput = Template.bind({});
+export const PasswordInput: StoryFn<InputFieldProps> = Template.bind({});
 PasswordInput.args = {
   ...Default.args,
   type: 'password',

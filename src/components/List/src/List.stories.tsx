@@ -56,23 +56,23 @@ const TemplateOrdered: StoryFn<ListProps> = (args) => {
   );
 };
 
-export const Default = TemplateUnordered.bind({});
+export const Default: StoryFn<ListProps> = TemplateUnordered.bind({});
 Default.args = {
   items: sampleItems,
 };
 
-export const Ordered = TemplateOrdered.bind({});
+export const Ordered: StoryFn<ListProps> = TemplateOrdered.bind({});
 Ordered.args = {
   items: sampleItems,
 };
 
-export const EmptyUnordered = TemplateUnordered.bind({});
+export const EmptyUnordered: StoryFn<ListProps> = TemplateUnordered.bind({});
 EmptyUnordered.args = {
   items: [],
   emptyMessage: 'No items available.',
 };
 
-export const EmptyOrdered = TemplateOrdered.bind({});
+export const EmptyOrdered: StoryFn<ListProps> = TemplateOrdered.bind({});
 EmptyOrdered.args = {
   items: [],
   emptyMessage: 'No items available.',

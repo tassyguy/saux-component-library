@@ -19,7 +19,7 @@ const Template: StoryFn<SelectInputProps> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
+export const Default: StoryFn<SelectInputProps> = Template.bind({});
 Default.args = {
   label: 'Choose an option:',
   value: 'option1',
@@ -31,26 +31,26 @@ Default.args = {
   disabled: false,
 };
 
-export const WithPlaceholder = Template.bind({});
+export const WithPlaceholder: StoryFn<SelectInputProps> = Template.bind({});
 WithPlaceholder.args = {
   ...Default.args,
   value: '',
   placeholder: 'Select an option...',
 };
 
-export const Small = Template.bind({});
+export const Small: StoryFn<SelectInputProps> = Template.bind({});
 Small.args = {
   ...Default.args,
   size: 'small',
 };
 
-export const Large = Template.bind({});
+export const Large: StoryFn<SelectInputProps> = Template.bind({});
 Large.args = {
   ...Default.args,
   size: 'large',
 };
 
-export const ErrorVariant = Template.bind({});
+export const ErrorVariant: StoryFn<SelectInputProps> = Template.bind({});
 ErrorVariant.args = {
   ...Default.args,
   variant: 'error',

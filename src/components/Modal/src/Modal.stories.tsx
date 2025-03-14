@@ -28,25 +28,25 @@ const Template: StoryFn<ModalProps> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
+export const Default: StoryFn<ModalProps> = Template.bind({});
 Default.args = {
   open: false,
   title: 'Modal Title',
 };
 
-export const Small = Template.bind({});
+export const Small: StoryFn<ModalProps> = Template.bind({});
 Small.args = {
   ...Default.args,
   size: 'small',
 };
 
-export const Large = Template.bind({});
+export const Large: StoryFn<ModalProps> = Template.bind({});
 Large.args = {
   ...Default.args,
   size: 'large',
 };
 
-export const NoOverlayClose = Template.bind({});
+export const NoOverlayClose: StoryFn<ModalProps> = Template.bind({});
 NoOverlayClose.args = {
   ...Default.args,
   closeOnOverlayClick: false,

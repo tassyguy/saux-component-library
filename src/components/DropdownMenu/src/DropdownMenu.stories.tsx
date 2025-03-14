@@ -45,32 +45,32 @@ const sampleItems: DropdownMenuItem[] = [
   },
 ];
 
-export const Default = Template.bind({});
+export const Default: StoryFn<DropdownMenuProps> = Template.bind({});
 Default.args = {
   label: 'Menu',
   items: sampleItems,
   disabled: false,
 };
 
-export const RightAligned = Template.bind({});
+export const RightAligned: StoryFn<DropdownMenuProps> = Template.bind({});
 RightAligned.args = {
   ...Default.args,
   align: 'right',
 };
 
-export const CenterAligned = Template.bind({});
+export const CenterAligned: StoryFn<DropdownMenuProps> = Template.bind({});
 CenterAligned.args = {
   ...Default.args,
   align: 'center',
 };
 
-export const FullWidth = Template.bind({});
+export const FullWidth: StoryFn<DropdownMenuProps> = Template.bind({});
 FullWidth.args = {
   ...Default.args,
   fullWidth: true,
 };
 
-export const Disabled = Template.bind({});
+export const Disabled: StoryFn<DropdownMenuProps> = Template.bind({});
 Disabled.args = {
   ...Default.args,
   disabled: true,
