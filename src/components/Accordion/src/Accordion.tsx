@@ -7,19 +7,21 @@ export interface AccordionItem {
   title: string;
   content: React.ReactNode;
   icon?: React.ReactNode;
+  className?: string; // Allow className per item
 }
 
 export interface AccordionProps {
   items: AccordionItem[];
   defaultOpenIndex?: number;
   allowMultiple?: boolean;
-  className?: string; // allows us to use padding and margin classes
+  className?: string; // Allow className for the entire Accordion
 }
 
 const Accordion: React.FC<AccordionProps> = ({
   items,
   defaultOpenIndex = null,
   allowMultiple = false,
+  className = '', // Default empty class
 }) => {
   const theme = useTheme(); // Get theme values
   const [activeIndices, setActiveIndices] = useState<number[]>(
@@ -39,9 +41,9 @@ const Accordion: React.FC<AccordionProps> = ({
   };
 
   return (
-    <div>
+    <div className={`accordion ${className}`.trim()}> {/* Apply className here */}
       {items.map((item, index) => (
-        <div key={index} className="accordion-item">
+        <div key={index} className={`accordion-item ${item.className || ''}`.trim()}>
           <div onClick={() => toggleIndex(index)} className="accordion-title">
             {item.icon && <span className="accordion-icon">{item.icon}</span>}
             <H3 text={item.title} />

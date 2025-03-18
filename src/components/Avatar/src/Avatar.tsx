@@ -34,9 +34,14 @@ const Avatar: React.FC<AvatarProps> = ({
   };
 
   return (
-    <div className={`avatar ${className}`} style={style}>
+    <div className={`avatar ${className}`.trim()} style={style}>
       {src ? (
-        <img src={src} alt={alt} className="avatar__img" style={{ width: size, height: size }} />
+        <img
+          src={src}
+          alt={alt}
+          className="avatar__img"
+          style={{ width: size, height: size }}
+        />
       ) : (
         <span className="avatar__fallback">{getInitials(alt)}</span>
       )}

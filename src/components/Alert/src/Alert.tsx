@@ -58,7 +58,7 @@ const Alert: React.FC<AlertProps> = ({
   }, [duration, onClose]);
 
   return (
-    <div className={`alert alert--${type} ${className}`} style={style}>
+    <div className={`alert alert--${type} ${className}`.trim()} style={style}>
       {icon && <span className="alert__icon">{icon}</span>}
       <div className="alert__content">
         {title && <strong className="alert__title">{title}</strong>}
