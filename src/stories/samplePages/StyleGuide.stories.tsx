@@ -70,10 +70,10 @@ const Template: StoryFn = () => {
         <H5 text="H5" {...globalComponentProps('margin', 'bottom', 'md')} />
 
         <label className="form-group__label">Table:</label>
-        <Table columns={tableData} data={[]} {...globalComponentProps('margin', 'bottom', 'md')} />
+        <Table columns={tableData} data={[]} {...globalComponentProps('margin', 'bottom', 'lg')} />
 
         <label className="form-group__label">Ordered Lists:</label>
-        <OrderedList {...globalComponentProps('margin', 'bottom', 'md')} items={[
+        <OrderedList {...globalComponentProps('margin', 'bottom', 'lg')} items={[
           { icon: <CheckCircle size={16} />, key: 'success', label: 'Success Item', onClick: () => {} },
           { key: 'warning', label: 'Warning Item', onClick: () => {} },
           { key: 'info', label: 'Info Item', onClick: () => {} },
@@ -81,30 +81,32 @@ const Template: StoryFn = () => {
         ]}/>
 
         <label className="form-group__label">Unordered Lists:</label>
-        <UnorderedList {...globalComponentProps('margin', 'bottom', 'md')} items={[
+        <UnorderedList {...globalComponentProps('margin', 'bottom', 'lg')} items={[
           { icon: <CheckCircle size={16} />, key: 'success', label: 'Success Item', onClick: () => {} },
           { key: 'warning', label: 'Warning Item', onClick: () => {} },
           { key: 'info', label: 'Info Item', onClick: () => {} },
           { disabled: true, key: 'disabled', label: 'Disabled Item' }
         ]}/>
 
+<div {...globalComponentProps('margin', 'bottom', 'lg')} id='accordionContainer'>
         <label className="form-group__label">Accordion:</label>
-        <Accordion {...globalComponentProps('margin', 'bottom', 'md')} items={[
+        <Accordion items={[
           { content: <p>Content 1</p>, icon: <ChevronDown size={16} />, title: 'Item 1' },
           { content: <p>Content 2</p>, icon: <ChevronDown size={16} />, title: 'Item 2' },
           { content: <p>Content 3</p>, icon: <ChevronDown size={16} />, title: 'Item 3' }
         ]} />
+        </div>
 
         <label className="form-group__label">Pagination:</label>
-        <Pagination {...globalComponentProps('margin', 'bottom', 'md')} currentPage={0} totalPages={0} onPageChange={(page: number) => console.log(page)} />
+        <Pagination {...globalComponentProps('margin', 'bottom', 'lg')} currentPage={0} totalPages={0} onPageChange={(page: number) => console.log(page)} />
 
         <label className="form-group__label">Sidebar Component:</label>
-        <Sidebar {...globalComponentProps('margin', 'bottom', 'md')} title={'Sidebar'} items={sampleItems}  />
+        <Sidebar {...globalComponentProps('margin', 'bottom', 'lg')} title={'Sidebar'} items={sampleItems}  />
 
-        <Breadcrumb {...globalComponentProps('margin', 'bottom', 'md')} items={breadcrumbs}  />
+        <Breadcrumb {...globalComponentProps('margin', 'bottom', 'lg')} items={breadcrumbs}  />
 
         <label className="form-group__label">Dark Mode</label>
-        <ToggleSwitch {...globalComponentProps('margin', 'bottom', 'md')} isOn={darkMode} onToggle={() => setDarkMode(!darkMode)} />
+        <ToggleSwitch {...globalComponentProps('margin', 'bottom', 'lg')} isOn={darkMode} onToggle={() => setDarkMode(!darkMode)} />
         
       </div>
     </ThemeProvider>
