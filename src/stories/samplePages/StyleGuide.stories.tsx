@@ -99,22 +99,13 @@ const Template: StoryFn = () => {
         <Pagination {...globalComponentProps('margin', 'top', 'sm')} currentPage={0} totalPages={0} onPageChange={(page: number) => console.log(page)} />
 
         <label className="form-group__label">Sidebar Component:</label>
-        <Sidebar title={'Sidebar'} items={sampleItems} {...globalComponentProps('padding', 'all', 'lg')} />
+        <Sidebar {...globalComponentProps('padding', 'all', 'lg')} title={'Sidebar'} items={sampleItems}  />
 
-        <Breadcrumb items={breadcrumbs} {...globalComponentProps('margin', 'bottom', 'md')} />
+        <Breadcrumb {...globalComponentProps('margin', 'bottom', 'md')} items={breadcrumbs}  />
 
         <label className="form-group__label">Dark Mode</label>
-        <ToggleSwitch isOn={darkMode} onToggle={() => setDarkMode(!darkMode)} />
-
-        <Footer {...globalComponentProps('padding', 'top', 'lg')}>
-          <label className="form-group__label">Dark Mode</label>
-          <ToggleSwitch isOn={darkMode} onToggle={() => setDarkMode(!darkMode)} />
-        </Footer>
-
-        <FormGroup {...globalComponentProps('margin', 'bottom', 'md')}>
-          <label className="form-group__label">Dark Mode</label>
-          <ToggleSwitch isOn={darkMode} onToggle={() => setDarkMode(!darkMode)} />
-        </FormGroup>
+        <ToggleSwitch {...globalComponentProps('margin', 'top', 'sm')} isOn={darkMode} onToggle={() => setDarkMode(!darkMode)} />
+        
       </div>
     </ThemeProvider>
   );
