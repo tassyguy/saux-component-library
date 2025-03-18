@@ -88,14 +88,12 @@ const Template: StoryFn = () => {
           { disabled: true, key: 'disabled', label: 'Disabled Item' }
         ]}/>
 
-<div {...globalComponentProps('margin', 'bottom', 'lg')} id='accordionContainer'>
         <label className="form-group__label">Accordion:</label>
         <Accordion className="margin-bottom-lg" items={[
           { content: <p>Content 1</p>, icon: <ChevronDown size={16} />, title: 'Item 1' },
           { content: <p>Content 2</p>, icon: <ChevronDown size={16} />, title: 'Item 2' },
           { content: <p>Content 3</p>, icon: <ChevronDown size={16} />, title: 'Item 3' }
         ]} />
-        </div>
 
         <label className="form-group__label">Pagination:</label>
         <Pagination {...globalComponentProps('margin', 'bottom', 'lg')} currentPage={0} totalPages={0} onPageChange={(page: number) => console.log(page)} />
