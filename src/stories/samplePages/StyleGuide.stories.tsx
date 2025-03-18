@@ -63,11 +63,11 @@ const Template: StoryFn = () => {
       <div {...globalComponentProps('padding', 'all', 'lg')}> {/* Large padding all around */}
         
         <label className="form-group__label">Header tags:</label>
-        <H1 text="H1" {...globalComponentProps('margin', 'bottom', 'sm')} />
-        <H2 text="H2" {...globalComponentProps('margin', 'bottom', 'sm')} />
-        <H3 text="H3" {...globalComponentProps('margin', 'bottom', 'sm')} />
-        <H4 text="H4" {...globalComponentProps('margin', 'bottom', 'sm')} />
-        <H5 text="H5" {...globalComponentProps('margin', 'bottom', 'md')} />
+        <H1 text="H1" className="margin-bottom-lg"/>
+        <H2 text="H2" className="margin-bottom-lg"/>
+        <H3 text="H3" className="margin-bottom-lg"/>
+        <H4 text="H4" className="margin-bottom-lg"/>
+        <H5 text="H5" className="margin-bottom-lg"/>
 
         <label className="form-group__label">Table:</label>
         <Table columns={tableData} data={[]} {...globalComponentProps('margin', 'bottom', 'lg')} />
@@ -90,7 +90,7 @@ const Template: StoryFn = () => {
 
 <div {...globalComponentProps('margin', 'bottom', 'lg')} id='accordionContainer'>
         <label className="form-group__label">Accordion:</label>
-        <Accordion items={[
+        <Accordion className="margin-bottom-lg" items={[
           { content: <p>Content 1</p>, icon: <ChevronDown size={16} />, title: 'Item 1' },
           { content: <p>Content 2</p>, icon: <ChevronDown size={16} />, title: 'Item 2' },
           { content: <p>Content 3</p>, icon: <ChevronDown size={16} />, title: 'Item 3' }
