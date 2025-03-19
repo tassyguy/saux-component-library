@@ -15,6 +15,7 @@ import {
   Footer,
   FormGroup,
   Tooltip,
+  CheckRadio
   Button,
   ThemeProvider,
   H1,
@@ -83,6 +84,7 @@ const cardItems = [
 ];
 
 import { globalComponentProps } from '../../components/config/globalComponentProps';
+import CheckRadioStories from '../../components/CheckRadio/src/CheckRadio.stories';
 
 const Template: StoryFn = () => {
   const [darkMode, setDarkMode] = React.useState(false);
@@ -129,6 +131,19 @@ const Template: StoryFn = () => {
         <div className="container">
           <label className="form-group__label blockDisplay">Card:</label>
           <Card className="margin-bottom-lg" items={cardItems} />
+        </div>
+        <div className="container">
+          <label className="form-group__label blockDisplay">Table:</label>
+          <Table
+            columns={tableColumns}
+            data={tableData}
+            className="margin-bottom-lg"
+          />
+        </div>
+        <div className="container">
+          <label className="form-group__label blockDisplay">Check Radio:</label>
+          <CheckRadio className="margin-bottom-lg" type="checkbox"  checked="false"/>
+          <CheckRadio className="margin-bottom-lg" type="radio"  checked="false"/>
         </div>
         <div className="container">
           <label className="form-group__label blockDisplay">Table:</label>
