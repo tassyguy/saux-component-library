@@ -14,7 +14,7 @@
   ); /* Fallback to a default background color */
   padding: 6px 10px;
   border-radius: 4px;
-  cursor: pointer;
+  cursor: auto;
   transition: background-color 0.2s;
   color: var(--text-color, #000); /* Fallback to a default text color */
 }

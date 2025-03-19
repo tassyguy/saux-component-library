@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 
 // Typography & Misc Components
@@ -52,6 +52,13 @@ export default {
   title: 'Sample Pages/Style Guide',
 } as Meta;
 
+const [currentPage, setCurrentPage] = useState(1); // ✅ Store the current page
+
+const handlePageChange = (page: number) => {
+  console.log(`Page changed to: ${page}`); // Debugging output
+  setCurrentPage(page); // ✅ Updates the current page state
+};
+
 const tableColumns = [
   { header: 'Name', accessor: 'name' },
   { header: 'Age', accessor: 'age' },
@@ -100,18 +107,18 @@ const dropdownItems = [
 ];
 
 const selectInputOptions = [
-    {
-      label: 'Option 1',
-      value: 'option1'
-    },
-    {
-      label: 'Option 2',
-      value: 'option2'
-    },
-    {
-      label: 'Option 3',
-      value: 'option3'
-    }
+  {
+    label: 'Option 1',
+    value: 'option1',
+  },
+  {
+    label: 'Option 2',
+    value: 'option2',
+  },
+  {
+    label: 'Option 3',
+    value: 'option3',
+  },
 ];
 
 const cardItems = [
@@ -332,22 +339,14 @@ const Template: StoryFn = () => {
           />
         </div>
         <div className="container">
-        <label className="form-group__label blockDisplay">Modal:</label>
-        <Button
-      label="Open Modal"
-      onClick={() => {}}
-    />
-    <Modal
-    open={false}
-      onClose={() => {}}
-      title="Modal Title"
-    >
-      <p>
-        This is an example modal dialog. You can place any content here.
-      </p>
-    </Modal>
-          </div>
-
+          <label className="form-group__label blockDisplay">Modal:</label>
+          <Button label="Open Modal" onClick={() => {}} />
+          <Modal open={false} onClose={() => {}} title="Modal Title">
+            <p>
+              This is an example modal dialog. You can place any content here.
+            </p>
+          </Modal>
+        </div>
         <div className="container">
           <label className="form-group__label blockDisplay">Accordion:</label>
           <Accordion
@@ -375,18 +374,20 @@ const Template: StoryFn = () => {
           <label className="form-group__label blockDisplay">Pagination:</label>
           <Pagination
             className="margin-bottom-lg"
-            currentPage={1}
+            currentPage={currentPage} // ✅ Now it updates dynamically
             totalPages={5}
-            onPageChange={(page: number) => console.log(page)}
+            onPageChange={handlePageChange} // ✅ Function updates state
           />
         </div>
         <div className="container">
-          <label className="form-group__label blockDisplay">Select Input:</label>
+          <label className="form-group__label blockDisplay">
+            Select Input:
+          </label>
           <SelectInput
-          label="Choose an option:"
-          onChange={() => {}}
-          options={selectInputOptions}
-          value="option1"
+            label="Choose an option:"
+            onChange={() => {}}
+            options={selectInputOptions}
+            value="option1"
           />
         </div>
         <div className="container">
