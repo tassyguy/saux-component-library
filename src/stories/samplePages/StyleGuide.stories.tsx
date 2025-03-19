@@ -16,6 +16,8 @@ import {
   Form,
   FormGroup,
   InputField,
+  Link,
+  Modal,
   TextArea,
   Tooltip,
   Grid,
@@ -42,7 +44,7 @@ import {
   User,
   Settings,
   LogOut,
-  Mail
+  Mail,
 } from 'react-feather';
 
 export default {
@@ -255,13 +257,25 @@ const Template: StoryFn = () => {
         <div className="container">
           <label className="form-group__label blockDisplay">Grid:</label>
           <Grid columns={3} gap="1em">
-          <GridItem>Item 1</GridItem>
-          <GridItem>Item 2</GridItem>
-          <GridItem>Item 3</GridItem>
-          <GridItem>Item 4</GridItem>
-          <GridItem>Item 5</GridItem>
-          <GridItem>Item 6</GridItem>
-        </Grid>
+            <GridItem>Item 1</GridItem>
+            <GridItem>Item 2</GridItem>
+            <GridItem>Item 3</GridItem>
+            <GridItem>Item 4</GridItem>
+            <GridItem>Item 5</GridItem>
+            <GridItem>Item 6</GridItem>
+          </Grid>
+        </div>
+        <div className="container">
+          <label className="form-group__label blockDisplay">Input Field:</label>
+          <InputField
+            onChange={() => {}}
+            placeholder="Enter text here..."
+            value=""
+          />
+        </div>
+        <div className="container">
+          <label className="form-group__label blockDisplay">Link:</label>
+          <Link href="https://www.google.com" label="Go to Google" />
         </div>
         <div className="container">
           <label className="form-group__label blockDisplay">
@@ -301,6 +315,22 @@ const Template: StoryFn = () => {
             ]}
           />
         </div>
+        <div className="container">
+        <label className="form-group__label blockDisplay">Modal:</label>
+        <Button
+      label="Open Modal"
+      onClick={() => {}}
+    />
+    <Modal
+    open={true}
+      onClose={() => {}}
+      title="Modal Title"
+    >
+      <p>
+        This is an example modal dialog. You can place any content here.
+      </p>
+    </Modal>
+          </div>
         <div className="container">
           <label className="form-group__label blockDisplay">Accordion:</label>
           <Accordion
