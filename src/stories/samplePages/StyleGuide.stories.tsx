@@ -262,6 +262,7 @@ const Template: StoryFn = () => {
           <GridItem>Item 5</GridItem>
           <GridItem>Item 6</GridItem>
         </Grid>
+        </div>
         <div className="container">
           <label className="form-group__label blockDisplay">
             Ordered Lists:
