@@ -40,9 +40,9 @@ const tableColumns = [
 ];
 
 const tableData = [
-  { age: 29, email: 'name' , name: 'Alice' },
-  { age: 39, email: 'name' , name: 'Alice' },
-  { age: 32, email: 'name' , name: 'Alice' },
+  { age: 29, email: 'somerandomemail@gmail.com' , name: 'Alice' },
+  { age: 39, email: 'reallyawesomedev@devs.com' , name: 'Simon' },
+  { age: 32, email: 'alsoawesomedev@devs.com' , name: 'Amanda' },
 ];
 
 const sampleItems: SidebarItem[] = [
@@ -102,7 +102,7 @@ const Template: StoryFn = () => {
         ]} />
 
         <label className="form-group__label">Pagination:</label>
-        <Pagination className="margin-bottom-lg" currentPage={0} totalPages={0} onPageChange={(page: number) => console.log(page)} />
+        <Pagination className="margin-bottom-lg" currentPage={1} totalPages={5} onPageChange={(page: number) => console.log(page)} />
 
         <label className="form-group__label">Sidebar Component:</label>
         <Sidebar className="margin-bottom-lg" title={'Sidebar'} items={sampleItems}  />
