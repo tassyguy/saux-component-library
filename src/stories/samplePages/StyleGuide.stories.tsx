@@ -13,7 +13,10 @@ import {
   Breadcrumb,
   ToggleSwitch,
   Footer,
+  Form,
   FormGroup,
+  InputField,
+  TextArea,
   Tooltip,
   CheckRadio,
   Button,
@@ -31,12 +34,13 @@ import {
   DropdownMenu,
 } from '../../components';
 import { SidebarItem } from '../../components/Sidebar/src/Sidebar';
-import { ChevronDown, 
-  CheckCircle, 
-  User, 
-  Settings, 
-  LogOut
- } from 'react-feather';
+import {
+  ChevronDown,
+  CheckCircle,
+  User,
+  Settings,
+  LogOut,
+} from 'react-feather';
 
 export default {
   title: 'Sample Pages/Style Guide',
@@ -73,20 +77,20 @@ const dropdownItems = [
     icon: <User size={16} />,
     label: 'Profile',
     onClick: () => {},
-    value: 'profile'
+    value: 'profile',
   },
   {
     icon: <Settings size={16} />,
     label: 'Settings',
     onClick: () => {},
-    value: 'settings'
+    value: 'settings',
   },
   {
     icon: <LogOut size={16} />,
     label: 'Logout',
     onClick: () => {},
-    value: 'logout'
-  }
+    value: 'logout',
+  },
 ];
 
 const cardItems = [
@@ -169,19 +173,86 @@ const Template: StoryFn = () => {
         </div>
         <div className="container">
           <label className="form-group__label blockDisplay">Check Radio:</label>
-          <CheckRadio className="margin-bottom-lg" type="checkbox" checked onChange={function (): void {
-            throw new Error('Function not implemented.');
-          } }/>
-          <CheckRadio className="margin-bottom-lg" type="radio" checked={false} onChange={function (): void {
-            throw new Error('Function not implemented.');
-          } }/>
+          <CheckRadio
+            className="margin-bottom-lg"
+            type="checkbox"
+            checked
+            onChange={function (): void {
+              throw new Error('Function not implemented.');
+            }}
+          />
+          <CheckRadio
+            className="margin-bottom-lg"
+            type="radio"
+            checked={false}
+            onChange={function (): void {
+              throw new Error('Function not implemented.');
+            }}
+          />
         </div>
         <div className="container">
-          <label className="form-group__label blockDisplay">Dropdown Menu:</label>
-          <DropdownMenu className="margin-bottom-lg" label="Option" items={dropdownItems} />
+          <label className="form-group__label blockDisplay">
+            Dropdown Menu:
+          </label>
+          <DropdownMenu
+            className="margin-bottom-lg"
+            label="Option"
+            items={dropdownItems}
+          />
         </div>
         <div className="container">
-          <label className="form-group__label blockDisplay">Ordered Lists:</label>
+          <label className="form-group__label blockDisplay">Footer:</label>
+          <Footer className="margin-bottom-lg" />
+        </div>
+        <div className="container">
+          <label className="form-group__label blockDisplay">Form Group:</label>
+          <Form layout="vertical" onSubmit={() => {}} size="medium">
+            <FormGroup htmlFor="name" label="Name" required>
+              <InputField
+                fullWidth
+                icon={<User size={16} />}
+                onChange={() => {}}
+                placeholder="Enter your name"
+                value=""
+              />
+            </FormGroup>
+            <FormGroup
+              error="Invalid email format"
+              htmlFor="email"
+              label="Email"
+              required
+            >
+              <InputField
+                fullWidth
+                icon={<Mail size={16} />}
+                onChange={() => {}}
+                placeholder="Enter your email"
+                type="email"
+                value=""
+              />
+            </FormGroup>
+            <FormGroup
+              description="Max 500 characters"
+              htmlFor="message"
+              label="Message"
+            >
+              <TextArea
+                characterCount
+                fullWidth
+                maxLength={500}
+                onChange={() => {}}
+                placeholder="Enter your message"
+                rows={5}
+                value=""
+              />
+            </FormGroup>
+            <Button fullWidth label="Submit" type="submit" />
+          </Form>
+        </div>
+        <div className="container">
+          <label className="form-group__label blockDisplay">
+            Ordered Lists:
+          </label>
           <OrderedList
             className="margin-bottom-lg"
             items={[
@@ -198,7 +269,9 @@ const Template: StoryFn = () => {
           />
         </div>
         <div className="container">
-          <label className="form-group__label blockDisplay">Unordered Lists:</label>
+          <label className="form-group__label blockDisplay">
+            Unordered Lists:
+          </label>
           <UnorderedList
             className="margin-bottom-lg"
             items={[
@@ -247,7 +320,9 @@ const Template: StoryFn = () => {
           />
         </div>
         <div className="container">
-          <label className="form-group__label blockDisplay">Sidebar Component:</label>
+          <label className="form-group__label blockDisplay">
+            Sidebar Component:
+          </label>
           <Sidebar
             className="margin-bottom-lg"
             title={'Sidebar'}
