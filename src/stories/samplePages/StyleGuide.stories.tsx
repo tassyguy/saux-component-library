@@ -24,6 +24,9 @@ import {
   H5,
   OrderedList,
   UnorderedList,
+  Avatar,
+  Badge,
+  Card,
 } from '../../components';
 import { SidebarItem } from '../../components/Sidebar/src/Sidebar';
 import { ChevronDown, 
@@ -60,6 +63,24 @@ const breadcrumbs = [
   { label: 'Laptops' },
 ];
 
+const cardItems = [
+    {
+      description: 'Description 1',
+      imageUrl: 'https://fastly.picsum.photos/id/19/2500/1667.jpg?hmac=7epGozH4QjToGaBf_xb2HbFTXoV5o8n_cYzB7I4lt6g',
+      title: 'Card 1'
+    },
+    {
+      description: 'Description 2',
+      imageUrl: 'https://fastly.picsum.photos/id/25/5000/3333.jpg?hmac=yCz9LeSs-i72Ru0YvvpsoECnCTxZjzGde805gWrAHkM',
+      title: 'Card 2'
+    },
+    {
+      description: 'Description 3',
+      imageUrl: 'https://fastly.picsum.photos/id/28/4928/3264.jpg?hmac=GnYF-RnBUg44PFfU5pcw_Qs0ReOyStdnZ8MtQWJqTfA',
+      title: 'Card 3'
+    }
+];
+
 import { globalComponentProps } from '../../components/config/globalComponentProps';
 
 const Template: StoryFn = () => {
@@ -76,7 +97,20 @@ const Template: StoryFn = () => {
         <H4 text="H4" className="margin-bottom-lg"/>
         <H5 text="H5" className="margin-bottom-lg"/>
 
+        <label className="form-group__label">Alert:</label>
         <Alert className="margin-bottom-lg" message="This is an alert message." type="success" />
+
+        <label className="form-group__label">Button:</label>
+        <Avatar className="margin-bottom-lg" src="https://via.placeholder.com/150" alt="Avatar" />
+
+        <label className="form-group__label">Badge:</label>
+        <Badge className="margin-bottom-lg" text="Badge" />
+
+        <label className="form-group__label">Button:</label>
+        <Button className="margin-bottom-lg" label="Button" onClick={() => console.log('Button clicked')} />
+
+        <label className="form-group__label">Badge:</label>
+        <Card className="margin-bottom-lg" items={cardItems} />
 
         <label className="form-group__label">Table:</label>
         <Table columns={tableColumns} data={tableData} className="margin-bottom-lg" />
