@@ -322,7 +322,7 @@ const Template: StoryFn = () => {
       onClick={() => {}}
     />
     <Modal
-    open={true}
+    open={false}
       onClose={() => {}}
       title="Modal Title"
     >
