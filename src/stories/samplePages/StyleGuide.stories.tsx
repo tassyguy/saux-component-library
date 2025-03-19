@@ -10,6 +10,7 @@ import {
   Alert,
   Pagination,
   Sidebar,
+  SelectInput,
   Breadcrumb,
   ToggleSwitch,
   Footer,
@@ -96,6 +97,21 @@ const dropdownItems = [
     onClick: () => {},
     value: 'logout',
   },
+];
+
+const selectInputOptions = [
+    {
+      label: 'Option 1',
+      value: 'option1'
+    },
+    {
+      label: 'Option 2',
+      value: 'option2'
+    },
+    {
+      label: 'Option 3',
+      value: 'option3'
+    }
 ];
 
 const cardItems = [
@@ -331,6 +347,7 @@ const Template: StoryFn = () => {
       </p>
     </Modal>
           </div>
+
         <div className="container">
           <label className="form-group__label blockDisplay">Accordion:</label>
           <Accordion
@@ -361,6 +378,15 @@ const Template: StoryFn = () => {
             currentPage={1}
             totalPages={5}
             onPageChange={(page: number) => console.log(page)}
+          />
+        </div>
+        <div className="container">
+          <label className="form-group__label blockDisplay">Select Input:</label>
+          <SelectInput
+          label="Choose an option:"
+          onChange={() => {}}
+          options={selectInputOptions}
+          value="option1"
           />
         </div>
         <div className="container">
