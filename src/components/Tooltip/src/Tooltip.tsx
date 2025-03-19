@@ -6,9 +6,11 @@ export interface TooltipProps {
   content: string | React.ReactNode;
   /** The content that triggers the tooltip on hover */
   children: React.ReactNode;
+  /** Additional class name for custom styling */
+  className?: string;
 }
 
-const Tooltip: React.FC<TooltipProps> = ({ content, children }) => {
+const Tooltip: React.FC<TooltipProps> = ({ content, children, className = '' }) => {
   const [visible, setVisible] = useState(false);
   const [position, setPosition] = useState<{ top: number; left: number }>({
     top: 0,
@@ -32,7 +34,6 @@ const Tooltip: React.FC<TooltipProps> = ({ content, children }) => {
   const updatePosition = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = containerRef.current?.getBoundingClientRect();
     if (rect) {
-      // Position tooltip 10px offset from the mouse position relative to container.
       setPosition({
         top: e.clientY - rect.top + 10,
         left: e.clientX - rect.left + 10,
@@ -42,7 +43,7 @@ const Tooltip: React.FC<TooltipProps> = ({ content, children }) => {
 
   return (
     <div
-      className="tooltip-container"
+      className={`tooltip-container ${className}`.trim()}
       ref={containerRef}
       onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
@@ -50,7 +51,7 @@ const Tooltip: React.FC<TooltipProps> = ({ content, children }) => {
     >
       {children}
       <div
-        className={`tooltip-content ${visible ? 'visible' : ''}`}
+        className={`tooltip-content ${visible ? 'visible' : ''}`.trim()}
         style={{ top: position.top, left: position.left }}
       >
         {content}

@@ -18,6 +18,8 @@ export interface CheckRadioProps {
   size?: 'small' | 'medium' | 'large';
   /** Color variant of the control */
   variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error';
+  /** Additional class name for custom styling */
+  className?: string;
 }
 
 const CheckRadio: React.FC<CheckRadioProps> = ({
@@ -29,11 +31,19 @@ const CheckRadio: React.FC<CheckRadioProps> = ({
   name,
   size = 'medium',
   variant = 'primary',
+  className = '', // Allow className for custom styling
 }) => {
   const containerClasses =
-    `check-radio check-radio--${size} check-radio--${variant} ${
-      type === 'radio' ? 'check-radio--radio' : ''
-    } ${disabled ? 'disabled' : ''}`.trim();
+    [
+      'check-radio',
+      `check-radio--${size}`,
+      `check-radio--${variant}`,
+      type === 'radio' ? 'check-radio--radio' : '',
+      disabled ? 'disabled' : '',
+      className, // Apply custom className
+    ]
+      .filter(Boolean)
+      .join(' ');
 
   return (
     <label className={containerClasses}>

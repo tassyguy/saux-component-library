@@ -12,7 +12,7 @@ export interface SectionProps {
 
 const Section: React.FC<SectionProps> = ({ title, children, className = "" }) => {
   return (
-    <section className={`section ${className}`}>
+    <section className={`section ${className}`.trim()}>
       {title && <div className="section__header">{title}</div>}
       <div className="section__body">
         {children}

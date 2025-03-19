@@ -13,6 +13,7 @@ export interface InputFieldProps {
   error?: string;
   icon?: React.ReactNode;
   characterCount?: boolean;
+  className?: string; // Allow users to apply spacing styles
 }
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -27,10 +28,11 @@ const InputField: React.FC<InputFieldProps> = ({
   error,
   icon,
   characterCount = false,
+  className = '',
 }) => {
   return (
     <div
-      className={`input-field-container ${fullWidth ? 'input-field--fullWidth' : ''}`.trim()}
+      className={`input-field-container ${fullWidth ? 'input-field--fullWidth' : ''} ${className}`.trim()}
     >
       {icon && <span className="input-field-icon">{icon}</span>}
       <input

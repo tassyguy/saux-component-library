@@ -33,7 +33,7 @@ const Link: React.FC<LinkProps> = ({
       onClick={onClick}
       target={target}
       rel={rel}
-      className={`link ${className}`}
+      className={`link ${className}`.trim()}
       style={style}
       aria-label={ariaLabel}
     >

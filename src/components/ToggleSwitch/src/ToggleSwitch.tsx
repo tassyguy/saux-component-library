@@ -14,6 +14,8 @@ export interface ToggleSwitchProps {
   size?: 'small' | 'medium' | 'large';
   /** Color variant: primary, secondary, success, warning, error */
   variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error';
+  /** Additional class name for custom styling */
+  className?: string;
 }
 
 const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
@@ -23,6 +25,7 @@ const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
   label,
   size = 'medium',
   variant = 'primary',
+  className = '',
 }) => {
   const [toggled, setToggled] = useState(isOn);
 
@@ -33,17 +36,12 @@ const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
     onToggle?.(newState);
   };
 
-  const buttonClasses =
-    `toggle-switch toggle-switch--${size} toggle-switch--${variant} ${toggled ? 'on' : ''} ${
-      disabled ? 'disabled' : ''
-    }`.trim();
-
   return (
     <button
       type="button"
       disabled={disabled}
       onClick={handleToggle}
-      className={buttonClasses}
+      className={`toggle-switch toggle-switch--${size} toggle-switch--${variant} ${toggled ? 'on' : ''} ${disabled ? 'disabled' : ''} ${className}`.trim()}
       aria-label={label || 'Toggle Switch'}
       aria-pressed={toggled}
     >

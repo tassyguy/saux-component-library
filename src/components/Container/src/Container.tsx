@@ -4,25 +4,21 @@ import './Container.css';
 export interface ContainerProps {
   children: React.ReactNode;
   maxWidth?: string;
-  padding?: string;
-  margin?: string;
   backgroundColor?: string;
   borderRadius?: string;
   shadow?: 'small' | 'medium' | 'large' | 'none';
   fullHeight?: boolean;
-  className?: string;
+  className?: string; // Allow users to apply margin and padding directly
 }
 
 const Container: React.FC<ContainerProps> = ({
   children,
   maxWidth = '1200px',
-  padding = '1rem',
-  margin = '0 auto',
   backgroundColor = 'var(--background-color)',
   borderRadius = '0',
   shadow = 'none',
   fullHeight = false,
-  className = '',
+  className = '', // Default empty class
 }) => {
   const boxShadowStyles = {
     small: '0 2px 4px rgba(0, 0, 0, 0.1)',
@@ -33,11 +29,9 @@ const Container: React.FC<ContainerProps> = ({
 
   return (
     <div
-      className={`container ${className}`.trim()}
+      className={`container ${className}`.trim()} // Ensuring className is properly applied
       style={{
         maxWidth,
-        padding,
-        margin,
         backgroundColor,
         borderRadius,
         boxShadow: boxShadowStyles[shadow],

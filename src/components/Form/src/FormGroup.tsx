@@ -9,6 +9,7 @@ export interface FormGroupProps {
   description?: string;
   error?: string;
   inline?: boolean;
+  className?: string; // Allow users to apply spacing styles
 }
 
 const FormGroup: React.FC<FormGroupProps> = ({
@@ -19,9 +20,10 @@ const FormGroup: React.FC<FormGroupProps> = ({
   description,
   error,
   inline,
+  className = '',
 }) => {
   return (
-    <div className={`form-group ${inline ? 'form-group--inline' : ''}`.trim()}>
+    <div className={`form-group ${inline ? 'form-group--inline' : ''} ${className}`.trim()}>
       {label && (
         <label htmlFor={htmlFor} className="form-group__label">
           {label} {required && <span className="form-group__required">*</span>}

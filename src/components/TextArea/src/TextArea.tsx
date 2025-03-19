@@ -14,6 +14,8 @@ export interface TextAreaProps {
   fullWidth?: boolean;
   error?: string;
   characterCount?: boolean;
+  /** Additional class name for custom styling */
+  className?: string;
 }
 
 const TextArea: React.FC<TextAreaProps> = ({
@@ -29,11 +31,10 @@ const TextArea: React.FC<TextAreaProps> = ({
   fullWidth = false,
   error,
   characterCount = false,
+  className = '',
 }) => {
   return (
-    <div
-      className={`textarea-container ${fullWidth ? 'textarea--fullWidth' : ''}`.trim()}
-    >
+    <div className={`textarea-container ${fullWidth ? 'textarea--fullWidth' : ''} ${className}`.trim()}>
       {label && <label className="textarea-label">{label}</label>}
       <textarea
         className={`textarea-input ${error ? 'textarea--error' : ''}`.trim()}

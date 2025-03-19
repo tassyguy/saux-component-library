@@ -8,6 +8,7 @@ export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   onReset?: () => void;
   isLoading?: boolean;
   size?: 'small' | 'medium' | 'large';
+  className?: string; // Allow users to apply spacing styles
 }
 
 const Form: React.FC<FormProps> = ({

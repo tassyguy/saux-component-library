@@ -70,10 +70,10 @@ const Template: StoryFn = () => {
         <H5 text="H5" className="margin-bottom-lg"/>
 
         <label className="form-group__label">Table:</label>
-        <Table columns={tableData} data={[]} {...globalComponentProps('margin', 'bottom', 'lg')} />
+        <Table columns={tableData} data={[]} className="margin-bottom-lg" />
 
         <label className="form-group__label">Ordered Lists:</label>
-        <OrderedList {...globalComponentProps('margin', 'bottom', 'lg')} items={[
+        <OrderedList className="margin-bottom-lg" items={[
           { icon: <CheckCircle size={16} />, key: 'success', label: 'Success Item', onClick: () => {} },
           { key: 'warning', label: 'Warning Item', onClick: () => {} },
           { key: 'info', label: 'Info Item', onClick: () => {} },
@@ -81,7 +81,7 @@ const Template: StoryFn = () => {
         ]}/>
 
         <label className="form-group__label">Unordered Lists:</label>
-        <UnorderedList {...globalComponentProps('margin', 'bottom', 'lg')} items={[
+        <UnorderedList className="margin-bottom-lg" items={[
           { icon: <CheckCircle size={16} />, key: 'success', label: 'Success Item', onClick: () => {} },
           { key: 'warning', label: 'Warning Item', onClick: () => {} },
           { key: 'info', label: 'Info Item', onClick: () => {} },
@@ -96,15 +96,15 @@ const Template: StoryFn = () => {
         ]} />
 
         <label className="form-group__label">Pagination:</label>
-        <Pagination {...globalComponentProps('margin', 'bottom', 'lg')} currentPage={0} totalPages={0} onPageChange={(page: number) => console.log(page)} />
+        <Pagination className="margin-bottom-lg" currentPage={0} totalPages={0} onPageChange={(page: number) => console.log(page)} />
 
         <label className="form-group__label">Sidebar Component:</label>
-        <Sidebar {...globalComponentProps('margin', 'bottom', 'lg')} title={'Sidebar'} items={sampleItems}  />
+        <Sidebar className="margin-bottom-lg" title={'Sidebar'} items={sampleItems}  />
 
-        <Breadcrumb {...globalComponentProps('margin', 'bottom', 'lg')} items={breadcrumbs}  />
+        <Breadcrumb className="margin-bottom-lg" items={breadcrumbs}  />
 
         <label className="form-group__label">Dark Mode</label>
-        <ToggleSwitch {...globalComponentProps('margin', 'bottom', 'lg')} isOn={darkMode} onToggle={() => setDarkMode(!darkMode)} />
+        <ToggleSwitch className="margin-bottom-lg" isOn={darkMode} onToggle={() => setDarkMode(!darkMode)} />
         
       </div>
     </ThemeProvider>

@@ -63,7 +63,15 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       onClick={onClick}
-      className={`button ${variant} ${size} ${fullWidth ? 'full-width' : ''} ${className}`}
+      className={[
+        'button',
+        `button--${variant}`,
+        `button--${size}`,
+        fullWidth ? 'button--full-width' : '',
+        className, // Ensuring className is properly applied
+      ]
+        .filter(Boolean)
+        .join(' ')}
       disabled={disabled || loading}
       type={type}
       style={style}
@@ -74,13 +82,9 @@ const Button: React.FC<ButtonProps> = ({
         <span className="button-spinner">Loading...</span>
       ) : (
         <>
-          {icon && iconPosition === 'left' && (
-            <span className="button-icon">{icon}</span>
-          )}
+          {icon && iconPosition === 'left' && <span className="button-icon">{icon}</span>}
           {label}
-          {icon && iconPosition === 'right' && (
-            <span className="button-icon">{icon}</span>
-          )}
+          {icon && iconPosition === 'right' && <span className="button-icon">{icon}</span>}
         </>
       )}
     </button>

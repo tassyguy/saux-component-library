@@ -9,7 +9,7 @@ export interface GridItemProps {
 }
 
 const GridItem: React.FC<GridItemProps> = ({ children, className = "" }) => {
-  return <div className={`grid-item ${className}`}>{children}</div>;
+  return <div className={`grid-item ${className}`.trim()}>{children}</div>;
 };
 
 export default GridItem;

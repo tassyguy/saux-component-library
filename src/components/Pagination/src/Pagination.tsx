@@ -45,7 +45,7 @@ const Pagination: React.FC<PaginationProps> = ({
   };
 
   return (
-    <div className={`pagination ${className}`} style={style}>
+    <div className={`pagination ${className}`.trim()} style={style}>
       <button
         className="pagination__button"
         onClick={handlePrevious}

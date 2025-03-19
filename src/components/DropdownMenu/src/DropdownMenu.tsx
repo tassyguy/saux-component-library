@@ -18,6 +18,7 @@ export interface DropdownMenuProps {
   disabled?: boolean;
   align?: 'left' | 'right' | 'center';
   fullWidth?: boolean;
+  className?: string; // Allow users to apply spacing styles
 }
 
 const DropdownMenu: React.FC<DropdownMenuProps> = ({
@@ -26,6 +27,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   disabled = false,
   align = 'left',
   fullWidth = false,
+  className = '',
 }) => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -62,7 +64,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
 
   return (
     <div
-      className={`dropdown-menu ${fullWidth ? 'dropdown-menu--fullWidth' : ''}`.trim()}
+      className={`dropdown-menu ${fullWidth ? 'dropdown-menu--fullWidth' : ''} ${className}`.trim()}
       ref={containerRef}
     >
       <Button

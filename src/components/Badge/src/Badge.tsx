@@ -35,7 +35,7 @@ const Badge: React.FC<BadgeProps> = ({
         `badge--${size}`,
         `badge--${rounded}`,
         isPill ? 'badge--pill' : '',
-        className,
+        className, // Ensuring className is properly applied
       ]
         .filter(Boolean)
         .join(' ')}

@@ -12,6 +12,7 @@ export interface BreadcrumbProps {
   onClick?: (item: BreadcrumbItem) => void;
   truncate?: boolean;
   boldCurrent?: boolean;
+  className?: string; // Allow className for custom styling
 }
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({
@@ -20,12 +21,11 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
   onClick,
   truncate = false,
   boldCurrent = false,
+  className = '', // Default empty class
 }) => {
   return (
-    <nav className="breadcrumb">
-      <ul
-        className={`breadcrumb__list ${truncate ? 'breadcrumb--truncate' : ''}`.trim()}
-      >
+    <nav className={`breadcrumb ${className}`.trim()}>
+      <ul className={`breadcrumb__list ${truncate ? 'breadcrumb--truncate' : ''}`.trim()}>
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
           return (
@@ -42,15 +42,11 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
                   {item.label}
                 </a>
               ) : (
-                <span
-                  className={`breadcrumb__current ${boldCurrent ? 'breadcrumb--bold' : ''}`.trim()}
-                >
+                <span className={`breadcrumb__current ${boldCurrent ? 'breadcrumb--bold' : ''}`.trim()}>
                   {item.label}
                 </span>
               )}
-              {!isLast && (
-                <span className="breadcrumb__separator">{separator}</span>
-              )}
+              {!isLast && <span className="breadcrumb__separator">{separator}</span>}
             </li>
           );
         })}

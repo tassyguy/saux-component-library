@@ -16,6 +16,8 @@ export interface ModalProps {
   closeOnOverlayClick?: boolean;
   /** Optional size of the modal (small, medium, large) */
   size?: 'small' | 'medium' | 'large';
+  /** Additional className for custom styling */
+  className?: string;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -25,6 +27,7 @@ const Modal: React.FC<ModalProps> = ({
   children,
   closeOnOverlayClick = true,
   size = 'medium',
+  className = '',
 }) => {
   if (!open) return null;
 
@@ -36,7 +39,7 @@ const Modal: React.FC<ModalProps> = ({
       onClick={closeOnOverlayClick ? onClose : undefined}
     >
       <div
-        className={`modal-content ${sizeClass}`}
+        className={`modal-content ${sizeClass} ${className}`.trim()}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="modal-header">

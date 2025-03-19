@@ -23,6 +23,8 @@ export interface SelectInputProps {
   size?: 'small' | 'medium' | 'large';
   /** Color variant of the select input */
   variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error';
+  /** Additional class name for custom styling */
+  className?: string;
 }
 
 const SelectInput: React.FC<SelectInputProps> = ({
@@ -34,10 +36,11 @@ const SelectInput: React.FC<SelectInputProps> = ({
   placeholder = 'Select an option...',
   size = 'medium',
   variant = 'primary',
+  className = '',
 }) => {
   return (
     <div
-      className={`select-input select-input--${size} select-input--${variant}`.trim()}
+      className={`select-input select-input--${size} select-input--${variant} ${className}`.trim()}
     >
       {label && <label className="select-input__label">{label}</label>}
       <select

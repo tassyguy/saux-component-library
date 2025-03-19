@@ -19,7 +19,7 @@ const Grid: React.FC<GridProps> = ({ columns, gap, children, className = "" }) =
   };
 
   return (
-    <div className={`grid ${className}`} style={style}>
+    <div className={`grid ${className}`.trim()} style={style}>
       {children}
     </div>
   );
