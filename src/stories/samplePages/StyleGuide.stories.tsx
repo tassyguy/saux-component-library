@@ -142,16 +142,12 @@ const Template: StoryFn = () => {
         </div>
         <div className="container">
           <label className="form-group__label blockDisplay">Check Radio:</label>
-          <CheckRadio className="margin-bottom-lg" type="checkbox"  checked="false"/>
-          <CheckRadio className="margin-bottom-lg" type="radio"  checked="false"/>
-        </div>
-        <div className="container">
-          <label className="form-group__label blockDisplay">Table:</label>
-          <Table
-            columns={tableColumns}
-            data={tableData}
-            className="margin-bottom-lg"
-          />
+          <CheckRadio className="margin-bottom-lg" type="checkbox" checked onChange={function (): void {
+            throw new Error('Function not implemented.');
+          } }/>
+          <CheckRadio className="margin-bottom-lg" type="radio" checked={false} onChange={function (): void {
+            throw new Error('Function not implemented.');
+          } }/>
         </div>
         <div className="container">
           <label className="form-group__label blockDisplay">Ordered Lists:</label>
