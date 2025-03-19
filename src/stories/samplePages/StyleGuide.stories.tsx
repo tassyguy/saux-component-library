@@ -40,6 +40,7 @@ import {
   User,
   Settings,
   LogOut,
+  Mail
 } from 'react-feather';
 
 export default {
