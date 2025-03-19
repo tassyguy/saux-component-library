@@ -29,9 +29,7 @@ import {
   Card,
 } from '../../components';
 import { SidebarItem } from '../../components/Sidebar/src/Sidebar';
-import { ChevronDown, 
-  CheckCircle
-} from 'react-feather';
+import { ChevronDown, CheckCircle } from 'react-feather';
 
 export default {
   title: 'Sample Pages/Style Guide',
@@ -44,9 +42,9 @@ const tableColumns = [
 ];
 
 const tableData = [
-  { age: 29, email: 'somerandomemail@gmail.com' , name: 'Alice' },
-  { age: 39, email: 'reallyawesomedev@devs.com' , name: 'Simon' },
-  { age: 32, email: 'alsoawesomedev@devs.com' , name: 'Amanda' },
+  { age: 29, email: 'somerandomemail@gmail.com', name: 'Alice' },
+  { age: 39, email: 'reallyawesomedev@devs.com', name: 'Simon' },
+  { age: 32, email: 'alsoawesomedev@devs.com', name: 'Amanda' },
 ];
 
 const sampleItems: SidebarItem[] = [
@@ -64,21 +62,24 @@ const breadcrumbs = [
 ];
 
 const cardItems = [
-    {
-      description: 'Description 1',
-      imageUrl: 'https://fastly.picsum.photos/id/19/2500/1667.jpg?hmac=7epGozH4QjToGaBf_xb2HbFTXoV5o8n_cYzB7I4lt6g',
-      title: 'Card 1'
-    },
-    {
-      description: 'Description 2',
-      imageUrl: 'https://fastly.picsum.photos/id/25/5000/3333.jpg?hmac=yCz9LeSs-i72Ru0YvvpsoECnCTxZjzGde805gWrAHkM',
-      title: 'Card 2'
-    },
-    {
-      description: 'Description 3',
-      imageUrl: 'https://fastly.picsum.photos/id/28/4928/3264.jpg?hmac=GnYF-RnBUg44PFfU5pcw_Qs0ReOyStdnZ8MtQWJqTfA',
-      title: 'Card 3'
-    }
+  {
+    description: 'Description 1',
+    imageUrl:
+      'https://fastly.picsum.photos/id/19/2500/1667.jpg?hmac=7epGozH4QjToGaBf_xb2HbFTXoV5o8n_cYzB7I4lt6g',
+    title: 'Card 1',
+  },
+  {
+    description: 'Description 2',
+    imageUrl:
+      'https://fastly.picsum.photos/id/25/5000/3333.jpg?hmac=yCz9LeSs-i72Ru0YvvpsoECnCTxZjzGde805gWrAHkM',
+    title: 'Card 2',
+  },
+  {
+    description: 'Description 3',
+    imageUrl:
+      'https://fastly.picsum.photos/id/28/4928/3264.jpg?hmac=GnYF-RnBUg44PFfU5pcw_Qs0ReOyStdnZ8MtQWJqTfA',
+    title: 'Card 3',
+  },
 ];
 
 import { globalComponentProps } from '../../components/config/globalComponentProps';
@@ -88,71 +89,143 @@ const Template: StoryFn = () => {
 
   return (
     <ThemeProvider>
-      <div {...globalComponentProps('padding', 'all', 'lg')}> {/* Large padding all around */}
-        
+      <div {...globalComponentProps('padding', 'all', 'lg')}>
+        {' '}
+        {/* Large padding all around */}
         <label className="form-group__label">Header tags:</label>
-        <H1 text="H1" className="margin-bottom-lg"/>
-        <H2 text="H2" className="margin-bottom-lg"/>
-        <H3 text="H3" className="margin-bottom-lg"/>
-        <H4 text="H4" className="margin-bottom-lg"/>
-        <H5 text="H5" className="margin-bottom-lg"/>
-
-        <label className="form-group__label">Alert:</label>
-        <Alert className="margin-bottom-lg" message="This is an alert message." type="success" />
-
-        <label className="form-group__label">Button:</label>
-        <Avatar className="margin-bottom-lg" src="https://via.placeholder.com/150" alt="Avatar" />
-
-        <label className="form-group__label">Badge:</label>
-        <Badge className="margin-bottom-lg" text="Badge" />
-
-        <label className="form-group__label">Button:</label>
-        <Button className="margin-bottom-lg" label="Button" onClick={() => console.log('Button clicked')} />
-
-        <label className="form-group__label">Badge:</label>
-        <Card className="margin-bottom-lg" items={cardItems} />
-
-        <label className="form-group__label">Table:</label>
-        <Table columns={tableColumns} data={tableData} className="margin-bottom-lg" />
-
-        <label className="form-group__label">Ordered Lists:</label>
-        <OrderedList className="margin-bottom-lg" items={[
-          { icon: <CheckCircle size={16} />, key: 'success', label: 'Success Item', onClick: () => {} },
-          { key: 'warning', label: 'Warning Item', onClick: () => {} },
-          { key: 'info', label: 'Info Item', onClick: () => {} },
-          { disabled: true, key: 'disabled', label: 'Disabled Item' }
-        ]}/>
-
-        <label className="form-group__label">Unordered Lists:</label>
-        <UnorderedList className="margin-bottom-lg" items={[
-          { icon: <CheckCircle size={16} />, key: 'success', label: 'Success Item', onClick: () => {} },
-          { key: 'warning', label: 'Warning Item', onClick: () => {} },
-          { key: 'info', label: 'Info Item', onClick: () => {} },
-          { disabled: true, key: 'disabled', label: 'Disabled Item' }
-        ]}/>
-
-        <label className="form-group__label">Accordion:</label>
-        <Accordion className="margin-bottom-lg" items={[
-          { content: <p>Content 1</p>, icon: <ChevronDown size={16} />, title: 'Item 1' },
-          { content: <p>Content 2</p>, icon: <ChevronDown size={16} />, title: 'Item 2' },
-          { content: <p>Content 3</p>, icon: <ChevronDown size={16} />, title: 'Item 3' }
-        ]} />
-
-        <label className="form-group__label">Pagination:</label>
-        <Pagination className="margin-bottom-lg" currentPage={1} totalPages={5} onPageChange={(page: number) => console.log(page)} />
-
-        <label className="form-group__label">Sidebar Component:</label>
-        <Sidebar className="margin-bottom-lg" title={'Sidebar'} items={sampleItems}  />
-
-        <Breadcrumb className="margin-bottom-lg" items={breadcrumbs}  />
-
-        <label className="form-group__label">Dark Mode</label>
-        <ToggleSwitch className="margin-bottom-lg" isOn={darkMode} onToggle={() => setDarkMode(!darkMode)} />
-        
+        <H1 text="H1" className="margin-bottom-lg" />
+        <H2 text="H2" className="margin-bottom-lg" />
+        <H3 text="H3" className="margin-bottom-lg" />
+        <H4 text="H4" className="margin-bottom-lg" />
+        <H5 text="H5" className="margin-bottom-lg" />
+        <div className="container">
+          <label className="form-group__label">Alert:</label>
+          <Alert
+            className="margin-bottom-lg"
+            message="This is an alert message."
+            type="success"
+          />
+        </div>
+        <div className="container">
+          <label className="form-group__label">Avatar:</label>
+          <Avatar
+            className="margin-bottom-lg"
+            src="https://via.placeholder.com/150"
+            alt="Avatar"
+          />
+        </div>
+        <div className="container">
+          <label className="form-group__label">Badge:</label>
+          <Badge className="margin-bottom-lg" text="Badge" />
+        </div>
+        <div className="container">
+          <label className="form-group__label">Button:</label>
+          <Button
+            className="margin-bottom-lg"
+            label="Button"
+            onClick={() => console.log('Button clicked')}
+          />
+        </div>
+        <div className="container">
+          <label className="form-group__label">Card:</label>
+          <Card className="margin-bottom-lg" items={cardItems} />
+        </div>
+        <div className="container">
+          <label className="form-group__label">Table:</label>
+          <Table
+            columns={tableColumns}
+            data={tableData}
+            className="margin-bottom-lg"
+          />
+        </div>
+        <div className="container">
+          <label className="form-group__label">Ordered Lists:</label>
+          <OrderedList
+            className="margin-bottom-lg"
+            items={[
+              {
+                icon: <CheckCircle size={16} />,
+                key: 'success',
+                label: 'Success Item',
+                onClick: () => {},
+              },
+              { key: 'warning', label: 'Warning Item', onClick: () => {} },
+              { key: 'info', label: 'Info Item', onClick: () => {} },
+              { disabled: true, key: 'disabled', label: 'Disabled Item' },
+            ]}
+          />
+        </div>
+        <div className="container">
+          <label className="form-group__label">Unordered Lists:</label>
+          <UnorderedList
+            className="margin-bottom-lg"
+            items={[
+              {
+                icon: <CheckCircle size={16} />,
+                key: 'success',
+                label: 'Success Item',
+                onClick: () => {},
+              },
+              { key: 'warning', label: 'Warning Item', onClick: () => {} },
+              { key: 'info', label: 'Info Item', onClick: () => {} },
+              { disabled: true, key: 'disabled', label: 'Disabled Item' },
+            ]}
+          />
+        </div>
+        <div className="container">
+          <label className="form-group__label">Accordion:</label>
+          <Accordion
+            className="margin-bottom-lg"
+            items={[
+              {
+                content: <p>Content 1</p>,
+                icon: <ChevronDown size={16} />,
+                title: 'Item 1',
+              },
+              {
+                content: <p>Content 2</p>,
+                icon: <ChevronDown size={16} />,
+                title: 'Item 2',
+              },
+              {
+                content: <p>Content 3</p>,
+                icon: <ChevronDown size={16} />,
+                title: 'Item 3',
+              },
+            ]}
+          />
+        </div>
+        <div className="container">
+          <label className="form-group__label">Pagination:</label>
+          <Pagination
+            className="margin-bottom-lg"
+            currentPage={1}
+            totalPages={5}
+            onPageChange={(page: number) => console.log(page)}
+          />
+        </div>
+        <div className="container">
+          <label className="form-group__label">Sidebar Component:</label>
+          <Sidebar
+            className="margin-bottom-lg"
+            title={'Sidebar'}
+            items={sampleItems}
+          />
+        </div>
+        <div className="container">
+          <Breadcrumb className="margin-bottom-lg" items={breadcrumbs} />
+        </div>
+        <div className="container">
+          <label className="form-group__label">Dark Mode</label>
+          <ToggleSwitch
+            className="margin-bottom-lg"
+            isOn={darkMode}
+            onToggle={() => setDarkMode(!darkMode)}
+          />
+        </div>
       </div>
     </ThemeProvider>
   );
 };
-
 
 export const Dashboard = Template.bind({});

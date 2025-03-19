@@ -49,6 +49,10 @@ body {
   padding: 0;
 }
 
+.container {
+  display: block;
+}
+
 /* Buttons */
 button {
   background-color: var(--primary-color);
