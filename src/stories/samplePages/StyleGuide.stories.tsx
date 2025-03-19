@@ -18,6 +18,8 @@ import {
   InputField,
   TextArea,
   Tooltip,
+  Grid,
+  GridItem,
   CheckRadio,
   Button,
   ThemeProvider,
@@ -250,6 +252,16 @@ const Template: StoryFn = () => {
             <Button fullWidth label="Submit" type="submit" />
           </Form>
         </div>
+        <div className="container">
+          <label className="form-group__label blockDisplay">Grid:</label>
+          <Grid columns={3} gap="1em">
+          <GridItem>Item 1</GridItem>
+          <GridItem>Item 2</GridItem>
+          <GridItem>Item 3</GridItem>
+          <GridItem>Item 4</GridItem>
+          <GridItem>Item 5</GridItem>
+          <GridItem>Item 6</GridItem>
+        </Grid>
         <div className="container">
           <label className="form-group__label blockDisplay">
             Ordered Lists:
