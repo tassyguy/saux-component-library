@@ -7,6 +7,7 @@ import {
   Column,
   Table,
   Accordion,
+  Alert,
   Pagination,
   Sidebar,
   Breadcrumb,
@@ -74,6 +75,8 @@ const Template: StoryFn = () => {
         <H3 text="H3" className="margin-bottom-lg"/>
         <H4 text="H4" className="margin-bottom-lg"/>
         <H5 text="H5" className="margin-bottom-lg"/>
+
+        <Alert className="margin-bottom-lg" message="This is an alert message." type="success" />
 
         <label className="form-group__label">Table:</label>
         <Table columns={tableColumns} data={tableData} className="margin-bottom-lg" />
