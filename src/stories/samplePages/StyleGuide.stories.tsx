@@ -33,10 +33,16 @@ export default {
   title: 'Sample Pages/Style Guide',
 } as Meta;
 
-const tableData: Column[] = [
+const tableColumns = [
   { header: 'Name', accessor: 'name' },
   { header: 'Age', accessor: 'age' },
   { header: 'Email', accessor: 'email' },
+];
+
+const tableData = [
+  { age: 29, email: 'name' , name: 'Alice' },
+  { age: 39, email: 'name' , name: 'Alice' },
+  { age: 32, email: 'name' , name: 'Alice' },
 ];
 
 const sampleItems: SidebarItem[] = [
@@ -70,7 +76,7 @@ const Template: StoryFn = () => {
         <H5 text="H5" className="margin-bottom-lg"/>
 
         <label className="form-group__label">Table:</label>
-        <Table columns={tableData} data={[]} className="margin-bottom-lg" />
+        <Table columns={tableColumns} data={[]} className="margin-bottom-lg" />
 
         <label className="form-group__label">Ordered Lists:</label>
         <OrderedList className="margin-bottom-lg" items={[
