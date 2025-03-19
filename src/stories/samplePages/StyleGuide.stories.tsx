@@ -76,7 +76,7 @@ const Template: StoryFn = () => {
         <H5 text="H5" className="margin-bottom-lg"/>
 
         <label className="form-group__label">Table:</label>
-        <Table columns={tableColumns} data={[]} className="margin-bottom-lg" />
+        <Table columns={tableColumns} data={[tableData]} className="margin-bottom-lg" />
 
         <label className="form-group__label">Ordered Lists:</label>
         <OrderedList className="margin-bottom-lg" items={[
