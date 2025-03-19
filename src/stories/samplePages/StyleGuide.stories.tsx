@@ -28,9 +28,15 @@ import {
   Avatar,
   Badge,
   Card,
+  DropdownMenu,
 } from '../../components';
 import { SidebarItem } from '../../components/Sidebar/src/Sidebar';
-import { ChevronDown, CheckCircle } from 'react-feather';
+import { ChevronDown, 
+  CheckCircle, 
+  User, 
+  Settings, 
+  LogOut
+ } from 'react-feather';
 
 export default {
   title: 'Sample Pages/Style Guide',
@@ -60,6 +66,27 @@ const breadcrumbs = [
   { label: 'Products', href: '/products' },
   { label: 'Electronics', href: '/products/electronics' },
   { label: 'Laptops' },
+];
+
+const dropdownItems = [
+  {
+    icon: <User size={16} />,
+    label: 'Profile',
+    onClick: () => {},
+    value: 'profile'
+  },
+  {
+    icon: <Settings size={16} />,
+    label: 'Settings',
+    onClick: () => {},
+    value: 'settings'
+  },
+  {
+    icon: <LogOut size={16} />,
+    label: 'Logout',
+    onClick: () => {},
+    value: 'logout'
+  }
 ];
 
 const cardItems = [
@@ -148,6 +175,10 @@ const Template: StoryFn = () => {
           <CheckRadio className="margin-bottom-lg" type="radio" checked={false} onChange={function (): void {
             throw new Error('Function not implemented.');
           } }/>
+        </div>
+        <div className="container">
+          <label className="form-group__label blockDisplay">Dropdown Menu:</label>
+          <DropdownMenu className="margin-bottom-lg" label="Option" items={dropdownItems} />
         </div>
         <div className="container">
           <label className="form-group__label blockDisplay">Ordered Lists:</label>
