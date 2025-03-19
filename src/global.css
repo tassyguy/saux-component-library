@@ -53,6 +53,10 @@ body {
   display: block;
 }
 
+.blockDisplay {
+  display: block;
+}
+
 /* Buttons */
 button {
   background-color: var(--primary-color);

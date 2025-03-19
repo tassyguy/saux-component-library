@@ -107,7 +107,7 @@ const Template: StoryFn = () => {
           />
         </div>
         <div className="container">
-          <label className="form-group__label">Avatar:</label>
+          <label className="form-group__label blockDisplay">Avatar:</label>
           <Avatar
             className="margin-bottom-lg"
             src="https://via.placeholder.com/150"
@@ -115,11 +115,11 @@ const Template: StoryFn = () => {
           />
         </div>
         <div className="container">
-          <label className="form-group__label">Badge:</label>
+          <label className="form-group__label blockDisplay">Badge:</label>
           <Badge className="margin-bottom-lg" text="Badge" />
         </div>
         <div className="container">
-          <label className="form-group__label">Button:</label>
+          <label className="form-group__label blockDisplay">Button:</label>
           <Button
             className="margin-bottom-lg"
             label="Button"
@@ -127,11 +127,11 @@ const Template: StoryFn = () => {
           />
         </div>
         <div className="container">
-          <label className="form-group__label">Card:</label>
+          <label className="form-group__label blockDisplay">Card:</label>
           <Card className="margin-bottom-lg" items={cardItems} />
         </div>
         <div className="container">
-          <label className="form-group__label">Table:</label>
+          <label className="form-group__label blockDisplay">Table:</label>
           <Table
             columns={tableColumns}
             data={tableData}
@@ -139,7 +139,7 @@ const Template: StoryFn = () => {
           />
         </div>
         <div className="container">
-          <label className="form-group__label">Ordered Lists:</label>
+          <label className="form-group__label blockDisplay">Ordered Lists:</label>
           <OrderedList
             className="margin-bottom-lg"
             items={[
@@ -156,7 +156,7 @@ const Template: StoryFn = () => {
           />
         </div>
         <div className="container">
-          <label className="form-group__label">Unordered Lists:</label>
+          <label className="form-group__label blockDisplay">Unordered Lists:</label>
           <UnorderedList
             className="margin-bottom-lg"
             items={[
@@ -173,7 +173,7 @@ const Template: StoryFn = () => {
           />
         </div>
         <div className="container">
-          <label className="form-group__label">Accordion:</label>
+          <label className="form-group__label blockDisplay">Accordion:</label>
           <Accordion
             className="margin-bottom-lg"
             items={[
@@ -196,7 +196,7 @@ const Template: StoryFn = () => {
           />
         </div>
         <div className="container">
-          <label className="form-group__label">Pagination:</label>
+          <label className="form-group__label blockDisplay">Pagination:</label>
           <Pagination
             className="margin-bottom-lg"
             currentPage={1}
@@ -205,7 +205,7 @@ const Template: StoryFn = () => {
           />
         </div>
         <div className="container">
-          <label className="form-group__label">Sidebar Component:</label>
+          <label className="form-group__label blockDisplay">Sidebar Component:</label>
           <Sidebar
             className="margin-bottom-lg"
             title={'Sidebar'}
@@ -216,7 +216,7 @@ const Template: StoryFn = () => {
           <Breadcrumb className="margin-bottom-lg" items={breadcrumbs} />
         </div>
         <div className="container">
-          <label className="form-group__label">Dark Mode</label>
+          <label className="form-group__label blockDisplay">Dark Mode</label>
           <ToggleSwitch
             className="margin-bottom-lg"
             isOn={darkMode}
