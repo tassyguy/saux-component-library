@@ -52,13 +52,6 @@ export default {
   title: 'Sample Pages/Style Guide',
 } as Meta;
 
-const [currentPage, setCurrentPage] = useState(1); // ✅ Store the current page
-
-const handlePageChange = (page: number) => {
-  console.log(`Page changed to: ${page}`); // Debugging output
-  setCurrentPage(page); // ✅ Updates the current page state
-};
-
 const tableColumns = [
   { header: 'Name', accessor: 'name' },
   { header: 'Age', accessor: 'age' },
@@ -147,6 +140,13 @@ import CheckRadioStories from '../../components/CheckRadio/src/CheckRadio.storie
 
 const Template: StoryFn = () => {
   const [darkMode, setDarkMode] = React.useState(false);
+
+  const [currentPage, setCurrentPage] = React.useState(1);
+
+  const handlePageChange = (page: number) => {
+    console.log(`Page changed to: ${page}`); // Debugging output
+    setCurrentPage(page); // ✅ Updates the current page state
+  };
 
   return (
     <ThemeProvider>
@@ -416,4 +416,4 @@ const Template: StoryFn = () => {
   );
 };
 
-export const Dashboard = Template.bind({});
+export const Dashboard: StoryFn = Template.bind({});
