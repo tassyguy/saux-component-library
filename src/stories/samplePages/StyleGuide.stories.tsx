@@ -100,18 +100,18 @@ const dropdownItems = [
 ];
 
 const selectInputOptions = [
-  {
-    label: 'Option 1',
-    value: 'option1',
-  },
-  {
-    label: 'Option 2',
-    value: 'option2',
-  },
-  {
-    label: 'Option 3',
-    value: 'option3',
-  },
+    {
+      label: 'Option 1',
+      value: 'option1'
+    },
+    {
+      label: 'Option 2',
+      value: 'option2'
+    },
+    {
+      label: 'Option 3',
+      value: 'option3'
+    }
 ];
 
 const cardItems = [
@@ -140,13 +140,6 @@ import CheckRadioStories from '../../components/CheckRadio/src/CheckRadio.storie
 
 const Template: StoryFn = () => {
   const [darkMode, setDarkMode] = React.useState(false);
-
-  const [currentPage, setCurrentPage] = React.useState(1);
-
-  const handlePageChange = (page: number) => {
-    console.log(`Page changed to: ${page}`); // Debugging output
-    setCurrentPage(page); // ✅ Updates the current page state
-  };
 
   return (
     <ThemeProvider>
@@ -339,14 +332,22 @@ const Template: StoryFn = () => {
           />
         </div>
         <div className="container">
-          <label className="form-group__label blockDisplay">Modal:</label>
-          <Button label="Open Modal" onClick={() => {}} />
-          <Modal open={false} onClose={() => {}} title="Modal Title">
-            <p>
-              This is an example modal dialog. You can place any content here.
-            </p>
-          </Modal>
-        </div>
+        <label className="form-group__label blockDisplay">Modal:</label>
+        <Button
+      label="Open Modal"
+      onClick={() => {}}
+    />
+    <Modal
+    open={false}
+      onClose={() => {}}
+      title="Modal Title"
+    >
+      <p>
+        This is an example modal dialog. You can place any content here.
+      </p>
+    </Modal>
+          </div>
+
         <div className="container">
           <label className="form-group__label blockDisplay">Accordion:</label>
           <Accordion
@@ -374,20 +375,18 @@ const Template: StoryFn = () => {
           <label className="form-group__label blockDisplay">Pagination:</label>
           <Pagination
             className="margin-bottom-lg"
-            currentPage={currentPage} // ✅ Now it updates dynamically
+            currentPage={1}
             totalPages={5}
-            onPageChange={handlePageChange} // ✅ Function updates state
+            onPageChange={(page: number) => console.log(page)}
           />
         </div>
         <div className="container">
-          <label className="form-group__label blockDisplay">
-            Select Input:
-          </label>
+          <label className="form-group__label blockDisplay">Select Input:</label>
           <SelectInput
-            label="Choose an option:"
-            onChange={() => {}}
-            options={selectInputOptions}
-            value="option1"
+          label="Choose an option:"
+          onChange={() => {}}
+          options={selectInputOptions}
+          value="option1"
           />
         </div>
         <div className="container">
@@ -416,4 +415,4 @@ const Template: StoryFn = () => {
   );
 };
 
-export const Dashboard: StoryFn = Template.bind({});
+export const Dashboard = Template.bind({});
