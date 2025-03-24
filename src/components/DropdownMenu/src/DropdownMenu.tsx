@@ -1,8 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './DropdownMenu.css';
-import { UnorderedList } from '../../List';
-import { ListItem } from '../../List';
-import Button from '../../Button';
 
 export interface DropdownMenuItem {
   value: string;
@@ -18,7 +15,6 @@ export interface DropdownMenuProps {
   disabled?: boolean;
   align?: 'left' | 'right' | 'center';
   fullWidth?: boolean;
-  className?: string; // Allow users to apply spacing styles
 }
 
 const DropdownMenu: React.FC<DropdownMenuProps> = ({
@@ -27,13 +23,23 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   disabled = false,
   align = 'left',
   fullWidth = false,
-  className = '',
 }) => {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const toggleOpen = () => {
-    if (!disabled) setOpen((prev) => !prev);
+    if (!disabled) {
+      if (isOpen) {
+        setIsAnimating(true); // Start fade-out animation
+        setTimeout(() => {
+          setIsOpen(false);
+          setIsAnimating(false); // Reset animation state
+        }, 300); // Match the animation duration
+      } else {
+        setIsOpen(true);
+      }
+    }
   };
 
   useEffect(() => {
@@ -42,44 +48,51 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
         containerRef.current &&
         !containerRef.current.contains(event.target as Node)
       ) {
-        setOpen(false);
+        if (isOpen) {
+          toggleOpen();
+        }
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  const handleItemClick = (item: DropdownMenuItem) => {
-    if (item.onClick && !item.disabled) item.onClick();
-    setOpen(false);
-  };
-
-  const listItems: ListItem[] = items.map((item) => ({
-    key: item.value,
-    label: item.label,
-    icon: item.icon,
-    disabled: item.disabled,
-    onClick: item.onClick,
-  }));
+  }, [isOpen]);
 
   return (
     <div
-      className={`dropdown-menu ${fullWidth ? 'dropdown-menu--fullWidth' : ''} ${className}`.trim()}
+      className={`dropdown-menu ${fullWidth ? 'dropdown-menu--fullWidth' : ''}`}
       ref={containerRef}
     >
-      <Button
-        label={label}
+      <button
+        className="dropdown-menu__trigger"
         onClick={toggleOpen}
         disabled={disabled}
-        variant="primary"
-        className="dropdown-menu__trigger"
-        icon={<span className="dropdown-menu__arrow">{open ? '▲' : '▼'}</span>}
-      />
-      {open && (
-        <UnorderedList
-          className={`dropdown-menu__list dropdown-menu--${align}`.trim()}
-          items={listItems}
-        />
+      >
+        {label}
+        <span className="dropdown-menu__arrow">{isOpen ? '▲' : '▼'}</span>
+      </button>
+      {isOpen && (
+        <ul
+          className={`dropdown-menu__list ${
+            isAnimating
+              ? 'dropdown-menu__list--hiding'
+              : 'dropdown-menu__list--visible'
+          } dropdown-menu--${align}`}
+        >
+          {items.map((item) => (
+            <li
+              key={item.value}
+              className={`dropdown-menu__item ${
+                item.disabled ? 'dropdown-menu__item--disabled' : ''
+              }`}
+              onClick={!item.disabled ? item.onClick : undefined}
+            >
+              {item.icon && (
+                <span className="dropdown-menu__icon">{item.icon}</span>
+              )}
+              {item.label}
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   );

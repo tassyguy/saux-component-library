@@ -26,7 +26,8 @@
   border-radius: 4px;
   transition:
     border-color 0.2s,
-    background-color 0.2s;
+    background-color 0.2s,
+    transform 0.2s;
   display: inline-block;
   vertical-align: middle;
   margin-right: 8px;
@@ -34,9 +35,28 @@
     --background-color,
     #fff
   ); /* Fallback to a default background color */
+  position: relative;
+  overflow: hidden;
 }
 
-/* When checked, show the active styling */
+/* Add a checkmark using a pseudo-element */
+.check-radio__box::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 12px;
+  border: solid var(--checkmark-color, #fff); /* Fallback to a default checkmark color */
+  border-width: 0 2px 2px 0;
+  transform: translate(-50%, -50%) rotate(45deg) scale(0); /* Hidden by default */
+  opacity: 0;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+/* When checked, show the active styling and the checkmark */
 .check-radio__input:checked + .check-radio__box {
   border-color: var(
     --primary-color,
@@ -46,6 +66,16 @@
     --primary-color,
     #007bff
   ); /* Fallback to a default primary color */
+}
+
+.check-radio__input:checked + .check-radio__box::after {
+  transform: translate(-50%, -50%) rotate(45deg) scale(1); /* Show the checkmark */
+  opacity: 1;
+}
+
+/* Disable the checkmark for radio buttons */
+.check-radio--radio .check-radio__box::after {
+  content: none; /* Remove the checkmark */
 }
 
 .check-radio__input:focus + .check-radio__box {
@@ -107,4 +137,36 @@
     --error-color,
     #dc3545
   ); /* Fallback to a default error color */
+}
+/* Indeterminate state styling */
+.check-radio--indeterminate .check-radio__box {
+  background-color: var(
+    --background-color,
+    #fff
+  ); /* Ensure background is visible */
+  border-color: var(
+    --primary-color,
+    #007bff
+  ); /* Use primary color for border */
+  position: relative;
+}
+
+.check-radio--indeterminate .check-radio__box::after {
+  content: '';
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  width: 12px; /* Width of the horizontal line */
+  height: 2px; /* Height of the horizontal line */
+  background-color: var(--primary-color, #007bff); /* Line color */
+  transform: translate(-50%, -50%); /* Center the line */
+  opacity: 1;
+  transition:
+    background-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+/* Ensure indeterminate state does not show the checkmark */
+.check-radio--indeterminate .check-radio__box::after {
+  border: none;
 }

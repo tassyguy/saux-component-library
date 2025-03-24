@@ -85,22 +85,60 @@
   align-items: center;
 }
 
+/* Add animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px); /* Slight upward movement */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px); /* Slight upward movement */
+  }
+}
+
+/* Default state for the dropdown menu */
 .dropdown-menu__list {
   position: absolute;
   top: 100%;
   left: 0;
   z-index: 100;
-  background: var(
-    --background-color,
-    #fff
-  ); /* Fallback to a default background color */
-  border: 1px solid var(--border-color, #ddd); /* Fallback to a default border color */
+  background: var(--background-color, #fff);
+  border: 1px solid var(--border-color, #ddd);
   border-radius: 4px;
   padding: 0;
   margin-top: 4px;
   width: 100%;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   list-style: none;
+  opacity: 0; /* Hidden by default */
+  pointer-events: none; /* Prevent interaction when hidden */
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* When the dropdown is visible */
+.dropdown-menu__list--visible {
+  opacity: 1;
+  pointer-events: auto; /* Allow interaction */
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* When the dropdown is hiding */
+.dropdown-menu__list--hiding {
+  animation: fadeOut 0.3s ease forwards;
 }
 
 .dropdown-menu--right {

@@ -6,6 +6,8 @@ export interface CheckRadioProps {
   type: 'checkbox' | 'radio';
   /** Whether the control is checked */
   checked: boolean;
+  /** Whether the checkbox is in an indeterminate state */
+  indeterminate?: boolean; // New prop for half-checked state
   /** Callback triggered when the control changes */
   onChange: () => void;
   /** Optional flag to disable the control */
@@ -25,29 +27,40 @@ export interface CheckRadioProps {
 const CheckRadio: React.FC<CheckRadioProps> = ({
   type,
   checked,
+  indeterminate = false, // Default to false
   onChange,
   disabled = false,
   label,
   name,
   size = 'medium',
   variant = 'primary',
-  className = '', // Allow className for custom styling
+  className = '',
 }) => {
-  const containerClasses =
-    [
-      'check-radio',
-      `check-radio--${size}`,
-      `check-radio--${variant}`,
-      type === 'radio' ? 'check-radio--radio' : '',
-      disabled ? 'disabled' : '',
-      className, // Apply custom className
-    ]
-      .filter(Boolean)
-      .join(' ');
+  const inputRef = React.useRef<HTMLInputElement>(null);
+
+  // Set the indeterminate state on the input element
+  React.useEffect(() => {
+    if (type === 'checkbox' && inputRef.current) {
+      inputRef.current.indeterminate = indeterminate;
+    }
+  }, [indeterminate]);
+
+  const containerClasses = [
+    'check-radio',
+    `check-radio--${size}`,
+    `check-radio--${variant}`,
+    type === 'radio' ? 'check-radio--radio' : '',
+    indeterminate ? 'check-radio--indeterminate' : '', // Add class for indeterminate state
+    disabled ? 'disabled' : '',
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <label className={containerClasses}>
       <input
+        ref={inputRef}
         type={type}
         checked={checked}
         onChange={onChange}

@@ -11,7 +11,19 @@ export default {
 
 const Template: StoryFn<CheckRadioProps> = (args) => {
   const [checked, setChecked] = useState(args.checked);
+  const [indeterminate, setIndeterminate] = useState(
+    args.indeterminate || false
+  );
   const isDarkMode = useDarkMode();
+
+  const handleChange = () => {
+    if (indeterminate) {
+      setIndeterminate(false); // Clear indeterminate state on first click
+      setChecked(true); // Set to checked
+    } else {
+      setChecked(!checked); // Toggle checked state
+    }
+  };
 
   return (
     <ThemeProvider>
@@ -19,7 +31,8 @@ const Template: StoryFn<CheckRadioProps> = (args) => {
         <CheckRadio
           {...args}
           checked={checked}
-          onChange={() => setChecked(!checked)}
+          indeterminate={indeterminate}
+          onChange={handleChange}
         />
       </div>
     </ThemeProvider>
@@ -63,4 +76,17 @@ export const ErrorCheckbox: StoryFn<CheckRadioProps> = Template.bind({});
 ErrorCheckbox.args = {
   ...Checkbox.args,
   variant: 'error',
+};
+
+export const IndeterminateCheckbox: StoryFn<CheckRadioProps> = Template.bind(
+  {}
+);
+IndeterminateCheckbox.args = {
+  type: 'checkbox',
+  checked: false,
+  indeterminate: true, // Enable the indeterminate state
+  disabled: false,
+  label: 'Indeterminate Checkbox',
+  size: 'medium',
+  variant: 'primary',
 };

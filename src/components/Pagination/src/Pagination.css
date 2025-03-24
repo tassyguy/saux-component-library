@@ -15,15 +15,21 @@
   padding: 6px 10px;
   border-radius: 4px;
   cursor: auto;
-  transition: background-color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
   color: var(--text-color, #000); /* Fallback to a default text color */
 }
 
 .pagination__button:hover:not(:disabled) {
   background-color: var(
     --pagination-button-hover-background,
-    #f0f0f0
+    #007bff
   ); /* Fallback to a default hover background color */
+  color: var(
+    --pagination-button-hover-color,
+    #fff
+  ); /* Fallback to a default hover text color */
 }
 
 .pagination__button:disabled {
