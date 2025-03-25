@@ -370,6 +370,31 @@ importers:
         specifier: ^5.7.3
         version: 5.8.2
 
+  src/components/DatePicker:
+    dependencies:
+      react:
+        specifier: ^19.0.0
+        version: 19.0.0
+      react-dom:
+        specifier: ^19.0.0
+        version: 19.0.0(react@19.0.0)
+    devDependencies:
+      '@testing-library/react':
+        specifier: ^16.2.0
+        version: 16.2.0(@testing-library/dom@10.4.0)(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@types/react':
+        specifier: ^19.0.10
+        version: 19.0.10
+      '@types/react-dom':
+        specifier: ^19.0.4
+        version: 19.0.4(@types/react@19.0.10)
+      jest:
+        specifier: ^29.0.0
+        version: 29.7.0(@types/node@22.13.10)
+      typescript:
+        specifier: ^5.7.3
+        version: 5.8.2
+
   src/components/DropdownMenu:
     dependencies:
       react:
