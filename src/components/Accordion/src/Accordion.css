@@ -57,8 +57,32 @@
   margin-left: 0;
 }
 
+/* Add animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px); /* Slight upward movement */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px); /* Slight upward movement */
+  }
+}
+
+/* Accordion content */
 .accordion-content {
-  padding: 15px;
+  padding: 0 15px;
   border: 1px solid var(--border-color, #ddd); /* Fallback to a default border color */
   border-top: none;
   background: var(
@@ -71,4 +95,21 @@
     Arial,
     sans-serif
   ); /* Fallback to a default font family */
+  overflow: hidden;
+  max-height: 0; /* Initially hidden */
+  transition:
+    max-height 0.3s ease,
+    padding 0.3s ease;
+}
+
+/* When the accordion is open */
+.accordion-item.open .accordion-content {
+  padding: 15px; /* Restore padding when open */
+}
+
+/* When the accordion is closing */
+.accordion-item.closing .accordion-content {
+  animation: fadeOut 0.3s ease forwards;
+  max-height: 0; /* Collapse the content */
+  padding: 0; /* Remove padding when closed */
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useTheme } from '../../Theme/src/ThemeProvider';
 import './Accordion.css';
 import { H3 } from '../../Header';
@@ -41,18 +41,43 @@ const Accordion: React.FC<AccordionProps> = ({
   };
 
   return (
-    <div className={`accordion ${className}`.trim()}> {/* Apply className here */}
-      {items.map((item, index) => (
-        <div key={index} className={`accordion-item ${item.className || ''}`.trim()}>
-          <div onClick={() => toggleIndex(index)} className="accordion-title">
-            {item.icon && <span className="accordion-icon">{item.icon}</span>}
-            <H3 text={item.title} />
+    <div className={`accordion ${className}`.trim()}>
+      {items.map((item, index) => {
+        const isOpen = activeIndices.includes(index);
+        const contentRef = useRef<HTMLDivElement>(null);
+
+        useEffect(() => {
+          if (contentRef.current) {
+            contentRef.current.style.maxHeight = isOpen
+              ? `${contentRef.current.scrollHeight}px`
+              : '0px';
+          }
+        }, [isOpen]);
+
+        return (
+          <div
+            key={index}
+            className={`accordion-item ${isOpen ? 'open' : ''} ${
+              item.className || ''
+            }`.trim()}
+          >
+            <div onClick={() => toggleIndex(index)} className="accordion-title">
+              {item.icon && <span className="accordion-icon">{item.icon}</span>}
+              <H3 text={item.title} />
+            </div>
+            <div
+              className="accordion-content"
+              ref={contentRef}
+              style={{
+                overflow: 'hidden',
+                transition: 'max-height 0.3s ease',
+              }}
+            >
+              {item.content}
+            </div>
           </div>
-          {activeIndices.includes(index) && (
-            <div className="accordion-content">{item.content}</div>
-          )}
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };
