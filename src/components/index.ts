@@ -81,6 +81,9 @@ export type { SelectInputProps } from './SelectInput';
 export { default as Sidebar } from './Sidebar';
 export type { SidebarProps } from './Sidebar';
 
+export { default as SliderInput } from './SliderInput';
+export type { SliderInputProps } from './SliderInput';
+
 export { default as Stepper } from './Stepper';
 export type { StepperProps } from './Stepper';
 

@@ -13,6 +13,7 @@ import {
   Pagination,
   Sidebar,
   SelectInput,
+  SliderInput,
   Stepper,
   Breadcrumb,
   ToggleSwitch,
@@ -251,6 +252,20 @@ const Template: StoryFn = () => {
             Progress Bar:
           </label>
           <ProgressBar label="50%" value={50} variant="primary" />
+        </div>
+        <div className="container">
+          <label className="form-group__label blockDisplay">
+            Slider Input:
+          </label>
+          <SliderInput
+            label="Default Slider"
+            max={100}
+            min={0}
+            onChange={() => {}}
+            showValue
+            step={1}
+            value={50}
+          />
         </div>
         <div className="container">
           <label className="form-group__label blockDisplay">
