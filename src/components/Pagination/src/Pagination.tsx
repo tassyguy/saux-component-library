@@ -10,7 +10,7 @@ export interface PaginationProps {
   prevAriaLabel?: string;
   nextAriaLabel?: string;
   maxVisiblePages?: number; // NEW
-  showFirstLast?: boolean;  // NEW
+  showFirstLast?: boolean; // NEW
 }
 
 const Pagination: React.FC<PaginationProps> = ({
@@ -25,12 +25,17 @@ const Pagination: React.FC<PaginationProps> = ({
   showFirstLast = true,
 }) => {
   const [internalPage, setInternalPage] = useState(currentPage ?? 1);
+  const [currentChunk, setCurrentChunk] = useState(0); // NEW
+
+  const pagesPerChunk = maxVisiblePages;
+  const totalChunks = Math.ceil(totalPages / pagesPerChunk);
 
   useEffect(() => {
     if (typeof currentPage === 'number') {
       setInternalPage(currentPage);
+      setCurrentChunk(Math.floor((currentPage - 1) / pagesPerChunk));
     }
-  }, [currentPage]);
+  }, [currentPage, pagesPerChunk]);
 
   const isControlled = typeof currentPage === 'number';
   const page = isControlled ? currentPage! : internalPage;
@@ -41,39 +46,45 @@ const Pagination: React.FC<PaginationProps> = ({
   };
 
   const handlePrevious = () => {
-    if (page > 1) changePage(page - 1);
+    if (currentChunk > 0) {
+      const newChunk = currentChunk - 1;
+      setCurrentChunk(newChunk);
+      const firstPageInChunk = newChunk * pagesPerChunk + 1;
+      changePage(firstPageInChunk);
+    }
   };
 
   const handleNext = () => {
-    if (page < totalPages) changePage(page + 1);
+    if (currentChunk < totalChunks - 1) {
+      const newChunk = currentChunk + 1;
+      setCurrentChunk(newChunk);
+      const firstPageInChunk = newChunk * pagesPerChunk + 1;
+      changePage(firstPageInChunk);
+    }
   };
 
-  const handleFirst = () => changePage(1);
-  const handleLast = () => changePage(totalPages);
+  const handleFirst = () => {
+    setCurrentChunk(0);
+    changePage(1);
+  };
+
+  const handleLast = () => {
+    const lastChunk = totalChunks - 1;
+    setCurrentChunk(lastChunk);
+    const firstPage = lastChunk * pagesPerChunk + 1;
+    changePage(firstPage);
+  };
 
   const getVisiblePages = (): number[] => {
+    const start = currentChunk * pagesPerChunk + 1;
+    const end = Math.min(start + pagesPerChunk - 1, totalPages);
+
     const pages: number[] = [];
-    const half = Math.floor(maxVisiblePages / 2);
-  
-    let start = page - half;
-    let end = page + half;
-  
-    // Adjust bounds if near start or end
-    if (start < 1) {
-      start = 1;
-      end = Math.min(maxVisiblePages, totalPages);
-    } else if (end > totalPages) {
-      end = totalPages;
-      start = Math.max(1, totalPages - maxVisiblePages + 1);
-    }
-  
     for (let i = start; i <= end; i++) {
       pages.push(i);
     }
-  
     return pages;
   };
-  
 
   const visiblePages = getVisiblePages();
 
@@ -100,15 +111,15 @@ const Pagination: React.FC<PaginationProps> = ({
       </button>
 
       {visiblePages.map((p) => (
-  <button
-    key={p}
-    className={`pagination__button ${p === page ? 'active' : ''}`}
-    onClick={() => changePage(p)}
-    aria-label={`Page ${p}`}
-  >
-    {p}
-  </button>
-))}
+        <button
+          key={p}
+          className={`pagination__button ${p === page ? 'active' : ''}`}
+          onClick={() => changePage(p)}
+          aria-label={`Page ${p}`}
+        >
+          {p}
+        </button>
+      ))}
 
       <button
         className="pagination__button"
