@@ -1,33 +1,33 @@
 import React from 'react';
 import './CheckRadio.css';
 
+/** Option for a checkbox or radio */
+export interface CheckRadioOption {
+  label: string;
+  value: string;
+}
+
+/** Props for an individual checkbox or radio input */
 export interface CheckRadioProps {
-  /** Type of control: "checkbox" or "radio" */
   type: 'checkbox' | 'radio';
-  /** Whether the control is checked */
   checked: boolean;
-  /** Whether the checkbox is in an indeterminate state */
-  indeterminate?: boolean; // New prop for half-checked state
-  /** Callback triggered when the control changes */
+  indeterminate?: boolean;
   onChange: () => void;
-  /** Optional flag to disable the control */
   disabled?: boolean;
-  /** Optional label to display next to the control */
   label?: string;
-  /** Name for radio group */
   name?: string;
-  /** Size of the control: small, medium, large */
   size?: 'small' | 'medium' | 'large';
-  /** Color variant of the control */
   variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error';
-  /** Additional class name for custom styling */
   className?: string;
 }
 
-const CheckRadio: React.FC<CheckRadioProps> = ({
+/**
+ * Individual CheckRadio item (checkbox or radio)
+ */
+export const CheckRadioItem: React.FC<CheckRadioProps> = ({
   type,
   checked,
-  indeterminate = false, // Default to false
+  indeterminate = false,
   onChange,
   disabled = false,
   label,
@@ -38,7 +38,6 @@ const CheckRadio: React.FC<CheckRadioProps> = ({
 }) => {
   const inputRef = React.useRef<HTMLInputElement>(null);
 
-  // Set the indeterminate state on the input element
   React.useEffect(() => {
     if (type === 'checkbox' && inputRef.current) {
       inputRef.current.indeterminate = indeterminate;
@@ -50,7 +49,7 @@ const CheckRadio: React.FC<CheckRadioProps> = ({
     `check-radio--${size}`,
     `check-radio--${variant}`,
     type === 'radio' ? 'check-radio--radio' : '',
-    indeterminate ? 'check-radio--indeterminate' : '', // Add class for indeterminate state
+    indeterminate ? 'check-radio--indeterminate' : '',
     disabled ? 'disabled' : '',
     className,
   ]
@@ -74,4 +73,68 @@ const CheckRadio: React.FC<CheckRadioProps> = ({
   );
 };
 
-export default CheckRadio;
+/** Props for the CheckRadioGroup wrapper */
+export interface CheckRadioGroupProps {
+  type: 'checkbox' | 'radio';
+  options: CheckRadioOption[];
+  name?: string;
+  selected?: string[]; // Initial selected values
+  onChange?: (selectedValues: string[]) => void;
+  disabled?: boolean;
+  size?: 'small' | 'medium' | 'large';
+  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error';
+  className?: string;
+}
+
+/**
+ * CheckRadioGroup component (renders a group of checkbox or radio items)
+ */
+export const CheckRadioGroup: React.FC<CheckRadioGroupProps> = ({
+  type,
+  options,
+  name,
+  selected = [],
+  onChange,
+  disabled = false,
+  size = 'medium',
+  variant = 'primary',
+  className = '',
+}) => {
+  const [selectedValues, setSelectedValues] = React.useState<string[]>(selected);
+
+  const handleChange = (value: string) => {
+    let newSelected: string[];
+
+    if (type === 'checkbox') {
+      newSelected = selectedValues.includes(value)
+        ? selectedValues.filter((v) => v !== value)
+        : [...selectedValues, value];
+    } else {
+      newSelected = selectedValues[0] === value ? [] : [value];
+    }
+
+    setSelectedValues(newSelected);
+    onChange?.(newSelected);
+  };
+
+  return (
+    <div className={`check-radio-group ${className}`}>
+      {options.map((option) => (
+        <CheckRadioItem
+          key={option.value}
+          type={type}
+          checked={selectedValues.includes(option.value)}
+          onChange={() => handleChange(option.value)}
+          label={option.label}
+          name={name}
+          disabled={disabled}
+          size={size}
+          variant={variant}
+        />
+      ))}
+    </div>
+  );
+};
+
+// Default export for the group component
+export default CheckRadioGroup;

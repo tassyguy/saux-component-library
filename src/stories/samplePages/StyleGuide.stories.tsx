@@ -38,7 +38,11 @@ import {
   Card,
   DropdownMenu,
 } from '../../components';
+
+import CheckRadioGroup from '../../components/CheckRadio/src/CheckRadio';
+
 import { SidebarItem } from '../../components/Sidebar/src/Sidebar';
+
 import {
   ChevronDown,
   CheckCircle,
@@ -99,19 +103,31 @@ const dropdownItems = [
   },
 ];
 
+const checkboxOptions = [
+  { label: 'Checkbox Option #1', value: 'option1' },
+  { label: 'Checkbox Option #2', value: 'option2' },
+  { label: 'Checkbox Option #3', value: 'option3' },
+];
+
+const radioOptions = [
+  { label: 'Radio Option A', value: 'A' },
+  { label: 'Radio Option B', value: 'B' },
+  { label: 'Radio Option C', value: 'C' },
+];
+
 const selectInputOptions = [
-    {
-      label: 'Option 1',
-      value: 'option1'
-    },
-    {
-      label: 'Option 2',
-      value: 'option2'
-    },
-    {
-      label: 'Option 3',
-      value: 'option3'
-    }
+  {
+    label: 'Option 1',
+    value: 'option1',
+  },
+  {
+    label: 'Option 2',
+    value: 'option2',
+  },
+  {
+    label: 'Option 3',
+    value: 'option3',
+  },
 ];
 
 const cardItems = [
@@ -193,48 +209,25 @@ const Template: StoryFn = () => {
           />
         </div>
         <div className="container">
-          <label className="form-group__label blockDisplay">Checkbox Component:</label>
-          <CheckRadio
-            label="Checkbox Option #1"
-            className="margin-bottom-lg"
+          <label className="form-group__label blockDisplay">
+            Checkbox Component:
+          </label>
+          <CheckRadioGroup
             type="checkbox"
-            checked
-            onChange={function (): void {
-              throw new Error('Function not implemented.');
-            }}
+            options={checkboxOptions}
+            onChange={(selected) =>
+              console.log('Selected checkboxes:', selected)
+            }
+            className="margin-bottom-lg"
           />
-          <CheckRadio
-            label="Checkbox Option #1"
+          <CheckRadioGroup
+            type="radio"
+            name="radio-group"
+            options={radioOptions}
+            onChange={(selected) => console.log('Selected radio:', selected)}
             className="margin-bottom-lg"
-            type="checkbox"
-            checked
-            onChange={function (): void {
-              throw new Error('Function not implemented.');
-            }}
           />
         </div>
-        <div className="container">
-          <label className="form-group__label blockDisplay">Radio button omponent:</label>
-          <CheckRadio
-            label="Radio Button Option #1"
-            className="margin-bottom-lg"
-            type="radio"
-            checked={false}
-            onChange={function (): void {
-              throw new Error('Function not implemented.');
-            }}
-          />
-          <CheckRadio
-            label="Radio Button Option #2"
-            className="margin-bottom-lg"
-            type="radio"
-            checked={false}
-            onChange={function (): void {
-              throw new Error('Function not implemented.');
-            }}
-          />
-          </div>
-
         <div className="container">
           <label className="form-group__label blockDisplay">
             Dropdown Menu:
@@ -356,22 +349,14 @@ const Template: StoryFn = () => {
           />
         </div>
         <div className="container">
-        <label className="form-group__label blockDisplay">Modal:</label>
-        <Button
-      label="Open Modal"
-      onClick={() => {}}
-    />
-    <Modal
-    open={false}
-      onClose={() => {}}
-      title="Modal Title"
-    >
-      <p>
-        This is an example modal dialog. You can place any content here.
-      </p>
-    </Modal>
-          </div>
-
+          <label className="form-group__label blockDisplay">Modal:</label>
+          <Button label="Open Modal" onClick={() => {}} />
+          <Modal open={false} onClose={() => {}} title="Modal Title">
+            <p>
+              This is an example modal dialog. You can place any content here.
+            </p>
+          </Modal>
+        </div>
         <div className="container">
           <label className="form-group__label blockDisplay">Accordion:</label>
           <Accordion
@@ -405,12 +390,14 @@ const Template: StoryFn = () => {
           />
         </div>
         <div className="container">
-          <label className="form-group__label blockDisplay">Select Input:</label>
+          <label className="form-group__label blockDisplay">
+            Select Input:
+          </label>
           <SelectInput
-          label="Choose an option:"
-          onChange={() => {}}
-          options={selectInputOptions}
-          value="option1"
+            label="Choose an option:"
+            onChange={() => {}}
+            options={selectInputOptions}
+            value="option1"
           />
         </div>
         <div className="container">
