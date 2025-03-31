@@ -170,3 +170,9 @@
 .check-radio--indeterminate .check-radio__box::after {
   border: none;
 }
+
+.check-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* optional spacing between options */
+}
