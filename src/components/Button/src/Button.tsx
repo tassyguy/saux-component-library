@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import { useTheme } from '../../Theme/src/ThemeProvider';
 import './Button.css';
 
@@ -19,15 +19,18 @@ const Button: React.FC<ButtonProps> = ({
   ariaLabel,
 }) => {
   const { theme } = useTheme();
-  const [isClicked, setIsClicked] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (disabled || loading) return;
 
-    setIsClicked(true);
-    setTimeout(() => setIsClicked(false), 150); // Reset the click effect after animation
+    const button = buttonRef.current;
+    if (button) {
+      button.classList.add('clicked');
+      setTimeout(() => button.classList.remove('clicked'), 150);
+    }
 
-    onClick?.(); // Call the passed-in onClick function
+    onClick?.();
   };
 
   const classNames = [
@@ -35,7 +38,6 @@ const Button: React.FC<ButtonProps> = ({
     `button--${variant}`,
     `button--${size}`,
     fullWidth ? 'button--full-width' : '',
-    isClicked ? 'clicked' : '',
     className,
   ]
     .filter(Boolean)
@@ -43,6 +45,7 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
+      ref={buttonRef}
       onClick={handleClick}
       className={classNames}
       disabled={disabled || loading}
