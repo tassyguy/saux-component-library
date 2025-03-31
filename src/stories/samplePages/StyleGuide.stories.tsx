@@ -257,15 +257,7 @@ const Template: StoryFn = () => {
           <label className="form-group__label blockDisplay">
             Slider Input:
           </label>
-          <SliderInput
-            label="Default Slider"
-            max={100}
-            min={0}
-            onChange={() => {}}
-            showValue
-            step={1}
-            value={50}
-          />
+          <SliderInput label="Default Slider" min={0} max={100} />
         </div>
         <div className="container">
           <label className="form-group__label blockDisplay">

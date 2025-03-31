@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './SliderInput.css';
 
 export interface SliderInputProps {
   label?: string;
-  value: number;
+  value?: number; // optional for uncontrolled
   min: number;
   max: number;
   step?: number;
-  onChange: (value: number) => void;
+  onChange?: (value: number) => void;
   disabled?: boolean;
-  showValue?: boolean; // Option to display the current value
+  showValue?: boolean;
   className?: string;
 }
 
@@ -24,9 +24,25 @@ const SliderInput: React.FC<SliderInputProps> = ({
   showValue = true,
   className = '',
 }) => {
+  const isControlled = typeof value === 'number';
+  const [internalValue, setInternalValue] = useState(value ?? min);
+
+  // Keep internal value in sync when controlled externally
+  useEffect(() => {
+    if (isControlled) {
+      setInternalValue(value!);
+    }
+  }, [value]);
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(Number(event.target.value));
+    const newValue = Number(event.target.value);
+    if (!isControlled) {
+      setInternalValue(newValue);
+    }
+    onChange?.(newValue);
   };
+
+  const currentValue = isControlled ? value! : internalValue;
 
   return (
     <div className={`slider-input ${className}`.trim()}>
@@ -35,14 +51,14 @@ const SliderInput: React.FC<SliderInputProps> = ({
         <input
           type="range"
           className="slider-input__range"
-          value={value}
+          value={currentValue}
           min={min}
           max={max}
           step={step}
           onChange={handleChange}
           disabled={disabled}
         />
-        {showValue && <span className="slider-input__value">{value}</span>}
+        {showValue && <span className="slider-input__value">{currentValue}</span>}
       </div>
     </div>
   );
