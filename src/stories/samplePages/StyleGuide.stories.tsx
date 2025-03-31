@@ -51,6 +51,7 @@ import {
   Settings,
   LogOut,
   Mail,
+  Info
 } from 'react-feather';
 
 export default {
