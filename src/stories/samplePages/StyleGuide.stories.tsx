@@ -6,6 +6,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import {
   Column,
   Chip,
+  DatePicker,
   Table,
   Accordion,
   Alert,
@@ -233,6 +234,16 @@ const Template: StoryFn = () => {
             options={radioOptions}
             onChange={(selected) => console.log('Selected radio:', selected)}
             className="margin-bottom-lg"
+          />
+        </div>
+        <div className="container">
+          <label className="form-group__label blockDisplay">Date Picker:</label>
+          <DatePicker
+            label="Select a Date"
+            maxDate="2025-12-31"
+            minDate="2025-01-01"
+            onChange={() => {}}
+            value="2025-03-25"
           />
         </div>
         <div className="container">

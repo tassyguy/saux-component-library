@@ -28,6 +28,9 @@ export type { ChipProps } from './Chip';
 export { default as Container } from './Container';
 export type { ContainerProps } from './Container';
 
+export { default as DatePicker } from './DatePicker';
+export type { DatePickerProps } from './DatePicker';
+
 export { default as DropdownMenu } from './DropdownMenu';
 export type { DropdownMenuProps } from './DropdownMenu';
 
