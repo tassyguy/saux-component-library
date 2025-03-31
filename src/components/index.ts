@@ -34,6 +34,9 @@ export type { DatePickerProps } from './DatePicker';
 export { default as DropdownMenu } from './DropdownMenu';
 export type { DropdownMenuProps } from './DropdownMenu';
 
+export { default as FileUpload } from './FileUpload';
+export type { FileUploadProps } from './FileUpload';
+
 export { default as Footer } from './Footer';
 export type { FooterProps } from './Footer';
 

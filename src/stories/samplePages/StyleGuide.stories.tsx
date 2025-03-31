@@ -16,6 +16,7 @@ import {
   Stepper,
   Breadcrumb,
   ToggleSwitch,
+  FileUpload,
   Footer,
   Form,
   FormGroup,
@@ -252,6 +253,13 @@ const Template: StoryFn = () => {
             className="margin-bottom-lg"
             label="Option"
             items={dropdownItems}
+          />
+        </div>
+        <div>
+          <FileUpload
+            accept="*"
+            label="Upload File"
+            onFilesSelected={() => {}}
           />
         </div>
         <div className="container">
