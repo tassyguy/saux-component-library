@@ -242,8 +242,6 @@ const Template: StoryFn = () => {
             label="Select a Date"
             maxDate="2025-12-31"
             minDate="2025-01-01"
-            onChange={() => {}}
-            value="2025-03-25"
           />
         </div>
         <div className="container">

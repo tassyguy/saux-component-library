@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './DatePicker.css';
 
 export interface DatePickerProps {
   label?: string;
-  value: string; // Date in ISO format (e.g., "2025-03-25")
-  onChange: (date: string) => void;
-  minDate?: string; // Minimum selectable date in ISO format
-  maxDate?: string; // Maximum selectable date in ISO format
+  value?: string; // Optional now
+  onChange?: (date: string) => void;
+  minDate?: string;
+  maxDate?: string;
   disabled?: boolean;
   className?: string;
 }
@@ -20,10 +20,21 @@ const DatePicker: React.FC<DatePickerProps> = ({
   disabled = false,
   className = '',
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const isControlled = typeof value === 'string';
+  const [internalValue, setInternalValue] = useState(value ?? '');
+
+  useEffect(() => {
+    if (isControlled && value !== internalValue) {
+      setInternalValue(value!);
+    }
+  }, [value]);
 
   const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(event.target.value);
+    const newDate = event.target.value;
+    if (!isControlled) {
+      setInternalValue(newDate);
+    }
+    onChange?.(newDate);
   };
 
   return (
@@ -33,13 +44,11 @@ const DatePicker: React.FC<DatePickerProps> = ({
         <input
           type="date"
           className="date-picker__input"
-          value={value}
+          value={internalValue}
           onChange={handleDateChange}
           min={minDate}
           max={maxDate}
           disabled={disabled}
-          onFocus={() => setIsOpen(true)}
-          onBlur={() => setIsOpen(false)}
         />
       </div>
     </div>
