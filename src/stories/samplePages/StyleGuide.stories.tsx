@@ -11,6 +11,7 @@ import {
   Pagination,
   Sidebar,
   SelectInput,
+  Stepper,
   Breadcrumb,
   ToggleSwitch,
   Footer,
@@ -286,6 +287,30 @@ const Template: StoryFn = () => {
             </FormGroup>
             <Button fullWidth label="Submit" type="submit" />
           </Form>
+        </div>
+        <div className="container">
+          <label className="form-group__label blockDisplay">Grid:</label>
+          <Stepper
+            activeStep={0}
+            onStepClick={() => {}}
+            orientation="horizontal"
+            steps={[
+              {
+                description: 'Description for step 1',
+                icon: <CheckCircle size={16} />,
+                label: 'Step 1',
+              },
+              {
+                description: 'Description for step 2',
+                icon: <Info size={16} />,
+                label: 'Step 2',
+              },
+              {
+                description: 'Description for step 3',
+                label: 'Step 3',
+              },
+            ]}
+          />
         </div>
         <div className="container">
           <label className="form-group__label blockDisplay">Grid:</label>

@@ -69,6 +69,9 @@ export type { SelectInputProps } from './SelectInput';
 export { default as Sidebar } from './Sidebar';
 export type { SidebarProps } from './Sidebar';
 
+export { default as Stepper } from './Stepper';
+export type { StepperProps } from './Stepper';
+
 export { default as Table } from './Table';
 export type { TableProps, Column } from './Table';
 
