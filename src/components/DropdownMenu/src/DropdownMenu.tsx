@@ -15,6 +15,7 @@ export interface DropdownMenuProps {
   disabled?: boolean;
   align?: 'left' | 'right' | 'center';
   fullWidth?: boolean;
+  className?: string;
 }
 
 const DropdownMenu: React.FC<DropdownMenuProps> = ({
@@ -23,6 +24,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   disabled = false,
   align = 'left',
   fullWidth = false,
+  className = '',
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
