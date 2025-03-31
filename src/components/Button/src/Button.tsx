@@ -6,41 +6,24 @@ import './Button.css';
  * Button component props
  */
 export interface ButtonProps {
-  /** The text to display inside the button */
   label: string;
-  /** Callback function to handle button click */
   onClick?: () => void;
-  /** The variant of the button */
   variant?: 'primary' | 'secondary';
-  /** Whether the button is disabled */
   disabled?: boolean;
-  /** The size of the button */
   size?: 'small' | 'medium' | 'large';
-  /** The type of the button */
   type?: 'button' | 'submit' | 'reset';
-  /** Optional icon to display inside the button */
   icon?: React.ReactNode;
-  /** The position of the icon inside the button */
   iconPosition?: 'left' | 'right';
-  /** Whether the button should take up the full width of its container */
   fullWidth?: boolean;
-  /** Additional class name for custom styling */
   className?: string;
-  /** Inline styles for the button */
   style?: React.CSSProperties;
-  /** Whether the button is in a loading state */
   loading?: boolean;
-  /** Tooltip text to display on hover */
   tooltip?: string;
-  /** Accessible label for the button */
   ariaLabel?: string;
 }
 
 /**
  * Button component
- *
- * @param {ButtonProps} props - The props for the Button component
- * @returns {JSX.Element} The rendered Button component
  */
 const Button: React.FC<ButtonProps> = ({
   label,
@@ -61,21 +44,37 @@ const Button: React.FC<ButtonProps> = ({
   const { theme } = useTheme();
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const handleClick = () => {
-    if (disabled || loading) return;
+  const handleMouseDown = () => {
+    if (buttonRef.current) {
+      buttonRef.current.classList.add('pressed');
+    }
+  };
 
+  const handleMouseUpOrLeave = () => {
     const button = buttonRef.current;
     if (button) {
+      button.classList.remove('pressed');
       button.classList.add('clicked');
-      setTimeout(() => button.classList.remove('clicked'), 150);
-    }
 
+      setTimeout(() => {
+        button.classList.remove('clicked');
+      }, 150);
+    }
+  };
+
+  const handleClick = () => {
+    if (disabled || loading) return;
     onClick?.();
   };
 
   return (
     <button
       ref={buttonRef}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUpOrLeave}
+      onMouseLeave={handleMouseUpOrLeave}
+      onTouchStart={handleMouseDown}
+      onTouchEnd={handleMouseUpOrLeave}
       onClick={handleClick}
       className={[
         'button',

@@ -74,9 +74,15 @@
   align-items: center;
   justify-content: center;
 }
-.button.clicked {
+
+/* Scale down when pressing */
+.button.pressed {
   transform: scale(0.97);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  transition: transform 0.1s ease;
 }
 
+/* Add inset shadow on release */
+.button.clicked {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.15s ease;
+}
