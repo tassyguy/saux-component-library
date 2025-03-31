@@ -5,6 +5,7 @@ import { Meta, StoryFn } from '@storybook/react';
 
 import {
   Column,
+  Chip,
   Table,
   Accordion,
   Alert,
@@ -51,7 +52,7 @@ import {
   Settings,
   LogOut,
   Mail,
-  Info
+  Info,
 } from 'react-feather';
 
 export default {
@@ -201,6 +202,10 @@ const Template: StoryFn = () => {
         <div className="container">
           <label className="form-group__label blockDisplay">Card:</label>
           <Card className="margin-bottom-lg" items={cardItems} />
+        </div>
+        <div className="container">
+          <label className="form-group__label blockDisplay">Card:</label>
+          <Chip label="Default Chip" />
         </div>
         <div className="container">
           <label className="form-group__label blockDisplay">Table:</label>

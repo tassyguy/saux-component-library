@@ -22,6 +22,9 @@ export type { CardProps } from './Card';
 export { default as CheckRadio } from './CheckRadio';
 export type { CheckRadioProps } from './CheckRadio';
 
+export { default as Chip } from './Chip';
+export type { ChipProps } from './Chip';
+
 export { default as Container } from './Container';
 export type { ContainerProps } from './Container';
 
