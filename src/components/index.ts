@@ -69,6 +69,9 @@ export type { ModalProps } from './Modal';
 export { default as Pagination } from './Pagination';
 export type { PaginationProps } from './Pagination';
 
+export { default as ProgressBar } from './ProgressBar';
+export type { ProgressBarProps } from './ProgressBar';
+
 export { default as Section } from './Section';
 export type { SectionProps } from './Section';
 

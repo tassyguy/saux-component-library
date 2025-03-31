@@ -23,6 +23,7 @@ import {
   InputField,
   Link,
   Modal,
+  ProgressBar,
   TextArea,
   Tooltip,
   Grid,
@@ -244,6 +245,12 @@ const Template: StoryFn = () => {
             maxDate="2025-12-31"
             minDate="2025-01-01"
           />
+        </div>
+        <div className="container">
+          <label className="form-group__label blockDisplay">
+            Progress Bar:
+          </label>
+          <ProgressBar label="50%" value={50} variant="primary" />
         </div>
         <div className="container">
           <label className="form-group__label blockDisplay">
