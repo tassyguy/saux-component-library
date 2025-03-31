@@ -193,8 +193,9 @@ const Template: StoryFn = () => {
           />
         </div>
         <div className="container">
-          <label className="form-group__label blockDisplay">Check Radio:</label>
+          <label className="form-group__label blockDisplay">Checkbox Component:</label>
           <CheckRadio
+            label="Checkbox Option #1"
             className="margin-bottom-lg"
             type="checkbox"
             checked
@@ -203,6 +204,19 @@ const Template: StoryFn = () => {
             }}
           />
           <CheckRadio
+            label="Checkbox Option #1"
+            className="margin-bottom-lg"
+            type="checkbox"
+            checked
+            onChange={function (): void {
+              throw new Error('Function not implemented.');
+            }}
+          />
+        </div>
+        <div className="container">
+          <label className="form-group__label blockDisplay">Radio button omponent:</label>
+          <CheckRadio
+            label="Radio Button Option #1"
             className="margin-bottom-lg"
             type="radio"
             checked={false}
@@ -210,7 +224,17 @@ const Template: StoryFn = () => {
               throw new Error('Function not implemented.');
             }}
           />
-        </div>
+          <CheckRadio
+            label="Radio Button Option #2"
+            className="margin-bottom-lg"
+            type="radio"
+            checked={false}
+            onChange={function (): void {
+              throw new Error('Function not implemented.');
+            }}
+          />
+          </div>
+
         <div className="container">
           <label className="form-group__label blockDisplay">
             Dropdown Menu:
