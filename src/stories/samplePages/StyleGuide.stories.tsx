@@ -396,7 +396,6 @@ const Template: StoryFn = () => {
           <SelectInput
             label="Choose an option:"
             options={selectInputOptions}
-            value="option1"
             onChange={(e) => console.log('Selected:', e.target.value)}
           />
         </div>
