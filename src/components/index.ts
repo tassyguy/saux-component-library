@@ -96,6 +96,9 @@ export type { TextAreaProps } from './TextArea';
 export { ThemeProvider, useTheme } from './Theme';
 export type { ThemeProviderProps } from './Theme';
 
+export { default as ToastNotification} from './ToastNotification';
+export type { ToastNotificationProps } from './ToastNotification';
+
 export { default as ToggleSwitch } from './ToggleSwitch';
 export type { ToggleSwitchProps } from './ToggleSwitch';
 

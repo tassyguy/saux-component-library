@@ -26,6 +26,7 @@ import {
   Modal,
   ProgressBar,
   TextArea,
+  ToastNotification,
   Tooltip,
   Grid,
   GridItem,
@@ -450,6 +451,16 @@ const Template: StoryFn = () => {
             showFirstLast={true}
             onPageChange={(page) => console.log('Page:', page)}
           />
+        </div>
+        <div className="container">
+          <label className="form-group__label blockDisplay">Pagination:</label>
+          <ToastNotification
+            duration={3000}
+            message="This is a success notification!"
+            onClose={() => {}}
+            type="success"
+          />
+          <button onClick={() => {}}>Show Notification</button>
         </div>
         <div className="container">
           <label className="form-group__label blockDisplay">
