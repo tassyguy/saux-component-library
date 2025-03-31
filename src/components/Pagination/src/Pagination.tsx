@@ -51,37 +51,29 @@ const Pagination: React.FC<PaginationProps> = ({
   const handleFirst = () => changePage(1);
   const handleLast = () => changePage(totalPages);
 
-  const getVisiblePages = (): (number | string)[] => {
-    const pages: (number | string)[] = [];
+  const getVisiblePages = (): number[] => {
+    const pages: number[] = [];
     const half = Math.floor(maxVisiblePages / 2);
-
-    let start = Math.max(1, page - half);
-    let end = Math.min(totalPages, page + half);
-
-    if (end - start + 1 < maxVisiblePages) {
-      if (start === 1) {
-        end = Math.min(totalPages, start + maxVisiblePages - 1);
-      } else if (end === totalPages) {
-        start = Math.max(1, end - maxVisiblePages + 1);
-      }
+  
+    let start = page - half;
+    let end = page + half;
+  
+    // Adjust bounds if near start or end
+    if (start < 1) {
+      start = 1;
+      end = Math.min(maxVisiblePages, totalPages);
+    } else if (end > totalPages) {
+      end = totalPages;
+      start = Math.max(1, totalPages - maxVisiblePages + 1);
     }
-
-    if (start > 1) {
-      pages.push(1);
-      if (start > 2) pages.push('...');
-    }
-
+  
     for (let i = start; i <= end; i++) {
       pages.push(i);
     }
-
-    if (end < totalPages) {
-      if (end < totalPages - 1) pages.push('...');
-      pages.push(totalPages);
-    }
-
+  
     return pages;
   };
+  
 
   const visiblePages = getVisiblePages();
 
@@ -107,22 +99,16 @@ const Pagination: React.FC<PaginationProps> = ({
         &laquo;
       </button>
 
-      {visiblePages.map((p, idx) =>
-        p === '...' ? (
-          <span key={`ellipsis-${idx}`} className="pagination__ellipsis">
-            …
-          </span>
-        ) : (
-          <button
-            key={p}
-            className={`pagination__button ${p === page ? 'active' : ''}`}
-            onClick={() => changePage(p as number)}
-            aria-label={`Page ${p}`}
-          >
-            {p}
-          </button>
-        )
-      )}
+      {visiblePages.map((p) => (
+  <button
+    key={p}
+    className={`pagination__button ${p === page ? 'active' : ''}`}
+    onClick={() => changePage(p)}
+    aria-label={`Page ${p}`}
+  >
+    {p}
+  </button>
+))}
 
       <button
         className="pagination__button"
