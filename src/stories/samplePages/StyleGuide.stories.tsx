@@ -395,9 +395,9 @@ const Template: StoryFn = () => {
           </label>
           <SelectInput
             label="Choose an option:"
-            onChange={() => {}}
             options={selectInputOptions}
             value="option1"
+            onChange={(e) => console.log('Selected:', e.target.value)}
           />
         </div>
         <div className="container">

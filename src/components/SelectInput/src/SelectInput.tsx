@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './SelectInput.css';
 
 export interface SelectInputOption {
@@ -7,23 +7,14 @@ export interface SelectInputOption {
 }
 
 export interface SelectInputProps {
-  /** Optional label to display above the select */
   label?: string;
-  /** Options for the dropdown */
   options: SelectInputOption[];
-  /** Currently selected value */
-  value: string;
-  /** Callback triggered on change */
-  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-  /** Disable the select */
+  value?: string; // ✅ make this optional for uncontrolled mode
+  onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   disabled?: boolean;
-  /** Placeholder text for the select */
   placeholder?: string;
-  /** Size of the select input */
   size?: 'small' | 'medium' | 'large';
-  /** Color variant of the select input */
   variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error';
-  /** Additional class name for custom styling */
   className?: string;
 }
 
@@ -38,6 +29,26 @@ const SelectInput: React.FC<SelectInputProps> = ({
   variant = 'primary',
   className = '',
 }) => {
+  const isControlled = typeof value === 'string';
+
+  const [internalValue, setInternalValue] = useState<string>('');
+
+  // Sync internal state if value is controlled
+  useEffect(() => {
+    if (isControlled) {
+      setInternalValue(value!);
+    }
+  }, [value]);
+
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    if (!isControlled) {
+      setInternalValue(event.target.value);
+    }
+    onChange?.(event);
+  };
+
+  const selectedValue = isControlled ? value! : internalValue;
+
   return (
     <div
       className={`select-input select-input--${size} select-input--${variant} ${className}`.trim()}
@@ -45,8 +56,8 @@ const SelectInput: React.FC<SelectInputProps> = ({
       {label && <label className="select-input__label">{label}</label>}
       <select
         className="select-input__select"
-        value={value}
-        onChange={onChange}
+        value={selectedValue}
+        onChange={handleChange}
         disabled={disabled}
         aria-label={label}
       >
