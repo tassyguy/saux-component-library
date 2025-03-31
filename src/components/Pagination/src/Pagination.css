@@ -54,6 +54,12 @@
 }
 */
 
+.pagination__ellipsis {
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: #666;
+}
+
 .pagination__button.active {
   background-color: var(--primary-color, #007bff);
   color: #fff;
@@ -65,3 +71,4 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
+

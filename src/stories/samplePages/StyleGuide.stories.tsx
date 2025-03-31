@@ -383,9 +383,10 @@ const Template: StoryFn = () => {
         <div className="container">
           <label className="form-group__label blockDisplay">Pagination:</label>
           <Pagination
-            className="margin-bottom-lg"
-            totalPages={5}
-            onPageChange={(page) => console.log('Selected page:', page)}
+            totalPages={10}
+            maxVisiblePages={5}
+            showFirstLast={true}
+            onPageChange={(page) => console.log('Page:', page)}
           />
         </div>
         <div className="container">
