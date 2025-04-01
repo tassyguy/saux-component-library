@@ -363,10 +363,8 @@ const Template: StoryFn = () => {
           <label className="form-group__label blockDisplay">Input Field:</label>
           <InputField
             placeholder="Enter your name"
-            value=""
-            onChange={() => {}}
             isRequired
-            errorMessage="Please fill out your name"
+            errorMessage="Please enter your name"
           />
         </div>
         <div className="container">

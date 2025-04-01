@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './InputField.css';
 
 export interface InputFieldProps {
-  value?: string; // ✅ now optional
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void; // ✅ now optional
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
   type?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url';
   maxLength?: number;
@@ -39,10 +39,10 @@ const InputField: React.FC<InputFieldProps> = ({
   const [touched, setTouched] = useState(false);
   const [internalError, setInternalError] = useState('');
 
-  // Keep internal value in sync with controlled value (if present)
+  // Sync internal value with external value when controlled
   useEffect(() => {
-    if (isControlled) {
-      setInternalValue(value!);
+    if (isControlled && value !== undefined) {
+      setInternalValue(value);
     }
   }, [value]);
 
@@ -62,10 +62,7 @@ const InputField: React.FC<InputFieldProps> = ({
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
 
-    if (!isControlled) {
-      setInternalValue(newValue);
-    }
-
+    setInternalValue(newValue); // ✅ Always update internal state
     onChange?.(e);
 
     if (touched) {
@@ -74,7 +71,6 @@ const InputField: React.FC<InputFieldProps> = ({
     }
   };
 
-  const currentValue = isControlled ? value! : internalValue;
   const showError = error || (touched && internalError);
 
   return (
@@ -86,7 +82,7 @@ const InputField: React.FC<InputFieldProps> = ({
       <input
         type={type}
         className={`input-field ${icon ? 'has-icon' : ''} ${showError ? 'input-field--error' : ''}`.trim()}
-        value={currentValue}
+        value={internalValue}
         onChange={handleChange}
         onBlur={handleBlur}
         placeholder={placeholder}
@@ -97,7 +93,7 @@ const InputField: React.FC<InputFieldProps> = ({
 
       {characterCount && maxLength && (
         <p className="input-field-char-count">
-          {currentValue.length}/{maxLength}
+          {internalValue.length}/{maxLength}
         </p>
       )}
 
