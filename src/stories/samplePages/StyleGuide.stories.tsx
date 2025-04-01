@@ -368,6 +368,17 @@ const Template: StoryFn = () => {
           />
         </div>
         <div className="container">
+          <label className="form-group__label blockDisplay">Text Area:</label>
+          <TextArea
+            placeholder="Enter your message"
+            characterCount
+            maxLength={500}
+            isRequired
+            errorMessage="Please enter a message"
+            fullWidth
+          />
+        </div>
+        <div className="container">
           <label className="form-group__label blockDisplay">Link:</label>
           <Link href="https://www.google.com" label="Go to Google" />
         </div>

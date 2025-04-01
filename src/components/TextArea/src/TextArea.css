@@ -83,3 +83,14 @@
   margin-top: 0.25em;
   text-align: right;
 }
+
+.textarea--error {
+  border: 1px solid var(--error-color, #d32f2f);
+  background-color: var(--error-background, #fff5f5);
+}
+
+.textarea-error {
+  color: var(--error-color, #d32f2f);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}

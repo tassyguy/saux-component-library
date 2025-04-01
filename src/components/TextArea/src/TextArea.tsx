@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './TextArea.css';
 
 export interface TextAreaProps {
   label?: string;
-  value: string;
-  onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  value?: string; // ✅ Now optional
+  onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void; // ✅ Now optional
   placeholder?: string;
   rows?: number;
   disabled?: boolean;
@@ -12,9 +12,10 @@ export interface TextAreaProps {
   resize?: 'none' | 'vertical' | 'horizontal' | 'both';
   autoFocus?: boolean;
   fullWidth?: boolean;
-  error?: string;
+  error?: string; // external error (optional)
+  errorMessage?: string; // ✅ NEW: custom required error
   characterCount?: boolean;
-  /** Additional class name for custom styling */
+  isRequired?: boolean; // ✅ NEW
   className?: string;
 }
 
@@ -30,16 +31,60 @@ const TextArea: React.FC<TextAreaProps> = ({
   autoFocus = false,
   fullWidth = false,
   error,
+  errorMessage,
   characterCount = false,
+  isRequired = false,
   className = '',
 }) => {
+  const isControlled = typeof value === 'string';
+  const [internalValue, setInternalValue] = useState(value ?? '');
+  const [touched, setTouched] = useState(false);
+  const [internalError, setInternalError] = useState('');
+
+  // Sync controlled value into internal state
+  useEffect(() => {
+    if (isControlled && value !== undefined) {
+      setInternalValue(value);
+    }
+  }, [value]);
+
+  const validate = (val: string) => {
+    if (isRequired && !val.trim()) {
+      return errorMessage || 'This field is required';
+    }
+    return '';
+  };
+
+  const handleBlur = () => {
+    setTouched(true);
+    const validationError = validate(internalValue);
+    setInternalError(validationError);
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const newValue = event.target.value;
+
+    setInternalValue(newValue);
+    onChange?.(event);
+
+    if (touched) {
+      const validationError = validate(newValue);
+      setInternalError(validationError);
+    }
+  };
+
+  const currentValue = internalValue;
+  const showError = error || (touched && internalError);
+
   return (
     <div className={`textarea-container ${fullWidth ? 'textarea--fullWidth' : ''} ${className}`.trim()}>
       {label && <label className="textarea-label">{label}</label>}
+
       <textarea
-        className={`textarea-input ${error ? 'textarea--error' : ''}`.trim()}
-        value={value}
-        onChange={onChange}
+        className={`textarea-input ${showError ? 'textarea--error' : ''}`.trim()}
+        value={currentValue}
+        onChange={handleChange}
+        onBlur={handleBlur}
         placeholder={placeholder}
         rows={rows}
         disabled={disabled}
@@ -47,12 +92,14 @@ const TextArea: React.FC<TextAreaProps> = ({
         autoFocus={autoFocus}
         style={{ resize }}
       />
+
       {characterCount && maxLength && (
         <p className="textarea-char-count">
-          {value.length}/{maxLength} characters
+          {currentValue.length}/{maxLength} characters
         </p>
       )}
-      {error && <p className="textarea-error">{error}</p>}
+
+      {showError && <p className="textarea-error">{showError}</p>}
     </div>
   );
 };
