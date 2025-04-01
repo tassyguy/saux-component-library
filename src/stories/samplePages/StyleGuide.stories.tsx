@@ -364,10 +364,11 @@ const Template: StoryFn = () => {
         <div className="container">
           <label className="form-group__label blockDisplay">Input Field:</label>
           <InputField
-            onChange={() => {}}
-            placeholder="Enter text here..."
+            placeholder="Enter your name"
             value=""
+            onChange={() => {}}
             isRequired
+            errorMessage="Please fill out your name"
           />
         </div>
         <div className="container">

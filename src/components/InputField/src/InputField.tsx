@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './InputField.css';
 
 export interface InputFieldProps {
@@ -10,10 +10,11 @@ export interface InputFieldProps {
   minLength?: number;
   autoFocus?: boolean;
   fullWidth?: boolean;
-  error?: string;
+  error?: string; // Optional external error override
+  errorMessage?: string; // Custom message for required fields
   icon?: React.ReactNode;
   characterCount?: boolean;
-  isRequired?: boolean; // ✅ NEW
+  isRequired?: boolean;
   className?: string;
 }
 
@@ -26,7 +27,8 @@ const InputField: React.FC<InputFieldProps> = ({
   minLength,
   autoFocus = false,
   fullWidth = false,
-  error, // externally passed error
+  error,
+  errorMessage,
   icon,
   characterCount = false,
   isRequired = false,
@@ -37,13 +39,15 @@ const InputField: React.FC<InputFieldProps> = ({
 
   const handleBlur = () => {
     setTouched(true);
+
     if (isRequired && !value.trim()) {
-      setInternalError('This field is required');
+      setInternalError(errorMessage || 'This field is required');
     } else {
       setInternalError('');
     }
   };
 
+  // Use external error if provided, otherwise fall back to internal one
   const showError = error || (touched && internalError);
 
   return (
@@ -51,6 +55,7 @@ const InputField: React.FC<InputFieldProps> = ({
       className={`input-field-container ${fullWidth ? 'input-field--fullWidth' : ''} ${className}`.trim()}
     >
       {icon && <span className="input-field-icon">{icon}</span>}
+
       <input
         type={type}
         className={`input-field ${icon ? 'has-icon' : ''} ${showError ? 'input-field--error' : ''}`.trim()}
@@ -62,11 +67,13 @@ const InputField: React.FC<InputFieldProps> = ({
         minLength={minLength}
         autoFocus={autoFocus}
       />
+
       {characterCount && maxLength && (
         <p className="input-field-char-count">
           {value.length}/{maxLength}
         </p>
       )}
+
       {showError && <p className="input-field-error">{showError}</p>}
     </div>
   );
