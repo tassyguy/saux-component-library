@@ -39,3 +39,19 @@
   color: var(--disabled-text-color, #aaa);
   cursor: not-allowed;
 }
+
+.date-picker--error {
+  border: 1px solid var(--error-color, #d32f2f);
+  background-color: var(--error-background, #fff5f5);
+}
+
+.date-picker__error {
+  color: var(--error-color, #d32f2f);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.required {
+  color: var(--error-color, #d32f2f);
+}
+

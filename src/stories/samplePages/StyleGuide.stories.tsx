@@ -244,8 +244,10 @@ const Template: StoryFn = () => {
           <label className="form-group__label blockDisplay">Date Picker:</label>
           <DatePicker
             label="Select a Date"
-            maxDate="2025-12-31"
             minDate="2025-01-01"
+            maxDate="2025-12-31"
+            isRequired
+            errorMessage="Please select a valid date within the range"
           />
         </div>
         <div className="container">
