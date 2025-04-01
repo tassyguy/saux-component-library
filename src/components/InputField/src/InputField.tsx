@@ -10,8 +10,8 @@ export interface InputFieldProps {
   minLength?: number;
   autoFocus?: boolean;
   fullWidth?: boolean;
-  error?: string; // Optional external error override
-  errorMessage?: string; // Custom message for required fields
+  error?: string;
+  errorMessage?: string;
   icon?: React.ReactNode;
   characterCount?: boolean;
   isRequired?: boolean;
@@ -37,17 +37,29 @@ const InputField: React.FC<InputFieldProps> = ({
   const [touched, setTouched] = useState(false);
   const [internalError, setInternalError] = useState('');
 
+  const validate = (val: string) => {
+    if (isRequired && !val.trim()) {
+      return errorMessage || 'This field is required';
+    }
+    return '';
+  };
+
   const handleBlur = () => {
     setTouched(true);
+    const validationError = validate(value);
+    setInternalError(validationError);
+  };
 
-    if (isRequired && !value.trim()) {
-      setInternalError(errorMessage || 'This field is required');
-    } else {
-      setInternalError('');
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange(e);
+
+    // Validate live *if* the user has already interacted
+    if (touched) {
+      const validationError = validate(e.target.value);
+      setInternalError(validationError);
     }
   };
 
-  // Use external error if provided, otherwise fall back to internal one
   const showError = error || (touched && internalError);
 
   return (
@@ -60,7 +72,7 @@ const InputField: React.FC<InputFieldProps> = ({
         type={type}
         className={`input-field ${icon ? 'has-icon' : ''} ${showError ? 'input-field--error' : ''}`.trim()}
         value={value}
-        onChange={onChange}
+        onChange={handleChange}
         onBlur={handleBlur}
         placeholder={placeholder}
         maxLength={maxLength}
