@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './InputField.css';
 
 export interface InputFieldProps {
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string; // ✅ now optional
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void; // ✅ now optional
   placeholder?: string;
   type?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url';
   maxLength?: number;
@@ -34,8 +34,17 @@ const InputField: React.FC<InputFieldProps> = ({
   isRequired = false,
   className = '',
 }) => {
+  const isControlled = typeof value === 'string';
+  const [internalValue, setInternalValue] = useState(value ?? '');
   const [touched, setTouched] = useState(false);
   const [internalError, setInternalError] = useState('');
+
+  // Keep internal value in sync with controlled value (if present)
+  useEffect(() => {
+    if (isControlled) {
+      setInternalValue(value!);
+    }
+  }, [value]);
 
   const validate = (val: string) => {
     if (isRequired && !val.trim()) {
@@ -46,20 +55,26 @@ const InputField: React.FC<InputFieldProps> = ({
 
   const handleBlur = () => {
     setTouched(true);
-    const validationError = validate(value);
+    const validationError = validate(internalValue);
     setInternalError(validationError);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(e);
+    const newValue = e.target.value;
 
-    // Validate live *if* the user has already interacted
+    if (!isControlled) {
+      setInternalValue(newValue);
+    }
+
+    onChange?.(e);
+
     if (touched) {
-      const validationError = validate(e.target.value);
+      const validationError = validate(newValue);
       setInternalError(validationError);
     }
   };
 
+  const currentValue = isControlled ? value! : internalValue;
   const showError = error || (touched && internalError);
 
   return (
@@ -71,7 +86,7 @@ const InputField: React.FC<InputFieldProps> = ({
       <input
         type={type}
         className={`input-field ${icon ? 'has-icon' : ''} ${showError ? 'input-field--error' : ''}`.trim()}
-        value={value}
+        value={currentValue}
         onChange={handleChange}
         onBlur={handleBlur}
         placeholder={placeholder}
@@ -82,7 +97,7 @@ const InputField: React.FC<InputFieldProps> = ({
 
       {characterCount && maxLength && (
         <p className="input-field-char-count">
-          {value.length}/{maxLength}
+          {currentValue.length}/{maxLength}
         </p>
       )}
 

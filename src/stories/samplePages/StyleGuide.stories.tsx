@@ -286,11 +286,9 @@ const Template: StoryFn = () => {
           <Form layout="vertical" onSubmit={() => {}} size="medium">
             <FormGroup htmlFor="name" label="Name" required>
               <InputField
-                fullWidth
-                icon={<User size={16} />}
-                onChange={() => {}}
                 placeholder="Enter your name"
-                value=""
+                isRequired
+                errorMessage="Please enter your name"
               />
             </FormGroup>
             <FormGroup
