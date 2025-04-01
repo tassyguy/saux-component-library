@@ -12,6 +12,7 @@ export interface InputFieldProps {
   fullWidth?: boolean;
   error?: string;
   errorMessage?: string;
+  reqIncludes?: string[]; // ✅ NEW
   icon?: React.ReactNode;
   characterCount?: boolean;
   isRequired?: boolean;
@@ -29,6 +30,7 @@ const InputField: React.FC<InputFieldProps> = ({
   fullWidth = false,
   error,
   errorMessage,
+  reqIncludes,
   icon,
   characterCount = false,
   isRequired = false,
@@ -39,7 +41,7 @@ const InputField: React.FC<InputFieldProps> = ({
   const [touched, setTouched] = useState(false);
   const [internalError, setInternalError] = useState('');
 
-  // Sync internal value with external value when controlled
+  // Keep internal state in sync with external value
   useEffect(() => {
     if (isControlled && value !== undefined) {
       setInternalValue(value);
@@ -50,6 +52,14 @@ const InputField: React.FC<InputFieldProps> = ({
     if (isRequired && !val.trim()) {
       return errorMessage || 'This field is required';
     }
+
+    if (reqIncludes && reqIncludes.length > 0) {
+      const missing = reqIncludes.filter((str) => !val.includes(str));
+      if (missing.length > 0) {
+        return `Must include: ${missing.join(', ')}`;
+      }
+    }
+
     return '';
   };
 
@@ -62,7 +72,7 @@ const InputField: React.FC<InputFieldProps> = ({
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
 
-    setInternalValue(newValue); // ✅ Always update internal state
+    setInternalValue(newValue);
     onChange?.(e);
 
     if (touched) {
@@ -71,6 +81,7 @@ const InputField: React.FC<InputFieldProps> = ({
     }
   };
 
+  const currentValue = internalValue;
   const showError = error || (touched && internalError);
 
   return (
@@ -82,18 +93,19 @@ const InputField: React.FC<InputFieldProps> = ({
       <input
         type={type}
         className={`input-field ${icon ? 'has-icon' : ''} ${showError ? 'input-field--error' : ''}`.trim()}
-        value={internalValue}
+        value={currentValue}
         onChange={handleChange}
         onBlur={handleBlur}
         placeholder={placeholder}
         maxLength={maxLength}
         minLength={minLength}
         autoFocus={autoFocus}
+        aria-invalid={!!showError}
       />
 
       {characterCount && maxLength && (
         <p className="input-field-char-count">
-          {internalValue.length}/{maxLength}
+          {currentValue.length}/{maxLength}
         </p>
       )}
 
