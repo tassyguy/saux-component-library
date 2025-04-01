@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './InputField.css';
 
 export interface InputFieldProps {
@@ -13,7 +13,8 @@ export interface InputFieldProps {
   error?: string;
   icon?: React.ReactNode;
   characterCount?: boolean;
-  className?: string; // Allow users to apply spacing styles
+  isRequired?: boolean; // ✅ NEW
+  className?: string;
 }
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -25,11 +26,26 @@ const InputField: React.FC<InputFieldProps> = ({
   minLength,
   autoFocus = false,
   fullWidth = false,
-  error,
+  error, // externally passed error
   icon,
   characterCount = false,
+  isRequired = false,
   className = '',
 }) => {
+  const [touched, setTouched] = useState(false);
+  const [internalError, setInternalError] = useState('');
+
+  const handleBlur = () => {
+    setTouched(true);
+    if (isRequired && !value.trim()) {
+      setInternalError('This field is required');
+    } else {
+      setInternalError('');
+    }
+  };
+
+  const showError = error || (touched && internalError);
+
   return (
     <div
       className={`input-field-container ${fullWidth ? 'input-field--fullWidth' : ''} ${className}`.trim()}
@@ -37,9 +53,10 @@ const InputField: React.FC<InputFieldProps> = ({
       {icon && <span className="input-field-icon">{icon}</span>}
       <input
         type={type}
-        className={`input-field ${icon ? 'has-icon' : ''} ${error ? 'input-field--error' : ''}`.trim()}
+        className={`input-field ${icon ? 'has-icon' : ''} ${showError ? 'input-field--error' : ''}`.trim()}
         value={value}
         onChange={onChange}
+        onBlur={handleBlur}
         placeholder={placeholder}
         maxLength={maxLength}
         minLength={minLength}
@@ -50,7 +67,7 @@ const InputField: React.FC<InputFieldProps> = ({
           {value.length}/{maxLength}
         </p>
       )}
-      {error && <p className="input-field-error">{error}</p>}
+      {showError && <p className="input-field-error">{showError}</p>}
     </div>
   );
 };

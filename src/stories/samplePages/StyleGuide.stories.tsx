@@ -367,6 +367,7 @@ const Template: StoryFn = () => {
             onChange={() => {}}
             placeholder="Enter text here..."
             value=""
+            isRequired
           />
         </div>
         <div className="container">
