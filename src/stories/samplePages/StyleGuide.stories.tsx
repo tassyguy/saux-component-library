@@ -293,20 +293,13 @@ const Template: StoryFn = () => {
                 errorMessage="Please enter your name"
               />
             </FormGroup>
-            <FormGroup
-              htmlFor="email"
-              label="Email"
-              required
-            >
+            <FormGroup htmlFor="email" label="Email" required>
               <InputField
-                fullWidth
-                icon={<Mail size={16} />}
-                onChange={() => {}}
                 placeholder="Enter your email"
-                type="email"
-                value=""
                 isRequired
-                errorMessage="Please enter your name"
+                reqIncludes={['@', '.com']}
+                errorMessage="Email is required"
+                fullWidth
               />
             </FormGroup>
             <FormGroup
