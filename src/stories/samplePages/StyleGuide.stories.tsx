@@ -294,7 +294,6 @@ const Template: StoryFn = () => {
               />
             </FormGroup>
             <FormGroup
-              error="Invalid email format"
               htmlFor="email"
               label="Email"
               required
@@ -306,6 +305,8 @@ const Template: StoryFn = () => {
                 placeholder="Enter your email"
                 type="email"
                 value=""
+                isRequired
+                errorMessage="Please enter your name"
               />
             </FormGroup>
             <FormGroup
@@ -321,6 +322,8 @@ const Template: StoryFn = () => {
                 placeholder="Enter your message"
                 rows={5}
                 value=""
+                isRequired
+                errorMessage="Please enter a message to continue"
               />
             </FormGroup>
             <Button fullWidth label="Submit" type="submit" />
