@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "@saux/theme": "^1.0.0"
   },
   "devDependencies": {
     "typescript": "^5.7.3",

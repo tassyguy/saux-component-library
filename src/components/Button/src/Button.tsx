@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { useTheme } from '../../Theme/src/ThemeProvider';
+import { useTheme } from '@saux/theme';
 import './Button.css';
 
 /**
@@ -95,9 +95,13 @@ const Button: React.FC<ButtonProps> = ({
         <span className="button-spinner">Loading...</span>
       ) : (
         <>
-          {icon && iconPosition === 'left' && <span className="button-icon">{icon}</span>}
+          {icon && iconPosition === 'left' && (
+            <span className="button-icon">{icon}</span>
+          )}
           {label}
-          {icon && iconPosition === 'right' && <span className="button-icon">{icon}</span>}
+          {icon && iconPosition === 'right' && (
+            <span className="button-icon">{icon}</span>
+          )}
         </>
       )}
     </button>
