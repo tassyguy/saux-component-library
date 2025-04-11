@@ -197,11 +197,16 @@ const Template: StoryFn = () => {
           <Badge className="margin-bottom-lg" text="Badge" />
         </div>
         <div className="container">
-          <label className="form-group__label blockDisplay">Button:</label>
+          <label className="form-group__label blockDisplay">Buttons:</label>
           <Button
             className="margin-bottom-lg"
-            label="Button"
-            onClick={() => console.log('Button clicked')}
+            label="Primary Button"
+            onClick={() => console.log('Primary Button clicked')}
+          />
+          <Button
+            className="margin-bottom-lg"
+            label="Secondary Button"
+            onClick={() => console.log('Secondary Button clicked')}
           />
         </div>
         <div className="container">
@@ -272,12 +277,17 @@ const Template: StoryFn = () => {
             items={dropdownItems}
           />
         </div>
-        <div>
-          <FileUpload
-            accept="*"
-            label="Upload File"
-            onFilesSelected={() => {}}
-          />
+        <div className="container">
+          <label className="form-group__label blockDisplay">File Upload:</label>
+          <div>
+            <FileUpload
+              accept="*"
+              label="Upload File"
+              buttonVariant="secondary"
+              buttonSize="large"
+              onFilesSelected={() => {}}
+            />
+          </div>
         </div>
         <div className="container">
           <label className="form-group__label blockDisplay">Footer:</label>
