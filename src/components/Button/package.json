@@ -1,6 +1,6 @@
 {
   "name": "@saux/button",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Button component for the SAUX component library",
   "main": "index.ts",
   "types": "index.ts",
@@ -11,7 +11,7 @@
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "@saux/theme": "^1.0.0"
+    "@saux/theme": "^1.0.1"
   },
   "devDependencies": {
     "typescript": "^5.7.3",
