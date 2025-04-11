@@ -1,0 +1,1 @@
+.link{background-color:var( --primary-color, #007bff );color:var( --text-on-primary, #fff );font-family:var( --font-family, Arial, sans-serif );padding:10px 20px;border:none;border-radius:5px;cursor:pointer;text-decoration:none;display:inline-block;transition:background-color .2s}.link:hover{background-color:var( --primary-color-hover, #0056b3 )}

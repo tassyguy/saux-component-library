@@ -1,0 +1,1 @@
+.table{width:100%;border-collapse:collapse;background-color:var( --background-color, #fff );color:var(--text-color, #000)}.table th,.table td{border:1px solid var(--border-color, #ddd);padding:8px;text-align:left}.table th{background-color:var( --primary-color, #007bff );color:var(--text-color, #fff)}

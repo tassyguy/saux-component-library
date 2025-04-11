@@ -1,0 +1,1 @@
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1em}.grid-item{background-color:var( --grid-item-background-color, #f7f7f7 );padding:1em;border:1px solid var(--grid-item-border-color, #eee);border-radius:4px}
