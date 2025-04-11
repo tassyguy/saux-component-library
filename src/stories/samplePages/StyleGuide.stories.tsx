@@ -200,13 +200,46 @@ const Template: StoryFn = () => {
           <label className="form-group__label blockDisplay">Buttons:</label>
           <Button
             className="margin-bottom-lg"
-            label="Button"
-            onClick={() => console.log('Primary Button clicked')}
+            label="Small Button"
+            variant="primary"
+            size="small"
+            onClick={() => console.log('Small primary Button clicked')}
           />
           <Button
             className="margin-bottom-lg"
-            label="Button"
-            onClick={() => console.log('Secondary Button clicked')}
+            label="Medium Button"
+            variant="primary"
+            size="medium"
+            onClick={() => console.log('Medium primary Button clicked')}
+          />
+          <Button
+            className="margin-bottom-lg"
+            label="Large Button"
+            variant="primary"
+            size="large"
+            onClick={() => console.log('Large primary Button clicked')}
+          />
+
+          <Button
+            className="margin-bottom-lg"
+            label="Small Button"
+            variant="secondary"
+            size="small"
+            onClick={() => console.log('Small secondary Button clicked')}
+          />
+          <Button
+            className="margin-bottom-lg"
+            label="Medium Button"
+            variant="secondary"
+            size="medium"
+            onClick={() => console.log('Medium secondary Button clicked')}
+          />
+          <Button
+            className="margin-bottom-lg"
+            label="Large Button"
+            variant="secondary"
+            size="large"
+            onClick={() => console.log('Large secondary Button clicked')}
           />
         </div>
         <div className="container">
