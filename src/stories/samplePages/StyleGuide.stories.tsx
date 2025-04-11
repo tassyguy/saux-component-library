@@ -200,12 +200,12 @@ const Template: StoryFn = () => {
           <label className="form-group__label blockDisplay">Buttons:</label>
           <Button
             className="margin-bottom-lg"
-            label="Primary Button"
+            label="Button"
             onClick={() => console.log('Primary Button clicked')}
           />
           <Button
             className="margin-bottom-lg"
-            label="Secondary Button"
+            label="Button"
             onClick={() => console.log('Secondary Button clicked')}
           />
         </div>
