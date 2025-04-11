@@ -197,11 +197,49 @@ const Template: StoryFn = () => {
           <Badge className="margin-bottom-lg" text="Badge" />
         </div>
         <div className="container">
-          <label className="form-group__label blockDisplay">Button:</label>
+          <label className="form-group__label blockDisplay">Buttons:</label>
           <Button
             className="margin-bottom-lg"
-            label="Button"
-            onClick={() => console.log('Button clicked')}
+            label="Small Button"
+            variant="primary"
+            size="small"
+            onClick={() => console.log('Small primary Button clicked')}
+          />
+          <Button
+            className="margin-bottom-lg"
+            label="Medium Button"
+            variant="primary"
+            size="medium"
+            onClick={() => console.log('Medium primary Button clicked')}
+          />
+          <Button
+            className="margin-bottom-lg"
+            label="Large Button"
+            variant="primary"
+            size="large"
+            onClick={() => console.log('Large primary Button clicked')}
+          />
+
+          <Button
+            className="margin-bottom-lg"
+            label="Small Button"
+            variant="secondary"
+            size="small"
+            onClick={() => console.log('Small secondary Button clicked')}
+          />
+          <Button
+            className="margin-bottom-lg"
+            label="Medium Button"
+            variant="secondary"
+            size="medium"
+            onClick={() => console.log('Medium secondary Button clicked')}
+          />
+          <Button
+            className="margin-bottom-lg"
+            label="Large Button"
+            variant="secondary"
+            size="large"
+            onClick={() => console.log('Large secondary Button clicked')}
           />
         </div>
         <div className="container">
@@ -272,12 +310,17 @@ const Template: StoryFn = () => {
             items={dropdownItems}
           />
         </div>
-        <div>
-          <FileUpload
-            accept="*"
-            label="Upload File"
-            onFilesSelected={() => {}}
-          />
+        <div className="container">
+          <label className="form-group__label blockDisplay">File Upload:</label>
+          <div>
+            <FileUpload
+              accept="*"
+              label="Upload File"
+              buttonVariant="secondary"
+              buttonSize="large"
+              onFilesSelected={() => {}}
+            />
+          </div>
         </div>
         <div className="container">
           <label className="form-group__label blockDisplay">Footer:</label>
