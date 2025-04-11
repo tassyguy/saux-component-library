@@ -84,6 +84,8 @@ export interface CheckRadioGroupProps {
   size?: 'small' | 'medium' | 'large';
   variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error';
   className?: string;
+  checked?: boolean;
+  indeterminate?: boolean;
 }
 
 /**
@@ -99,8 +101,10 @@ export const CheckRadioGroup: React.FC<CheckRadioGroupProps> = ({
   size = 'medium',
   variant = 'primary',
   className = '',
+  indeterminate = false,
 }) => {
-  const [selectedValues, setSelectedValues] = React.useState<string[]>(selected);
+  const [selectedValues, setSelectedValues] =
+    React.useState<string[]>(selected);
 
   const handleChange = (value: string) => {
     let newSelected: string[];
@@ -130,6 +134,7 @@ export const CheckRadioGroup: React.FC<CheckRadioGroupProps> = ({
           disabled={disabled}
           size={size}
           variant={variant}
+          indeterminate={indeterminate}
         />
       ))}
     </div>

@@ -9,6 +9,12 @@ export default {
   component: CheckRadio,
 } as Meta;
 
+const options = [
+  { label: 'Option 1', value: 'option1', disabled: false },
+  { label: 'Option 2', value: 'option2', disabled: false },
+  { label: 'Option 3', value: 'option3', disabled: true }, // Disabled option
+];
+
 const Template: StoryFn<CheckRadioProps> = (args) => {
   const [checked, setChecked] = useState(args.checked);
   const [indeterminate, setIndeterminate] = useState(
@@ -29,6 +35,7 @@ const Template: StoryFn<CheckRadioProps> = (args) => {
     <ThemeProvider>
       <div className={isDarkMode ? 'dark-theme' : ''}>
         <CheckRadio
+          options={options}
           {...args}
           checked={checked}
           indeterminate={indeterminate}
