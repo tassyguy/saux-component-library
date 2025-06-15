@@ -24,6 +24,7 @@ import {
   InputField,
   Link,
   Modal,
+  NavBar,
   ProgressBar,
   TextArea,
   ToastNotification,
@@ -170,9 +171,19 @@ const Template: StoryFn = () => {
       <div {...globalComponentProps('padding', 'all', 'lg')}>
         {' '}
         {/* Large padding all around */}
+        <NavBar
+          className="margin-bottom-lg"
+          logo="https://via.placeholder.com/150"
+          links={[
+            { label: 'Home', href: '/' },
+            { label: 'About', href: '/about' },
+            { label: 'Contact', href: '/contact' },
+          ]}/>
         <label className="form-group__label">Header tags:</label>
-        <H1 text="H1" className="margin-bottom-lg" />
-        <H2 text="H2" className="margin-bottom-lg" />
+        <H1 text="Hello!" className="margin-bottom-lg" />
+        <p>"My name is Amanda.
+I build things on the world wide web." className="margin-bottom-lg" </p>
+<p>View my work</p>
         <H3 text="H3" className="margin-bottom-lg" />
         <H4 text="H4" className="margin-bottom-lg" />
         <H5 text="H5" className="margin-bottom-lg" />
