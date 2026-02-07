@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  component-library:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: saux-component-library
+    ports:
+      - "6006:6006"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: pnpm storybook
+    restart: unless-stopped
