@@ -1,2 +1,2 @@
-export { default } from './src/NavBar';
-export type { ModalProps } from './src/NavBar';
+export { default } from './src/Navbar';
+export type { NavbarProps } from './src/Navbar';

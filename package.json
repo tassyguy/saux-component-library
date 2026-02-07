@@ -9,6 +9,7 @@
     "dist"
   ],
   "scripts": {
+    "start": "pnpm run storybook",
     "build": "pnpm -r run build",
     "prepublishOnly": "pnpm run build",
     "storybook": "storybook dev -p 6006",

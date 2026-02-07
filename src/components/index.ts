@@ -67,7 +67,7 @@ export { default as Modal } from './Modal';
 export type { ModalProps } from './Modal';
 
 export { default as NavBar } from './NavBar';
-export type { NavBarProps } from './NavBar';
+export type { NavbarProps } from './NavBar';
 
 export { default as Pagination } from './Pagination';
 export type { PaginationProps } from './Pagination';

@@ -1,9 +1,11 @@
 import React from 'react';
 import './Navbar.css'; // Import CSS for styling
 
-interface NavbarProps {
+export interface NavbarProps {
   logo: string; // Path to the logo image
   links: { label: string; href: string }[]; // Array of navigation links
+  className?: string; // Optional additional class for styling
+  style?: React.CSSProperties; // Optional inline styles
 }
 
 const Navbar: React.FC<NavbarProps> = ({ logo, links }) => {

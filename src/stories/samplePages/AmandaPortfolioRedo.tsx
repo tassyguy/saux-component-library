@@ -559,4 +559,4 @@ I build things on the world wide web." className="margin-bottom-lg" </p>
   );
 };
 
-export const Dashboard = Template.bind({});
+export const Dashboard: StoryFn = Template.bind({});

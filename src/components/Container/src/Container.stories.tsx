@@ -25,7 +25,7 @@ const Template: StoryFn<ContainerProps> = (args) => {
 export const Default: StoryFn<ContainerProps> = Template.bind({});
 Default.args = {
   maxWidth: '900px',
-  padding: '2rem',
+  /* padding: '2rem', */
   backgroundColor: 'var(--background-color)',
   borderRadius: '8px',
   shadow: 'medium',
@@ -46,5 +46,5 @@ NoShadow.args = {
 export const CustomMargin: StoryFn<ContainerProps> = Template.bind({});
 CustomMargin.args = {
   ...Default.args,
-  margin: '2rem auto',
+  /* margin: '2rem auto', */
 };

@@ -20,7 +20,7 @@ const Template: StoryFn<PaginationProps> = (args) => {
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
-    args.onPageChange(page);
+    args.onPageChange?.(page);
   };
 
   return (
