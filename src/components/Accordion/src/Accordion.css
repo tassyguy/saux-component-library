@@ -6,6 +6,10 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.accordion-heading {
+  margin: 0;
+}
+
 .accordion-title {
   cursor: pointer;
   background: var(
@@ -21,6 +25,19 @@
     background 0.3s ease,
     color 0.3s ease;
   gap: 8px;
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+}
+
+.accordion-title:focus-visible {
+  outline: 2px solid var(--primary-color, #007bff);
+  outline-offset: -2px;
+}
+
+.accordion-title-text {
+  flex-grow: 1;
 }
 
 .accordion-title:hover {
@@ -52,64 +69,11 @@
   margin-right: 8px;
 }
 
-.accordion-title h3 {
-  flex-grow: 1;
-  margin-left: 0;
-}
-
-/* Add animation keyframes */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px); /* Slight upward movement */
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-10px); /* Slight upward movement */
-  }
-}
-
-/* Accordion content */
 .accordion-content {
-  padding: 0 15px;
-  border: 1px solid var(--border-color, #ddd); /* Fallback to a default border color */
+  padding: 15px;
+  border: 1px solid var(--border-color, #ddd);
   border-top: none;
-  background: var(
-    --background-color,
-    #fff
-  ); /* Fallback to a default background color */
-  color: var(--text-color, #000); /* Fallback to a default text color */
-  font-family: var(
-    --font-family,
-    Arial,
-    sans-serif
-  ); /* Fallback to a default font family */
-  overflow: hidden;
-  max-height: 0; /* Initially hidden */
-  transition:
-    max-height 0.3s ease,
-    padding 0.3s ease;
-}
-
-/* When the accordion is open */
-.accordion-item.open .accordion-content {
-  padding: 15px; /* Restore padding when open */
-}
-
-/* When the accordion is closing */
-.accordion-item.closing .accordion-content {
-  animation: fadeOut 0.3s ease forwards;
-  max-height: 0; /* Collapse the content */
-  padding: 0; /* Remove padding when closed */
+  background: var(--background-color, #fff);
+  color: var(--text-color, #000);
+  font-family: var(--font-family, Arial, sans-serif);
 }

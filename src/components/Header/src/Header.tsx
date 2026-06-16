@@ -19,6 +19,8 @@ export interface HeaderProps {
   color?: string;
   /** Additional class name(s) for custom styling. */
   className?: string;
+  /** Optional DOM id — useful as the target of `aria-labelledby`. */
+  id?: string;
 }
 
 /**
@@ -32,11 +34,12 @@ const Header: React.FC<HeaderProps> = ({
   level,
   color = 'var(--text-color)',
   className = '',
+  id,
 }) => {
   const Tag = `h${level}` as keyof JSX.IntrinsicElements;
 
   return (
-    <Tag className={`header ${className}`.trim()} style={{ color }}>
+    <Tag id={id} className={`header ${className}`.trim()} style={{ color }}>
       {text}
     </Tag>
   );
