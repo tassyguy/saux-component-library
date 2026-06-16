@@ -26,6 +26,7 @@ const Template: StoryFn<FormProps> = (args) => {
         <Form {...args}>
           <FormGroup label="Name" htmlFor="name" required>
             <InputField
+              id="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Enter your name"
@@ -40,6 +41,7 @@ const Template: StoryFn<FormProps> = (args) => {
             error="Invalid email format"
           >
             <InputField
+              id="email"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}

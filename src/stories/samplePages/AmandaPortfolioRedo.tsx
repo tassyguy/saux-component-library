@@ -65,13 +65,15 @@ export default {
   title: 'Sample Pages/Style Guide',
 } as Meta;
 
-const tableColumns = [
+type TableRow = { name: string; age: number; email: string };
+
+const tableColumns: Column<TableRow>[] = [
   { header: 'Name', accessor: 'name' },
   { header: 'Age', accessor: 'age' },
   { header: 'Email', accessor: 'email' },
 ];
 
-const tableData = [
+const tableData: TableRow[] = [
   { age: 29, email: 'somerandomemail@gmail.com', name: 'Alice' },
   { age: 39, email: 'reallyawesomedev@devs.com', name: 'Simon' },
   { age: 32, email: 'alsoawesomedev@devs.com', name: 'Amanda' },

@@ -18,8 +18,6 @@ export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
    * Defaults to 'vertical'.
    */
   layout?: 'vertical' | 'horizontal' | 'inline';
-  /** Optional validation schema (e.g., Yup, Zod) for form-level validation. */
-  validationSchema?: any;
   /** Callback fired when the form is reset. */
   onReset?: () => void;
   /** When true, disables form interaction and displays a loading state. */

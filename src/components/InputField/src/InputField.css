@@ -5,6 +5,22 @@
   width: 100%;
 }
 
+.input-field-label {
+  display: block;
+  margin-bottom: 0.25em;
+  font-size: var(--font-size-small, 0.875rem);
+  color: var(--text-color, #000);
+}
+
+.input-field-required {
+  color: var(--error-color, #d32f2f);
+}
+
+.input-field-wrapper {
+  position: relative;
+  width: 100%;
+}
+
 .input-field {
   padding: 8px 12px;
   border: 1px solid var(--border-color, #ddd); /* Fallback to a default border color */

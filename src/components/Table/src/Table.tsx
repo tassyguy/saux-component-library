@@ -1,22 +1,22 @@
 import React from 'react';
-import { useTheme } from '../../Theme/src/ThemeProvider';
 import './Table.css';
 
-export interface Column {
+export interface Column<T extends Record<string, unknown> = Record<string, unknown>> {
   header: string;
-  accessor: string;
+  accessor: keyof T & string;
 }
 
-export interface TableProps {
-  columns: Column[];
-  data: any[];
-  /** Optional additional CSS classes */
+export interface TableProps<T extends Record<string, unknown> = Record<string, unknown>> {
+  columns: Column<T>[];
+  data: T[];
   className?: string;
 }
 
-const Table: React.FC<TableProps> = ({ columns, data, className = '' }) => {
-  const { theme } = useTheme(); // Get theme values
-
+function Table<T extends Record<string, unknown>>({
+  columns,
+  data,
+  className = '',
+}: TableProps<T>) {
   if (!data || data.length === 0) {
     return <p className={`table-empty ${className}`.trim()}>No data available.</p>;
   }
@@ -34,13 +34,15 @@ const Table: React.FC<TableProps> = ({ columns, data, className = '' }) => {
         {data.map((row, rowIndex) => (
           <tr key={rowIndex}>
             {columns.map((col, colIndex) => (
-              <td key={colIndex}>{row[col.accessor]}</td>
+              // Row values are typed `unknown` at the generic boundary;
+              // consumers are responsible for ensuring cells are ReactNode-compatible.
+              <td key={colIndex}>{row[col.accessor] as React.ReactNode}</td>
             ))}
           </tr>
         ))}
       </tbody>
     </table>
   );
-};
+}
 
 export default Table;

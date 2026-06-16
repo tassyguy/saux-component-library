@@ -13,7 +13,7 @@ import { default as Card } from './components/Card/src/Card';
 // Form component imports:
 
 // Data Display component imports:
-import Table from './components/Table/src/Table';
+import Table, { type Column } from './components/Table/src/Table';
 import OL from './components/List/src/OL';
 import UL from './components/List/src/UL';
 import Accordion from './components/Accordion/src/Accordion';
@@ -42,13 +42,15 @@ const cardItems = [
   },
 ];
 
-const tableColumns = [
+type TableRow = { name: string; age: number; email: string };
+
+const tableColumns: Column<TableRow>[] = [
   { header: 'Name', accessor: 'name' },
   { header: 'Age', accessor: 'age' },
   { header: 'Email', accessor: 'email' },
 ];
 
-const tableData = [
+const tableData: TableRow[] = [
   { name: 'Alice', age: 25, email: 'alice@example.com' },
   { name: 'Bob', age: 30, email: 'bob@example.com' },
   { name: 'Charlie', age: 35, email: 'charlie@example.com' },
