@@ -24,6 +24,11 @@
   box-shadow: 0 0 5px var(--toggle-switch-on-background, #4caf50); /* Fallback to a default on background color */
 }
 
+.toggle-switch:focus-visible {
+  outline: 2px solid var(--primary-color, #007bff);
+  outline-offset: 2px;
+}
+
 .toggle-switch.disabled {
   cursor: not-allowed;
   opacity: 0.6;

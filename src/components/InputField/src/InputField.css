@@ -22,13 +22,10 @@
   color: var(--text-color, #000); /* Fallback to a default text color */
 }
 
-.input-field:focus {
+.input-field:focus-visible {
   outline: none;
-  border-color: var(
-    --primary-color,
-    #007bff
-  ); /* Fallback to a default primary color */
-  box-shadow: 0 0 0 2px rgba(6, 214, 160, 0.2); /* Fallback to a default focus shadow color */
+  border-color: var(--primary-color, #007bff);
+  box-shadow: 0 0 0 2px var(--primary-color, #007bff);
 }
 
 .input-field--fullWidth {

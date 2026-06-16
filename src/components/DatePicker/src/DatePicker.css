@@ -29,9 +29,10 @@
     box-shadow 0.3s ease;
 }
 
-.date-picker__input:focus {
+.date-picker__input:focus-visible {
   border-color: var(--primary-color, #007bff);
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.3);
+  box-shadow: 0 0 0 2px var(--primary-color, #007bff);
+  outline: none;
 }
 
 .date-picker__input:disabled {

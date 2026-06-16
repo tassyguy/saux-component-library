@@ -32,12 +32,10 @@
   cursor: pointer;
 }
 
-.select-input__select:focus {
-  border-color: var(
-    --primary-color,
-    #007bff
-  ); /* Fallback to a default primary color */
-  box-shadow: 0 0 0 2px rgba(6, 214, 160, 0.3); /* Fallback to a default focus shadow color */
+.select-input__select:focus-visible {
+  border-color: var(--primary-color, #007bff);
+  box-shadow: 0 0 0 2px var(--primary-color, #007bff);
+  outline: none;
 }
 
 .select-input__select:disabled {

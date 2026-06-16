@@ -47,6 +47,11 @@
   transition: background 0.3s ease;
 }
 
+.slider-input__range:focus-visible {
+  outline: 2px solid var(--primary-color, #007bff);
+  outline-offset: 4px;
+}
+
 .slider-input__range:disabled {
   background: var(--disabled-background-color, #f0f0f0);
   cursor: not-allowed;
