@@ -31,32 +31,10 @@
     #fff
   ); /* Fallback to a default hover text color */
 }
-/*
-.pagination__button:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-}
-*/
-/*
-.pagination__button.active {
-  background-color: var(
-    --pagination-button-active-background,
-    #007bff
-  ); 
-  color: var(
-    --pagination-button-active-color,
-    #fff
-  ); 
-  border-color: var(
-    --pagination-button-active-border,
-    #007bff
-  ); 
-}
-*/
 
 .pagination__button.active {
   background-color: var(--primary-color, #007bff);
-  color: #fff;
+  color: var(--text-on-primary, #fff);
   font-weight: bold;
   border-radius: 4px;
 }
